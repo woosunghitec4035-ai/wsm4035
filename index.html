@@ -394,7 +394,10 @@
   <section id="install">
     <h2><span class="bar"></span>Ⅳ. 설치방법</h2>
     <p class="lead">원예시설 형태는 매우 다양하며 설치방법도 다양합니다. 아래는 대표적인 방법의 <b>[예]</b>이며, 자세한 것은 원예시설 자동화 전문업체와 상담하여 현장에 알맞게 설치하십시오.</p>
-    <figure class="figbox"><img src="img/p07.jpg" alt="설치방식 예 그림3-1" loading="lazy"><figcaption>그림3-1 · 천장 곡부용(가이드 암) / 측면용(가이드 롤러) 설치 예</figcaption></figure>
+    <div class="figbox" style="padding:8px 8px 4px">
+      <svg id="figOverview" viewBox="0 0 360 200" aria-label="설치 개요"></svg>
+      <figcaption>설치 개요 · 천장 곡부용(가이드 암) / 측면용(가이드 롤러)</figcaption>
+    </div>
 
     <div class="subh">1. 롤-업-다운(ROLL-UP-DOWN) 개폐방식</div>
     <p style="font-size:14.5px">구조물(들보)에 피복재 상단을 고정하고 하단을 개폐 축에 감아 클립으로 고정합니다. 전동개폐기로 개폐 축을 회전시키면 피복재가 감기며 <b>환기구가 열리고</b>, 반대로 돌리면 풀리며 <b>닫힙니다</b>. 이때 피복재가 반대로 풀리려는 힘이 작용하므로, 이를 받쳐주는 <b>가이드 암</b> 또는 <b>가이드 롤러</b>를 사용해 설치합니다.</p>
@@ -411,7 +414,10 @@
           <li>최대 길이에서 전선이 당겨지지 않도록 여유 있게 연결</li>
           <li>전동개폐기 무게로 피복재가 처지지 않게 <b>보조밴드</b> 설치</li>
         </ul>
-        <figure class="figbox"><img src="img/p09.jpg" alt="가이드 암 구성·조립도 그림3-9,3-10" loading="lazy"><figcaption>그림3-9 · 그림3-10 · 가이드 암 구성 및 조립도</figcaption></figure>
+        <div class="figbox" style="padding:8px 8px 4px">
+          <svg id="figArm" viewBox="0 0 360 220" aria-label="가이드 암 방식"></svg>
+          <figcaption>가이드 암 방식 · 신축 파이프(겉대 25.4∅ + 속대 19∅)로 개폐 축을 받쳐 줌</figcaption>
+        </div>
       </div>
     </details>
 
@@ -420,7 +426,10 @@
       <div class="accbody">
         <p style="font-size:14px">가이드 롤러(궤도)로 개폐 축을 지지하는 방식이며, 롤러 지름에 따라 1회전당 개폐량이 달라집니다.</p>
         <div class="tipbox">📐 <b>1회 회전 개폐량 = 롤러 지름 × 3.14</b> (원주)<br>예) 롤러 지름 3cm → 3×3.14 = <b>9.42cm</b>. 즉 1회전에 피복재가 9.42cm 열립니다.</div>
-        <figure class="figbox"><img src="img/p10.jpg" alt="가이드 롤러 설치 그림3-11,3-12" loading="lazy"><figcaption>그림3-11 · 그림3-12 · 가이드 롤러 설치도</figcaption></figure>
+        <div class="figbox" style="padding:8px 8px 4px">
+          <svg id="figRoller" viewBox="0 0 360 190" aria-label="가이드 롤러 방식"></svg>
+          <figcaption>가이드 롤러 방식 · 궤도 롤러로 개폐 축을 지지 (1회전 개폐량 = 지름 × 3.14)</figcaption>
+        </div>
       </div>
     </details>
 
@@ -429,7 +438,10 @@
       <div class="accbody">
         <p style="font-size:14px">피복재 한쪽을 로프로 묶어 구동축에 감거나 풀어 여닫는 방식으로, 주로 측면 피복재 개폐에 사용합니다. 골조파이프에 베어링으로 구동축을 설치하고, 롤러(도르래)를 통과한 로프를 구동축에 고정한 뒤 회전시키면 로프가 감기며 환기구가 닫히고, 반대로 돌리면 열립니다.</p>
         <div class="tipbox">무겁거나 두꺼운 피복재는 <b>용량이 큰 보온재용 전동개폐기</b>를 사용하십시오. 자세한 사항은 시공 전문가와 상담하십시오.</div>
-        <figure class="figbox"><img src="img/p11.jpg" alt="로프 예인 방식 그림3-13" loading="lazy"><figcaption>그림3-13 · 로프 예인 개폐방식</figcaption></figure>
+        <div class="figbox" style="padding:8px 8px 4px">
+          <svg id="figRope" viewBox="0 0 360 210" aria-label="로프 예인 방식"></svg>
+          <figcaption>로프 예인 방식 · 구동축에 감긴 로프가 도르래를 거쳐 피복재를 여닫음</figcaption>
+        </div>
       </div>
     </details>
   </section>
@@ -866,6 +878,90 @@
     callout(300,44,'start', 300,50, 250,70, '스위치 롤러');
     callout(6,98,'start', 42,102, 88,110, '다이얼 돌기');
   }
+
+  /* ---- 설치 방법 도해 ---- */
+  var BLU="#7fb3ff", HOUSE="#f2f4f7", LN="#c3c8d1", INK="#555", STL="#dfe3ea", STK="#adb2bd";
+  function put(s,t,a){s.appendChild(E(t,a));}
+  function txt(s,x,y,t,anc,col,sz){s.appendChild(E('text',{x:x,y:y,'font-size':sz||10,'text-anchor':anc||'start',fill:col||INK,'font-weight':700},t));}
+  function ln(s,a,b,c,d,st,w){s.appendChild(E('line',{x1:a,y1:b,x2:c,y2:d,stroke:st||'#bbb','stroke-width':w||1}));}
+  function darr(s,x1,y1,x2,y2,col){col=col||RED;s.appendChild(E('line',{x1:x1,y1:y1,x2:x2,y2:y2,stroke:col,'stroke-width':1.6}));
+    [[x1,y1,Math.atan2(y2-y1,x2-x1)+Math.PI],[x2,y2,Math.atan2(y2-y1,x2-x1)]].forEach(function(p){var a=p[2],h=5.5;
+      s.appendChild(E('polygon',{points:p[0]+','+p[1]+' '+(p[0]+h*Math.cos(a-0.42))+','+(p[1]+h*Math.sin(a-0.42))+' '+(p[0]+h*Math.cos(a+0.42))+','+(p[1]+h*Math.sin(a+0.42)),fill:col}));});
+  }
+
+  (function(){var s=document.getElementById('figOverview'); if(!s)return;
+    ln(s,16,182,344,182,'#bbb',2);
+    put(s,'path',{d:'M48 182 V96 Q180 34 312 96 V182 Z',fill:HOUSE,stroke:LN,'stroke-width':2});
+    ln(s,180,46,180,182,'#e6e6ea',1.5);
+    put(s,'rect',{x:298,y:118,width:14,height:64,fill:BLU,opacity:.75});
+    put(s,'rect',{x:294,y:148,width:22,height:7,rx:3,fill:'#37507a'});
+    put(s,'rect',{x:284,y:148,width:12,height:11,rx:2,fill:RED});
+    txt(s,278,142,'측면 개폐','end',RED,10); txt(s,278,155,'가이드 롤러','end',INK,9);
+    ln(s,280,150,283,153,'#bbb',1);
+    put(s,'path',{d:'M70 120 Q96 96 130 90 L134 99 Q100 106 78 128 Z',fill:BLU,opacity:.7});
+    put(s,'rect',{x:64,y:112,width:11,height:10,rx:2,fill:RED});
+    txt(s,96,74,'천장(곡부) 개폐',null,RED,10); txt(s,96,86,'가이드 암',null,INK,9);
+    ln(s,120,82,108,98,'#bbb',1);
+    txt(s,180,152,'피복재','middle','#8a97ab',9);
+  })();
+
+  (function(){var s=document.getElementById('figArm'); if(!s)return;
+    ln(s,16,196,344,196,'#bbb',2);
+    put(s,'path',{d:'M58 196 V74 Q120 46 210 48',fill:'none',stroke:LN,'stroke-width':2});
+    put(s,'rect',{x:58,y:100,width:12,height:96,fill:BLU,opacity:.6});
+    put(s,'circle',{cx:118,cy:100,r:8,fill:STL,stroke:STK,'stroke-width':2});
+    txt(s,118,84,'개폐축','middle',INK,9);
+    put(s,'rect',{x:128,y:92,width:28,height:17,rx:4,fill:'#e6e9ef',stroke:STK});
+    txt(s,142,122,'전동개폐기','middle',INK,8);
+    put(s,'rect',{x:252,y:126,width:9,height:70,fill:STL,stroke:STK});
+    txt(s,256,210,'기둥(지주)','middle',INK,9);
+    put(s,'circle',{cx:256,cy:132,r:6,fill:'#c7ccd5',stroke:STK});
+    txt(s,302,130,'선회 축',null,INK,9); ln(s,300,130,262,132,'#bbb',1);
+    put(s,'line',{x1:256,y1:132,x2:150,y2:102,stroke:'#b0b4be','stroke-width':8,'stroke-linecap':'round'});
+    put(s,'line',{x1:256,y1:132,x2:150,y2:102,stroke:'#eef0f4','stroke-width':3.5,'stroke-linecap':'round'});
+    txt(s,206,142,'가이드 암(신축)','middle',RED,10);
+    darr(s,96,58,96,134,RED); txt(s,90,100,'개폐 폭','end',RED,9);
+    var ix=228,iy=178;
+    put(s,'rect',{x:ix,y:iy,width:52,height:14,rx:7,fill:'#e0e4ea',stroke:STK});
+    put(s,'rect',{x:ix+38,y:iy+3,width:72,height:8,rx:4,fill:'#cdd3db',stroke:STK});
+    darr(s,ix+66,iy-5,ix+106,iy-5,'#8a8f99');
+    txt(s,ix+18,iy-5,'겉대 25.4∅','middle',INK,8);
+    txt(s,ix+92,iy+22,'속대 19∅','middle',INK,8);
+  })();
+
+  (function(){var s=document.getElementById('figRoller'); if(!s)return;
+    ln(s,16,168,344,168,'#bbb',2);
+    put(s,'rect',{x:96,y:120,width:10,height:48,fill:STL,stroke:STK});
+    put(s,'rect',{x:150,y:120,width:10,height:48,fill:STL,stroke:STK});
+    put(s,'circle',{cx:101,cy:112,r:12,fill:'#e6e9ef',stroke:STK,'stroke-width':2});
+    put(s,'circle',{cx:155,cy:112,r:12,fill:'#e6e9ef',stroke:STK,'stroke-width':2});
+    txt(s,128,150,'가이드 롤러(궤도)','middle',RED,9);
+    put(s,'rect',{x:70,y:92,width:120,height:9,rx:4,fill:STL,stroke:STK,'stroke-width':2});
+    txt(s,62,98,'개폐축','end',INK,9);
+    put(s,'path',{d:'M188 96 q28 4 36 22',fill:'none',stroke:BLU,'stroke-width':6,opacity:.55});
+    put(s,'circle',{cx:284,cy:92,r:32,fill:'#fff',stroke:RED,'stroke-width':2});
+    darr(s,252,92,316,92,'#8a8f99'); txt(s,284,86,'지름 d','middle',INK,9);
+    txt(s,284,142,'1회전 개폐량','middle',INK,9);
+    txt(s,284,157,'= d × 3.14','middle',RED,11);
+  })();
+
+  (function(){var s=document.getElementById('figRope'); if(!s)return;
+    ln(s,16,188,344,188,'#bbb',2);
+    put(s,'path',{d:'M50 188 V92 Q180 34 310 92 V188',fill:HOUSE,stroke:LN,'stroke-width':2});
+    put(s,'line',{x1:80,y1:70,x2:300,y2:70,stroke:STK,'stroke-width':5,'stroke-linecap':'round'});
+    txt(s,196,62,'구동축','middle',INK,9);
+    [110,196,270].forEach(function(x){put(s,'rect',{x:x-5,y:64,width:10,height:12,rx:2,fill:'#c7ccd5',stroke:STK});});
+    txt(s,110,52,'베어링','middle',INK,8);
+    put(s,'circle',{cx:150,cy:98,r:8,fill:'#e6e9ef',stroke:STK,'stroke-width':2});
+    txt(s,168,116,'도르래',null,INK,8);
+    put(s,'path',{d:'M150 70 L150 90 M150 106 L102 170',fill:'none',stroke:RED,'stroke-width':1.6});
+    txt(s,116,146,'로프',null,RED,9);
+    put(s,'rect',{x:300,y:110,width:10,height:78,fill:BLU,opacity:.55});
+    txt(s,300,104,'피복재','middle','#8a97ab',8);
+    put(s,'rect',{x:84,y:168,width:30,height:16,rx:4,fill:'#e6e9ef',stroke:STK});
+    txt(s,99,164,'전동개폐기','middle',INK,8);
+    txt(s,99,200,'고정기둥','middle',INK,8);
+  })();
 })();
 </script>
 </body>
