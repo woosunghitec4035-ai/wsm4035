@@ -225,7 +225,9 @@
     .must{background:#0e2338;border-color:#1e3a5f;color:#bcd8f5}
     .steps li.on{background:#2a1416}
     .sim .houseFill{fill:#16161a}
-    .figbox img,.gallery img{filter:none}
+    .gallery img{filter:none}
+    /* 라인아트 도해: 다크모드에서 반전(밝은 선) → 흰박스 없이 보이게 */
+    .figbox img.lineart{filter:invert(0.9)}
   }
 </style>
 </head>
@@ -345,7 +347,7 @@
   <section id="parts">
     <h2><span class="bar"></span>Ⅲ. 각부 명칭</h2>
     <div class="subh">외부 명칭</div>
-    <figure class="figbox"><img src="img/parts_ext.png" alt="전동개폐기 외부 명칭 (그림2-1)" loading="lazy"><figcaption>전동개폐기 외부 명칭 — 전동모터·출력축·커플링·리미트 설정 노브·안전커버·전기 공급선 등</figcaption></figure>
+    <figure class="figbox"><img class="lineart" src="img/parts_ext.png" alt="전동개폐기 외부 명칭 (그림2-1)" loading="lazy"><figcaption>전동개폐기 외부 명칭 — 전동모터·출력축·커플링·리미트 설정 노브·안전커버·전기 공급선 등</figcaption></figure>
 
     <div class="subh">기본 제공 부품</div>
     <div class="card">
@@ -375,7 +377,7 @@
   <section id="install">
     <h2><span class="bar"></span>Ⅳ. 설치방법</h2>
     <p class="lead">원예시설 형태는 매우 다양하며 설치방법도 다양합니다. 아래는 대표적인 방법의 <b>[예]</b>이며, 자세한 것은 원예시설 자동화 전문업체와 상담하여 현장에 알맞게 설치하십시오.</p>
-    <figure class="figbox"><img src="img/inst_overview.png" alt="설치 개요" loading="lazy"><figcaption>설치 개요 · 천장 곡부용(가이드 암) / 측면용(가이드 롤러)</figcaption></figure>
+    <figure class="figbox"><img class="lineart" src="img/inst_overview.png" alt="설치 개요" loading="lazy"><figcaption>설치 개요 · 천장 곡부용(가이드 암) / 측면용(가이드 롤러)</figcaption></figure>
 
     <div class="subh">1. 롤-업-다운(ROLL-UP-DOWN) 개폐방식</div>
     <p style="font-size:14.5px">구조물(들보)에 피복재 상단을 고정하고 하단을 개폐 축에 감아 클립으로 고정합니다. 전동개폐기로 개폐 축을 회전시키면 피복재가 감기며 <b>환기구가 열리고</b>, 반대로 돌리면 풀리며 <b>닫힙니다</b>. 이때 피복재가 반대로 풀리려는 힘이 작용하므로, 이를 받쳐주는 <b>가이드 암</b> 또는 <b>가이드 롤러</b>를 사용해 설치합니다.</p>
@@ -392,7 +394,7 @@
           <li>최대 길이에서 전선이 당겨지지 않도록 여유 있게 연결</li>
           <li>전동개폐기 무게로 피복재가 처지지 않게 <b>보조밴드</b> 설치</li>
         </ul>
-        <figure class="figbox"><img src="img/inst_arm.png" alt="가이드 암 조립도" loading="lazy"><figcaption>가이드 암 조립도 · 겉대 25.4∅ + 속대 19∅ 신축 파이프로 개폐 축을 받쳐 줌</figcaption></figure>
+        <figure class="figbox"><img class="lineart" src="img/inst_arm.png" alt="가이드 암 조립도" loading="lazy"><figcaption>가이드 암 조립도 · 겉대 25.4∅ + 속대 19∅ 신축 파이프로 개폐 축을 받쳐 줌</figcaption></figure>
       </div>
     </details>
 
@@ -401,7 +403,7 @@
       <div class="accbody">
         <p style="font-size:14px">가이드 롤러(궤도)로 개폐 축을 지지하는 방식이며, 롤러 지름에 따라 1회전당 개폐량이 달라집니다.</p>
         <div class="tipbox">📐 <b>1회 회전 개폐량 = 롤러 지름 × 3.14</b> (원주)<br>예) 롤러 지름 3cm → 3×3.14 = <b>9.42cm</b>. 즉 1회전에 피복재가 9.42cm 열립니다.</div>
-        <figure class="figbox"><img src="img/inst_roller.png" alt="가이드 롤러 설치도" loading="lazy"><figcaption>가이드 롤러 설치도 · 1회전 개폐량 = 지름 × 3.14</figcaption></figure>
+        <figure class="figbox"><img class="lineart" src="img/inst_roller.png" alt="가이드 롤러 설치도" loading="lazy"><figcaption>가이드 롤러 설치도 · 1회전 개폐량 = 지름 × 3.14</figcaption></figure>
       </div>
     </details>
 
@@ -410,7 +412,7 @@
       <div class="accbody">
         <p style="font-size:14px">피복재 한쪽을 로프로 묶어 구동축에 감거나 풀어 여닫는 방식으로, 주로 측면 피복재 개폐에 사용합니다. 골조파이프에 베어링으로 구동축을 설치하고, 롤러(도르래)를 통과한 로프를 구동축에 고정한 뒤 회전시키면 로프가 감기며 환기구가 닫히고, 반대로 돌리면 열립니다.</p>
         <div class="tipbox">무겁거나 두꺼운 피복재는 <b>용량이 큰 보온재용 전동개폐기</b>를 사용하십시오. 자세한 사항은 시공 전문가와 상담하십시오.</div>
-        <figure class="figbox"><img src="img/inst_rope.png" alt="로프 예인 방식" loading="lazy"><figcaption>로프 예인 방식 · 구동축에 감긴 로프가 도르래를 거쳐 피복재를 여닫음</figcaption></figure>
+        <figure class="figbox"><img class="lineart" src="img/inst_rope.png" alt="로프 예인 방식" loading="lazy"><figcaption>로프 예인 방식 · 구동축에 감긴 로프가 도르래를 거쳐 피복재를 여닫음</figcaption></figure>
       </div>
     </details>
   </section>
@@ -447,7 +449,7 @@
   <!-- ===== 6. 리미트 원리 ===== -->
   <section id="limit-principle">
     <h2><span class="bar"></span>Ⅵ. 리미트 설정부 알기</h2>
-    <figure class="figbox"><img src="img/dial_name.png" alt="리미트 설정부 명칭" loading="lazy"><figcaption>리미트 설정부 명칭 · 적색·녹색 다이얼 / 화살표·설정노브·회전수 눈금</figcaption></figure>
+    <figure class="figbox"><img class="lineart" src="img/dial_name.png" alt="리미트 설정부 명칭" loading="lazy"><figcaption>리미트 설정부 명칭 · 적색·녹색 다이얼 / 화살표·설정노브·회전수 눈금</figcaption></figure>
 
     <div class="subh">리미트를 설정하는 목적</div>
     <p style="font-size:14.5px">피복재가 열리고 닫히는 총 범위를 <b>개폐 폭</b>이라 하며, 상단 정지 위치를 <b>열림 한계점</b>, 하단 정지 위치를 <b>닫힘 한계점</b>이라 합니다. 전기가 계속 공급되어도 한계점에 도달하면 스스로 정지되도록, 리미트 스위치부에 <b>구동축 회전수를 설정</b>하는 것입니다. <span style="color:var(--sub)">(리미트=한계·경계·한도)</span></p>
@@ -699,32 +701,32 @@
   var svg=document.getElementById('dials'); if(!svg) return;
   function el(t,a){var e=document.createElementNS(SVGNS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
 
-  function buildDial(cx,cy,R,color,name){
+  // roll=롤러(0) 각도(위 기준, +시계), dir=+1 눈금 시계 / -1 반시계 (좌우 거울대칭)
+  function buildDial(cx,cy,R,color,name,roll,dir){
     var g=el('g',{});
     g.appendChild(el('circle',{cx:cx,cy:cy,r:R,fill:'#fff',stroke:'#ddd','stroke-width':2}));
     g.appendChild(el('circle',{cx:cx,cy:cy,r:R-14,fill:'#fafafa',stroke:'#eee','stroke-width':1}));
     for(var c=0;c<=35;c++){
-      var a=c*D*Math.PI/180, big=(c%5===0), r1=R-2, r2=R-(big?11:6);
+      var a=(roll+dir*c*D)*Math.PI/180, big=(c%5===0), r1=R-2, r2=R-(big?11:6);
       g.appendChild(el('line',{x1:cx+r1*Math.sin(a),y1:cy-r1*Math.cos(a),x2:cx+r2*Math.sin(a),y2:cy-r2*Math.cos(a),stroke:big?'#888':'#ccc','stroke-width':big?1.8:1}));
       if(big){var rt=R-22;var t=el('text',{x:cx+rt*Math.sin(a),y:cy-rt*Math.cos(a)+4,'font-size':10,'text-anchor':'middle',fill:'#666','font-weight':700});t.textContent=c;g.appendChild(t);}
     }
     g.appendChild(el('circle',{cx:cx,cy:cy,r:9,fill:'#e8e8e8',stroke:'#bbb'}));
     g.appendChild(el('line',{x1:cx-6,y1:cy,x2:cx+6,y2:cy,stroke:'#999','stroke-width':2}));
     g.appendChild(el('line',{x1:cx,y1:cy-6,x2:cx,y2:cy+6,stroke:'#999','stroke-width':2}));
-    var roller=el('rect',{x:cx-8,y:cy-R-11,width:16,height:9,rx:3,fill:'#cfcfcf',stroke:'#999'}); g.appendChild(roller);
-    var rl=el('text',{x:cx,y:cy-R-15,'font-size':8.5,'text-anchor':'middle',fill:'#999'}); rl.textContent='스위치 롤러'; g.appendChild(rl);
+    var ra=roll*Math.PI/180, rx=cx+(R+5)*Math.sin(ra), ry=cy-(R+5)*Math.cos(ra);
+    var roller=el('rect',{x:rx-8,y:ry-5,width:16,height:9,rx:3,fill:'#cfcfcf',stroke:'#999',transform:'rotate('+roll+' '+rx+' '+ry+')'}); g.appendChild(roller);
     var arm=el('g',{});
-    arm.appendChild(el('polygon',{points:(cx-4)+','+cy+' '+(cx+4)+','+cy+' '+cx+','+(cy-R+16),fill:color}));
-    arm.appendChild(el('circle',{cx:cx,cy:cy-R+15,r:5,fill:color,stroke:'#fff','stroke-width':1.5}));
+    arm.appendChild(el('polygon',{points:(cx-4)+','+cy+' '+(cx+4)+','+cy+' '+cx+','+(cy-R+5),fill:color}));
+    arm.appendChild(el('circle',{cx:cx,cy:cy-R+4,r:5,fill:color,stroke:'#fff','stroke-width':1.5}));
     g.appendChild(arm);
     var nl=el('text',{x:cx,y:cy+R+20,'font-size':13,'text-anchor':'middle',fill:color,'font-weight':800}); nl.textContent=name; g.appendChild(nl);
     svg.appendChild(g);
-    return {arm:arm,roller:roller,cx:cx,cy:cy};
+    return {arm:arm,roller:roller,cx:cx,cy:cy,roll:roll,dir:dir};
   }
-  var red=buildDial(112,96,64,RED,'적색 다이얼'), green=buildDial(288,96,64,GRN,'녹색 다이얼');
+  var red=buildDial(112,96,64,RED,'적색 다이얼',-45,-1), green=buildDial(288,96,64,GRN,'녹색 다이얼',45,1);
 
-  var SIDE='left', N=10, gAng=0, rAng=0, openF=0, busy=false, step=0;
-  var gL=N*D, rL=-N*D;
+  var SIDE='left', N=10, offG=0, offR=0, openF=0, busy=false, step=0;
   var $=function(id){return document.getElementById(id);};
   var led=$('led'), ledtxt=$('ledtxt'), shaft=$('shaft'), narr=$('narr'), polbar=$('polbar');
   var film=$('film'), roll=$('roll'), gapDim=$('gapDim'), gapLine=$('gapLine'), gapTxt=$('gapTxt');
@@ -736,11 +738,12 @@
       : {openDial:'red',openC:'적색',closeC:'녹색',openLED:'red',closeLED:'green',openSh:'ccw',closeSh:'cw',pol:'열림 극성 : 갈색 <b>＋</b> · 청색 <b>－</b>',setDir:'반시계방향'};
   }
   function setPressed(n,on,c){n.setAttribute('fill',on?c:'#cfcfcf');n.setAttribute('stroke',on?c:'#999');}
+  function angleOf(dl,off){return dl.roll+dl.dir*off*D;}
   function render(){
-    red.arm.setAttribute('transform','rotate('+rAng+' '+red.cx+' '+red.cy+')');
-    green.arm.setAttribute('transform','rotate('+gAng+' '+green.cx+' '+green.cy+')');
-    setPressed(red.roller,Math.abs(rAng)<3.5,RED);
-    setPressed(green.roller,Math.abs(gAng)<3.5,GRN);
+    red.arm.setAttribute('transform','rotate('+angleOf(red,offR)+' '+red.cx+' '+red.cy+')');
+    green.arm.setAttribute('transform','rotate('+angleOf(green,offG)+' '+green.cx+' '+green.cy+')');
+    setPressed(red.roller,offR<0.4,RED);
+    setPressed(green.roller,offG<0.4,GRN);
     var rollY=FILM_BOT-openF*FILM_RANGE;
     film.setAttribute('y',FILM_TOP); film.setAttribute('height',Math.max(0.1,rollY-FILM_TOP)); roll.setAttribute('y',rollY-4);
     if(openF>0.02){gapDim.setAttribute('opacity','1');gapLine.setAttribute('y1',rollY);gapLine.setAttribute('y2',FILM_BOT);gapTxt.setAttribute('y',(rollY+FILM_BOT)/2+3);}
@@ -756,22 +759,22 @@
   var ease=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;};
 
   function reset(){
-    busy=false;step=0;N=+$('cnt').value;gL=N*D;rL=-N*D;gAng=0;rAng=0;openF=0;
+    busy=false;step=0;N=+$('cnt').value;offG=0;offR=0;openF=0;
     setLED('');setShaft('');polbar.innerHTML=cfg().pol;setDialLabel();
     say('양쪽 화살표를 <b>0</b>에 맞춘 상태입니다. 이때는 두 다이얼의 돌기가 모두 롤러를 누르고 있어 <b>DC24V를 넣어도 작동하지 않습니다</b>(안전).');
     marks();render();updateBtns();
   }
   function doStep1(){var c=cfg();step=1;marks();setLED('');setShaft('');
     say('<b>'+c.openC+'</b> 노브를 눌러 <b>'+c.setDir+'</b>으로 돌려 화살표를 <b>'+N+'회전</b> 눈금에 맞춥니다. (반대색 다이얼은 0 그대로)');
-    return c.openDial==='green'?tween(900,function(t){gAng=ease(t)*gL;}):tween(900,function(t){rAng=ease(t)*rL;});
+    return c.openDial==='green'?tween(900,function(t){offG=ease(t)*N;}):tween(900,function(t){offR=ease(t)*N;});
   }
   function doStep2(){var c=cfg();step=2;marks();setLED(c.openLED);setShaft(c.openSh);
     say('운전스위치 <b>열림</b> → LED <b>'+c.openC+'</b>, 구동축이 '+(c.openSh==='cw'?'시계':'반시계')+'방향으로 회전하며 필름이 <b>열립니다</b>. '+c.openC+' 화살표는 롤러 쪽으로 이동.');
-    return tween(2600,function(t){var e=ease(t);if(c.openDial==='green'){gAng=gL*(1-e);rAng=rL*e;}else{rAng=rL*(1-e);gAng=gL*e;}openF=e;}).then(function(){setShaft('');say('✅ <b>'+c.openC+' 돌기</b>가 롤러를 눌러 <b>자동 정지</b>. 설정한 <b>'+N+'회전</b>만큼 열렸습니다.');});
+    return tween(2600,function(t){var e=ease(t);if(c.openDial==='green'){offG=N*(1-e);offR=N*e;}else{offR=N*(1-e);offG=N*e;}openF=e;}).then(function(){setShaft('');say('✅ <b>'+c.openC+' 돌기</b>가 롤러를 눌러 <b>자동 정지</b>. 설정한 <b>'+N+'회전</b>만큼 열렸습니다.');});
   }
   function doStep3(){var c=cfg();step=3;marks();setLED(c.closeLED);setShaft(c.closeSh);
     say('운전스위치 <b>닫힘</b> → LED <b>'+c.closeC+'</b>, 구동축이 '+(c.closeSh==='cw'?'시계':'반시계')+'방향으로 회전하며 필름이 <b>닫힙니다</b>. '+c.closeC+' 화살표가 롤러 쪽으로 이동.');
-    return tween(2600,function(t){var e=ease(t);if(c.openDial==='green'){rAng=rL*(1-e);gAng=gL*e;}else{gAng=gL*(1-e);rAng=rL*e;}openF=1-e;}).then(function(){setShaft('');setLED(c.closeLED);say('✅ <b>'+c.closeC+' 돌기</b>가 롤러를 눌러 <b>자동 정지</b>. 열림 회전수와 <b>똑같이</b> 닫혔습니다.');});
+    return tween(2600,function(t){var e=ease(t);if(c.openDial==='green'){offR=N*(1-e);offG=N*e;}else{offG=N*(1-e);offR=N*e;}openF=1-e;}).then(function(){setShaft('');setLED(c.closeLED);say('✅ <b>'+c.closeC+' 돌기</b>가 롤러를 눌러 <b>자동 정지</b>. 열림 회전수와 <b>똑같이</b> 닫혔습니다.');});
   }
   function doStep4(){step=4;marks();setLED('');setShaft('');say('🎉 <b>설정 완료!</b> 닫힘은 별도 설정 없이 열린 만큼 자동으로 맞춰집니다. 설정 후 반드시 <b>안전커버를 닫아</b> 빗물 유입을 막으세요.');}
   var steps=[null,doStep1,doStep2,doStep3,doStep4];
@@ -786,7 +789,7 @@
     await doStep2();await new Promise(function(r){setTimeout(r,900);});
     await doStep3();await new Promise(function(r){setTimeout(r,700);});
     doStep4();busy=false;updateBtns();};
-  $('cnt').oninput=function(){N=+this.value;$('cntval').textContent=N;if(step===0){gL=N*D;rL=-N*D;render();}};
+  $('cnt').oninput=function(){N=+this.value;$('cntval').textContent=N;if(step===0){render();}};
   document.querySelectorAll('#sideSeg button').forEach(function(b){b.onclick=function(){if(busy)return;
     document.querySelectorAll('#sideSeg button').forEach(function(x){x.classList.remove('active');});
     b.classList.add('active');SIDE=b.dataset.side;reset();};});
