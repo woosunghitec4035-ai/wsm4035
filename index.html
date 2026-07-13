@@ -250,7 +250,7 @@
       <img class="coverimg" src="img/product_ln.png" alt="WSM-4035 전동개폐기">
     </div>
     <div class="toc" id="toc"></div>
-    <p class="note" style="text-align:center">원하는 항목을 눌러 이동하세요. 각 페이지 아래 <b>이전/다음</b> 버튼으로 넘길 수 있습니다.</p>
+    <p class="note" style="text-align:center">원하는 항목을 눌러 이동하세요. 페이지는 <b>좌우로 밀거나(스와이프)</b> 아래 <b>이전/다음</b> 버튼으로 넘길 수 있습니다.</p>
   </div>
 
   <!-- ===== 1. 안전 ===== -->
@@ -670,6 +670,22 @@
   }
   window.addEventListener('hashchange',function(){show((location.hash||'#home').slice(1));});
   show((location.hash||'#home').slice(1));
+
+  // ===== 모바일 좌우 스와이프로 페이지 넘기기 =====
+  function pageIndex(){var id=(location.hash||'#home').slice(1);for(var i=0;i<PAGES.length;i++)if(PAGES[i].id===id)return i;return -1;}
+  function swipeNext(){var i=pageIndex();location.hash=(i===-1)?PAGES[0].id:(i<PAGES.length-1?PAGES[i+1].id:'home');}
+  function swipePrev(){var i=pageIndex();if(i>0)location.hash=PAGES[i-1].id;else if(i===0)location.hash='home';}
+  var tsx=0,tsy=0,tst=0,tskip=false;
+  document.addEventListener('touchstart',function(e){
+    if(e.touches.length!==1){tskip=true;return;}
+    var t=e.touches[0];tsx=t.clientX;tsy=t.clientY;tst=Date.now();
+    tskip=!!(e.target&&e.target.closest&&e.target.closest('.sim,input,button,select,textarea,a,.gallery'));
+  },{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(tskip||e.changedTouches.length!==1)return;
+    var t=e.changedTouches[0],dx=t.clientX-tsx,dy=t.clientY-tsy,dt=Date.now()-tst;
+    if(dt<700&&Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.8){ if(dx<0)swipeNext();else swipePrev(); }
+  },{passive:true});
 })();
 </script>
 
