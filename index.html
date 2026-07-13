@@ -488,11 +488,11 @@
         <line x1="24" y1="140" x2="336" y2="140" stroke="#bbb" stroke-width="2"/>
         <path class="houseFill" d="M52 140 V72 Q180 20 308 72 V140 Z" fill="#f5f6f8" stroke="#c9c9cf" stroke-width="2"/>
         <line x1="180" y1="26" x2="180" y2="140" stroke="#e2e2e6" stroke-width="1.5"/>
-        <line x1="290" y1="55" x2="290" y2="134" stroke="#c9c9cf" stroke-width="1.5"/>
+        <line id="hwall" x1="290" y1="55" x2="290" y2="134" stroke="#c9c9cf" stroke-width="1.5"/>
         <rect id="film" x="291" y="55" width="17" height="79" fill="#7fb3ff" opacity=".85"/>
         <rect id="roll" x="286" y="130" width="27" height="8" rx="4" fill="#37507a"/>
-        <text x="314" y="52" font-size="10" fill="#1a7f37" font-weight="700">열림 한계점</text>
-        <text x="314" y="140" font-size="10" fill="#b91c1c" font-weight="700">닫힘 한계점</text>
+        <text id="lblOpen" x="314" y="52" font-size="10" fill="#1a7f37" font-weight="700">열림 한계점</text>
+        <text id="lblClose" x="314" y="140" font-size="10" fill="#b91c1c" font-weight="700">닫힘 한계점</text>
         <g id="gapDim" opacity="0">
           <line id="gapLine" x1="330" y1="134" x2="330" y2="134" stroke="var(--red)" stroke-width="1.5"/>
           <text id="gapTxt" x="333" y="100" font-size="11" fill="var(--red)" font-weight="800">개폐 폭</text>
@@ -730,6 +730,16 @@
   var $=function(id){return document.getElementById(id);};
   var led=$('led'), ledtxt=$('ledtxt'), shaft=$('shaft'), narr=$('narr'), polbar=$('polbar');
   var film=$('film'), roll=$('roll'), gapDim=$('gapDim'), gapLine=$('gapLine'), gapTxt=$('gapTxt');
+  var hwall=$('hwall'), lblOpen=$('lblOpen'), lblClose=$('lblClose');
+  function positionHouse(side){var L=side==='left';
+    hwall.setAttribute('x1',L?70:290);hwall.setAttribute('x2',L?70:290);
+    film.setAttribute('x',L?52:291);
+    roll.setAttribute('x',L?47:286);
+    lblOpen.setAttribute('x',L?46:314);lblOpen.setAttribute('text-anchor',L?'end':'start');
+    lblClose.setAttribute('x',L?46:314);lblClose.setAttribute('text-anchor',L?'end':'start');
+    gapLine.setAttribute('x1',L?30:330);gapLine.setAttribute('x2',L?30:330);
+    gapTxt.setAttribute('x',L?27:333);gapTxt.setAttribute('text-anchor',L?'end':'start');
+  }
   var FILM_TOP=55, FILM_BOT=134, FILM_RANGE=FILM_BOT-FILM_TOP;
 
   function cfg(){
@@ -760,7 +770,7 @@
 
   function reset(){
     busy=false;step=0;N=+$('cnt').value;offG=0;offR=0;openF=0;
-    setLED('');setShaft('');polbar.innerHTML=cfg().pol;setDialLabel();
+    setLED('');setShaft('');polbar.innerHTML=cfg().pol;setDialLabel();positionHouse(SIDE);
     say('양쪽 화살표를 <b>0</b>에 맞춘 상태입니다. 이때는 두 다이얼의 돌기가 모두 롤러를 누르고 있어 <b>DC24V를 넣어도 작동하지 않습니다</b>(안전).');
     marks();render();updateBtns();
   }
