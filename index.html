@@ -216,21 +216,22 @@
     .toc{grid-template-columns:repeat(4,1fr)}
   }
 
-  @media (prefers-color-scheme: dark){
-    :root{--ink:#eaeaea;--sub:#a8a8a8;--line:#2c2c2e;--bg:#0f0f11;--card:#1a1a1d}
-    table.spec th,.perf .p .t,.kvtbl th{background:#202024}
-    .perf .p .v small{color:#9a9a9a}
-    header{background:linear-gradient(135deg,#a30d24,#6f0819)}
-    .tipbox{background:#0e2338;border-color:#1e3a5f;color:#bcd8f5}
-    .tipbox b{color:#e3f0ff}
-    .must{background:#0e2338;border-color:#1e3a5f;color:#bcd8f5}
-    .steps li.on{background:#2a1416}
-    .sim .houseFill{fill:#16161a}
-    .gallery img{filter:none}
-    /* 다크모드: 라인아트는 밝은선-투명 버전(picture)으로 교체되므로 흰 배경 제거 */
-    .figbox img.lineart{background:transparent}
-  }
+  /* ===== 다크 테마 (data-theme=dark: 자동감지 또는 수동토글) ===== */
+  html[data-theme="dark"]{--ink:#eaeaea;--sub:#a8a8a8;--line:#2c2c2e;--bg:#0f0f11;--card:#1a1a1d;color-scheme:dark}
+  html[data-theme="dark"] table.spec th,html[data-theme="dark"] .perf .p .t,html[data-theme="dark"] .kvtbl th{background:#202024}
+  html[data-theme="dark"] .perf .p .v small{color:#9a9a9a}
+  html[data-theme="dark"] .tipbox{background:#0e2338;border-color:#1e3a5f;color:#bcd8f5}
+  html[data-theme="dark"] .tipbox b{color:#e3f0ff}
+  html[data-theme="dark"] .must{background:#0e2338;border-color:#1e3a5f;color:#bcd8f5}
+  html[data-theme="dark"] .steps li.on{background:#2a1416}
+  html[data-theme="dark"] .sim .houseFill{fill:#16161a}
+  /* 다크: 라인아트는 밝은선 버전(JS로 src 교체)이라 흰 배경 제거 */
+  html[data-theme="dark"] .figbox img.lineart{background:transparent}
 </style>
+<script>
+/* 렌더 전 테마 적용(깜빡임 방지) */
+(function(){try{var t=localStorage.getItem('wsm-theme');if(t!=='light'&&t!=='dark')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+</script>
 </head>
 <body>
 <aside id="sidebar" class="sidebar"></aside>
@@ -240,6 +241,7 @@
     <button id="homeBtn" class="abtn">☰ 목차</button>
     <div class="abtitle" id="abTitle">WSM-4035</div>
     <div class="abpage" id="abPage"></div>
+    <button id="themeBtn" class="abtn" aria-label="다크/라이트 전환">🌙</button>
   </div>
 
   <!-- ===== 홈(목차) ===== -->
@@ -284,8 +286,8 @@
     <div class="alert caution"><span class="ic">🛡️</span><div>설정 후에는 반드시 <b>리미트 안전커버를 정확히 덮어</b> 주십시오. 빗물이 내부로 들어가면 고장납니다.</div></div>
 
     <details class="acc"><summary>원본 안전 그림 보기 (설명서 3~4p)</summary><div class="accbody">
-      <figure class="figbox"><picture><source media="(prefers-color-scheme: dark)" srcset="img/safety_warn_dark.png"><img class="lineart" src="img/safety_warn.png" alt="경고 안전 그림" loading="lazy"></picture><figcaption>⚠️ 경고 — 설치할 때 / 사용할 때</figcaption></figure>
-      <figure class="figbox"><picture><source media="(prefers-color-scheme: dark)" srcset="img/safety_caution_dark.png"><img class="lineart" src="img/safety_caution.png" alt="주의 안전 그림" loading="lazy"></picture><figcaption>⚠️ 주의 — 설치할 때 / 사용할 때</figcaption></figure>
+      <figure class="figbox"><img class="lineart" src="img/safety_warn.png" data-dark="img/safety_warn_dark.png" alt="경고 안전 그림" loading="lazy"><figcaption>⚠️ 경고 — 설치할 때 / 사용할 때</figcaption></figure>
+      <figure class="figbox"><img class="lineart" src="img/safety_caution.png" data-dark="img/safety_caution_dark.png" alt="주의 안전 그림" loading="lazy"><figcaption>⚠️ 주의 — 설치할 때 / 사용할 때</figcaption></figure>
     </div></details>
   </section>
 
@@ -348,7 +350,7 @@
   <section id="parts">
     <h2><span class="bar"></span>Ⅲ. 각부 명칭</h2>
     <div class="subh">외부 명칭</div>
-    <figure class="figbox"><picture><source media="(prefers-color-scheme: dark)" srcset="img/parts_ext_dark.png"><img class="lineart" src="img/parts_ext.png" alt="전동개폐기 외부 명칭 (그림2-1)" loading="lazy"></picture><figcaption>전동개폐기 외부 명칭 — 전동모터·출력축·커플링·리미트 설정 노브·안전커버·전기 공급선 등</figcaption></figure>
+    <figure class="figbox"><img class="lineart" src="img/parts_ext.png" data-dark="img/parts_ext_dark.png" alt="전동개폐기 외부 명칭 (그림2-1)" loading="lazy"><figcaption>전동개폐기 외부 명칭 — 전동모터·출력축·커플링·리미트 설정 노브·안전커버·전기 공급선 등</figcaption></figure>
 
     <div class="subh">기본 제공 부품</div>
     <div class="card">
@@ -378,7 +380,7 @@
   <section id="install">
     <h2><span class="bar"></span>Ⅳ. 설치방법</h2>
     <p class="lead">원예시설 형태는 매우 다양하며 설치방법도 다양합니다. 아래는 대표적인 방법의 <b>[예]</b>이며, 자세한 것은 원예시설 자동화 전문업체와 상담하여 현장에 알맞게 설치하십시오.</p>
-    <figure class="figbox"><picture><source media="(prefers-color-scheme: dark)" srcset="img/inst_overview_dark.png"><img class="lineart" src="img/inst_overview.png" alt="설치 개요" loading="lazy"></picture><figcaption>설치 개요 · 천장 곡부용(가이드 암) / 측면용(가이드 롤러)</figcaption></figure>
+    <figure class="figbox"><img class="lineart" src="img/inst_overview.png" data-dark="img/inst_overview_dark.png" alt="설치 개요" loading="lazy"><figcaption>설치 개요 · 천장 곡부용(가이드 암) / 측면용(가이드 롤러)</figcaption></figure>
 
     <div class="subh">1. 롤-업-다운(ROLL-UP-DOWN) 개폐방식</div>
     <p style="font-size:14.5px">구조물(들보)에 피복재 상단을 고정하고 하단을 개폐 축에 감아 클립으로 고정합니다. 전동개폐기로 개폐 축을 회전시키면 피복재가 감기며 <b>환기구가 열리고</b>, 반대로 돌리면 풀리며 <b>닫힙니다</b>. 이때 피복재가 반대로 풀리려는 힘이 작용하므로, 이를 받쳐주는 <b>가이드 암</b> 또는 <b>가이드 롤러</b>를 사용해 설치합니다.</p>
@@ -395,7 +397,7 @@
           <li>최대 길이에서 전선이 당겨지지 않도록 여유 있게 연결</li>
           <li>전동개폐기 무게로 피복재가 처지지 않게 <b>보조밴드</b> 설치</li>
         </ul>
-        <figure class="figbox"><picture><source media="(prefers-color-scheme: dark)" srcset="img/inst_arm_dark.png"><img class="lineart" src="img/inst_arm.png" alt="가이드 암 조립도" loading="lazy"></picture><figcaption>가이드 암 조립도 · 겉대 25.4∅ + 속대 19∅ 신축 파이프로 개폐 축을 받쳐 줌</figcaption></figure>
+        <figure class="figbox"><img class="lineart" src="img/inst_arm.png" data-dark="img/inst_arm_dark.png" alt="가이드 암 조립도" loading="lazy"><figcaption>가이드 암 조립도 · 겉대 25.4∅ + 속대 19∅ 신축 파이프로 개폐 축을 받쳐 줌</figcaption></figure>
       </div>
     </details>
 
@@ -404,7 +406,7 @@
       <div class="accbody">
         <p style="font-size:14px">가이드 롤러(궤도)로 개폐 축을 지지하는 방식이며, 롤러 지름에 따라 1회전당 개폐량이 달라집니다.</p>
         <div class="tipbox">📐 <b>1회 회전 개폐량 = 롤러 지름 × 3.14</b> (원주)<br>예) 롤러 지름 3cm → 3×3.14 = <b>9.42cm</b>. 즉 1회전에 피복재가 9.42cm 열립니다.</div>
-        <figure class="figbox"><picture><source media="(prefers-color-scheme: dark)" srcset="img/inst_roller_dark.png"><img class="lineart" src="img/inst_roller.png" alt="가이드 롤러 설치도" loading="lazy"></picture><figcaption>가이드 롤러 설치도 · 1회전 개폐량 = 지름 × 3.14</figcaption></figure>
+        <figure class="figbox"><img class="lineart" src="img/inst_roller.png" data-dark="img/inst_roller_dark.png" alt="가이드 롤러 설치도" loading="lazy"><figcaption>가이드 롤러 설치도 · 1회전 개폐량 = 지름 × 3.14</figcaption></figure>
       </div>
     </details>
 
@@ -413,7 +415,7 @@
       <div class="accbody">
         <p style="font-size:14px">피복재 한쪽을 로프로 묶어 구동축에 감거나 풀어 여닫는 방식으로, 주로 측면 피복재 개폐에 사용합니다. 골조파이프에 베어링으로 구동축을 설치하고, 롤러(도르래)를 통과한 로프를 구동축에 고정한 뒤 회전시키면 로프가 감기며 환기구가 닫히고, 반대로 돌리면 열립니다.</p>
         <div class="tipbox">무겁거나 두꺼운 피복재는 <b>용량이 큰 보온재용 전동개폐기</b>를 사용하십시오. 자세한 사항은 시공 전문가와 상담하십시오.</div>
-        <figure class="figbox"><picture><source media="(prefers-color-scheme: dark)" srcset="img/inst_rope_dark.png"><img class="lineart" src="img/inst_rope.png" alt="로프 예인 방식" loading="lazy"></picture><figcaption>로프 예인 방식 · 구동축에 감긴 로프가 도르래를 거쳐 피복재를 여닫음</figcaption></figure>
+        <figure class="figbox"><img class="lineart" src="img/inst_rope.png" data-dark="img/inst_rope_dark.png" alt="로프 예인 방식" loading="lazy"><figcaption>로프 예인 방식 · 구동축에 감긴 로프가 도르래를 거쳐 피복재를 여닫음</figcaption></figure>
       </div>
     </details>
   </section>
@@ -450,7 +452,7 @@
   <!-- ===== 6. 리미트 원리 ===== -->
   <section id="limit-principle">
     <h2><span class="bar"></span>Ⅵ. 리미트 설정부 알기</h2>
-    <figure class="figbox"><picture><source media="(prefers-color-scheme: dark)" srcset="img/dial_name_dark.png"><img class="lineart" src="img/dial_name.png" alt="리미트 설정부 명칭" loading="lazy"></picture><figcaption>리미트 설정부 명칭 · 적색·녹색 다이얼 / 화살표·설정노브·회전수 눈금</figcaption></figure>
+    <figure class="figbox"><img class="lineart" src="img/dial_name.png" data-dark="img/dial_name_dark.png" alt="리미트 설정부 명칭" loading="lazy"><figcaption>리미트 설정부 명칭 · 적색·녹색 다이얼 / 화살표·설정노브·회전수 눈금</figcaption></figure>
 
     <div class="subh">리미트를 설정하는 목적</div>
     <p style="font-size:14.5px">피복재가 열리고 닫히는 총 범위를 <b>개폐 폭</b>이라 하며, 상단 정지 위치를 <b>열림 한계점</b>, 하단 정지 위치를 <b>닫힘 한계점</b>이라 합니다. 전기가 계속 공급되어도 한계점에 도달하면 스스로 정지되도록, 리미트 스위치부에 <b>구동축 회전수를 설정</b>하는 것입니다. <span style="color:var(--sub)">(리미트=한계·경계·한도)</span></p>
@@ -687,6 +689,28 @@
     var t=e.changedTouches[0],dx=t.clientX-tsx,dy=t.clientY-tsy,dt=Date.now()-tst;
     if(dt<700&&Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.8){ if(dx<0)swipeNext();else swipePrev(); }
   },{passive:true});
+
+  // ===== 다크/라이트 테마 토글 =====
+  function applyImages(dark){
+    document.querySelectorAll('img[data-dark]').forEach(function(im){
+      if(!im.dataset.light) im.dataset.light=im.getAttribute('src');
+      var want=dark?im.dataset.dark:im.dataset.light;
+      if(im.getAttribute('src')!==want) im.setAttribute('src',want);
+    });
+  }
+  function setTheme(t){
+    document.documentElement.setAttribute('data-theme',t);
+    try{localStorage.setItem('wsm-theme',t);}catch(e){}
+    applyImages(t==='dark');
+    var b=document.getElementById('themeBtn'); if(b) b.textContent=(t==='dark'?'☀️':'🌙');
+  }
+  var curTheme=document.documentElement.getAttribute('data-theme')||'light';
+  applyImages(curTheme==='dark');
+  var tb=document.getElementById('themeBtn');
+  if(tb){ tb.textContent=(curTheme==='dark'?'☀️':'🌙');
+    tb.addEventListener('click',function(){ setTheme((document.documentElement.getAttribute('data-theme')==='dark')?'light':'dark'); }); }
+  // 시스템 테마 변경 추종(수동 저장이 없을 때만)
+  try{ if(window.matchMedia){ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){ if(!localStorage.getItem('wsm-theme')) setTheme(e.matches?'dark':'light'); }); } }catch(e){}
 })();
 </script>
 
