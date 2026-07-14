@@ -217,7 +217,7 @@
   }
 
   /* ===== 언어 전환 ===== */
-  .langbar{display:flex;justify-content:center;gap:8px;margin:14px 18px 0}
+  .langbar{display:flex;justify-content:center;gap:8px;margin:16px 18px}
   .langbar button{border:1px solid var(--line);background:var(--card);color:var(--ink);
     padding:9px 16px;border-radius:999px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:var(--shadow)}
   .langbar button.on{background:var(--red);color:#fff;border-color:var(--red)}
@@ -671,7 +671,7 @@
     home.classList.remove('active');
     PAGES.forEach(function(p){var s=document.getElementById(p.id);if(s)s.classList.remove('active');});
     if(!found){
-      home.classList.add('active'); abTitle.textContent='목차'; abPage.textContent='';
+      home.classList.add('active'); abTitle.textContent='◤ 롤업스타 · WSM-4035'; abPage.textContent='';
       homeBtn.style.visibility='hidden';
     } else {
       var sec=document.getElementById(id);
@@ -873,76 +873,11 @@
     <button id="transOk">OK</button>
   </div>
 </div>
+<script src="i18n.js"></script>
 <script>
 /* ===== 다국어(한/일/영) 번역 ===== */
 (function(){
-  var TR={
-    "전동개폐기 사용설명서":{ja:"電動開閉機 取扱説明書",en:"Electric Roll-up Opener — Manual"},
-    "모델 WSM-4035":{ja:"モデル WSM-4035",en:"Model WSM-4035"},
-    "☰ 목차":{ja:"☰ 目次",en:"☰ Menu"},
-    "목차 홈":{ja:"目次ホーム",en:"Menu Home"},
-    "목차":{ja:"目次",en:"Menu"},
-    "안전 주의사항":{ja:"安全上のご注意",en:"Safety Precautions"},
-    "제품 사양·성능":{ja:"製品仕様・性能",en:"Specs & Performance"},
-    "각부 명칭":{ja:"各部の名称",en:"Part Names"},
-    "설치방법":{ja:"設置方法",en:"Installation"},
-    "전원·회전방향":{ja:"電源・回転方向",en:"Power & Rotation"},
-    "리미트 설정 원리":{ja:"リミット設定の原理",en:"Limit Setting Principle"},
-    "리미트 설정하기":{ja:"リミット設定の手順",en:"Setting the Limits"},
-    "전체 설명서(원본)":{ja:"説明書 全文（原本）",en:"Full Manual (Original)"},
-    "A/S·연락처":{ja:"アフターサービス・連絡先",en:"Service & Contact"},
-    "Ⅰ. 안전을 위한 주의사항":{ja:"Ⅰ. 安全上のご注意",en:"Ⅰ. Safety Precautions"},
-    "Ⅱ. 제품 사양 및 성능":{ja:"Ⅱ. 製品仕様および性能",en:"Ⅱ. Specifications & Performance"},
-    "Ⅲ. 각부 명칭":{ja:"Ⅲ. 各部の名称",en:"Ⅲ. Part Names"},
-    "Ⅳ. 설치방법":{ja:"Ⅳ. 設置方法",en:"Ⅳ. Installation"},
-    "Ⅴ. 전원 연결 · 회전방향":{ja:"Ⅴ. 電源接続・回転方向",en:"Ⅴ. Power Connection & Rotation"},
-    "Ⅵ. 리미트 설정부 알기":{ja:"Ⅵ. リミット設定部について",en:"Ⅵ. About the Limit Unit"},
-    "Ⅶ. 리미트 설정하기 (실습)":{ja:"Ⅶ. リミット設定（実習）",en:"Ⅶ. Setting the Limits (Interactive)"},
-    "전체 설명서 (원본)":{ja:"説明書 全文（原本）",en:"Full Manual (Original)"},
-    "A/S · 제품보증":{ja:"アフターサービス・製品保証",en:"Service & Warranty"},
-    "외부 명칭":{ja:"外部の名称",en:"External Parts"},
-    "기본 제공 부품":{ja:"標準付属部品",en:"Included Parts"},
-    "성능 데이터":{ja:"性能データ",en:"Performance Data"},
-    "취급 시 주의사항":{ja:"取り扱い上の注意",en:"Handling Precautions"},
-    "⚠️ 경고":{ja:"⚠️ 警告",en:"⚠️ Warning"},
-    "⚠️ 주의":{ja:"⚠️ 注意",en:"⚠️ Caution"},
-    "입력전압":{ja:"入力電圧",en:"Input voltage"},
-    "감속비":{ja:"減速比",en:"Reduction ratio"},
-    "감속방식":{ja:"減速方式",en:"Reduction type"},
-    "제동기능":{ja:"制動機能",en:"Braking"},
-    "회전방향":{ja:"回転方向",en:"Rotation"},
-    "리미트 방식":{ja:"リミット方式",en:"Limit method"},
-    "리미트 설정":{ja:"リミット設定",en:"Limit setting"},
-    "밀폐 상태":{ja:"密閉状態",en:"Sealing"},
-    "통기 방식":{ja:"通気方式",en:"Ventilation"},
-    "몸체 / 기어":{ja:"本体 / ギア",en:"Body / Gear"},
-    "외관도장":{ja:"外観塗装",en:"Coating"},
-    "전원표시":{ja:"電源表示",en:"Power indicator"},
-    "전원공급선":{ja:"電源供給線",en:"Power cable"},
-    "무게(본체)":{ja:"重量(本体)",en:"Weight (body)"},
-    "무부하":{ja:"無負荷",en:"No load"},
-    "표준사용 ★":{ja:"標準使用 ★",en:"Standard ★"},
-    "최대허용":{ja:"最大許容",en:"Max allowed"},
-    "토크":{ja:"トルク",en:"Torque"},
-    "제조사":{ja:"製造元",en:"Manufacturer"},
-    "주소":{ja:"住所",en:"Address"},
-    "품질보증기간":{ja:"品質保証期間",en:"Warranty period"},
-    "부품보유기간":{ja:"部品保有期間",en:"Parts retention"},
-    "홈페이지":{ja:"ホームページ",en:"Website"},
-    "구입일로부터 1년":{ja:"ご購入日から1年",en:"1 year from purchase"},
-    "제조사 · A/S":{ja:"製造元・アフターサービス",en:"Manufacturer & Service"},
-    "좌측용":{ja:"左側用",en:"Left type"},
-    "우측용":{ja:"右側用",en:"Right type"},
-    "▶ 자동 시연":{ja:"▶ 自動デモ",en:"▶ Auto demo"},
-    "다음 단계 ▶":{ja:"次のステップ ▶",en:"Next step ▶"},
-    "↻ 처음으로":{ja:"↻ 最初へ",en:"↻ Reset"},
-    "적색 다이얼":{ja:"赤ダイヤル",en:"Red dial"},
-    "녹색 다이얼":{ja:"緑ダイヤル",en:"Green dial"},
-    "교류(AC) 전기에 연결하지 마십시오.":{ja:"交流(AC)電源に接続しないでください。",en:"Do not connect to AC power."},
-    "DC 24V 전용":{ja:"DC 24V専用",en:"DC 24V only"},
-    "📄 PDF 원본 다운로드 (20p · 4.5MB)":{ja:"📄 PDF原本ダウンロード (20p · 4.5MB)",en:"📄 Download PDF (20p · 4.5MB)"},
-    "📞 전화 상담 · 055-365-8801":{ja:"📞 電話相談 · 055-365-8801",en:"📞 Call · 055-365-8801"}
-  };
+  var TR=window.WSM_TR||{};
   var MSG={
     ja:{d:"このページはAI（人工知能）による翻訳です。誤訳が含まれる場合がございますが、あらかじめご了承のうえご覧いただけますと幸いです。",ok:"確認しました"},
     en:{d:"This page has been translated by AI. Some parts may be mistranslated, so we kindly ask for your understanding. Thank you.",ok:"OK"}
