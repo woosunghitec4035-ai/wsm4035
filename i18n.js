@@ -383,5 +383,27 @@ window.WSM_TR = {
   "천재지변(낙뢰·화재·풍수해·염해·지진 등)에 의한 고장":{ja:"天災(落雷・火災・風水害・塩害・地震など)による故障",en:"Failure from disasters (lightning, fire, flood, salt, quake, etc.)"},
   "※ 교환·수리·환불 등 기타 보상은 소비자 피해보상기준에 따릅니다. 고장이 아닌 단순 조정·재설치는 요금이 부과될 수 있으니 반드시 사용설명서를 먼저 읽어 주십시오.":{ja:"※ 交換・修理・返金など補償は消費者被害補償基準に従います。故障ではない単純な調整・再設置は料金が発生する場合があるため、必ず先に説明書をお読みください。",en:"※ Exchange/repair/refund follow consumer-compensation standards. Non-fault adjustment/reinstallation may incur a fee — please read the manual first."},
   "📞 전화 상담 · 055-365-8801":{ja:"📞 電話相談 · 055-365-8801",en:"📞 Phone · 055-365-8801"},
-  "팩스 055-365-8333 · e-mail wsh@wsh.co.kr":{ja:"FAX 055-365-8333 · e-mail wsh@wsh.co.kr",en:"Fax 055-365-8333 · e-mail wsh@wsh.co.kr"}
+  "팩스 055-365-8333 · e-mail wsh@wsh.co.kr":{ja:"FAX 055-365-8333 · e-mail wsh@wsh.co.kr",en:"Fax 055-365-8333 · e-mail wsh@wsh.co.kr"},
+
+  // 그림 번역 범례
+  "그림 속 명칭":{ja:"図中の名称",en:"Labels in the figure"},
+  "전동모터 (DC24V)":{ja:"電動モーター(DC24V)",en:"Motor (DC24V)"},
+  "개폐 축 커플링":{ja:"開閉軸カップリング",en:"Shaft coupling"},
+  "출력축":{ja:"出力軸",en:"Output shaft"},
+  "개폐 축 고정볼트":{ja:"開閉軸固定ボルト",en:"Shaft fixing bolt"},
+  "커플링 고정볼트":{ja:"カップリング固定ボルト",en:"Coupling bolt"},
+  "가이드 암 커플링 체결 홀":{ja:"ガイドアームカップリング締結穴",en:"Guide-arm coupling hole"},
+  "가이드 암 커플링 삽입부":{ja:"ガイドアームカップリング挿入部",en:"Guide-arm coupling slot"},
+  "안전커버":{ja:"安全カバー",en:"Safety cover"},
+  "전기 공급선":{ja:"電源供給線",en:"Power cable"},
+  "통기구":{ja:"通気孔",en:"Vent hole"},
+  "리미트 설정 노브 (녹색·적색)":{ja:"リミット設定ノブ（緑・赤）",en:"Limit knobs (green/red)"},
+  "모터쪽 (방향)":{ja:"モーター側（方向）",en:"Motor side (orientation)"},
+  "LED 표시":{ja:"LED表示",en:"LED indicator"},
+  "스위치 롤러":{ja:"スイッチローラー",en:"Switch roller"},
+  "다이얼 돌기":{ja:"ダイヤル突起",en:"Dial tab"},
+  "화살표시":{ja:"矢印表示",en:"Arrow marker"},
+  "설정 노브":{ja:"設定ノブ",en:"Setting knob"},
+  "회전 숫자":{ja:"回転数字",en:"Turn number"},
+  "회전수 눈금":{ja:"回転数目盛",en:"Turn scale"}
 };

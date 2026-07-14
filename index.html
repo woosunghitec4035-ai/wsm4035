@@ -216,6 +216,13 @@
     .toc{grid-template-columns:repeat(4,1fr)}
   }
 
+  /* 그림 번역 범례 */
+  .imgleg{margin:8px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px}
+  .imgleg li{font-size:12.5px;color:var(--sub);padding-left:12px;position:relative;line-height:1.4}
+  .imgleg li::before{content:"·";position:absolute;left:2px;color:var(--red);font-weight:900}
+  .imgleg-t{font-size:12.5px;font-weight:800;color:var(--red);margin:10px 0 2px}
+  @media (min-width:640px){.imgleg{grid-template-columns:1fr 1fr 1fr}}
+
   /* ===== 언어 전환 ===== */
   .langbar{display:flex;justify-content:center;gap:8px;margin:16px 18px}
   .langbar button{border:1px solid var(--line);background:var(--card);color:var(--ink);
@@ -367,7 +374,22 @@
   <section id="parts">
     <h2><span class="bar"></span>Ⅲ. 각부 명칭</h2>
     <div class="subh">외부 명칭</div>
-    <figure class="figbox"><img class="lineart" src="img/parts_ext.png" data-dark="img/parts_ext_dark.png" alt="전동개폐기 외부 명칭 (그림2-1)" loading="lazy"><figcaption>전동개폐기 외부 명칭 — 전동모터·출력축·커플링·리미트 설정 노브·안전커버·전기 공급선 등</figcaption></figure>
+    <figure class="figbox"><img class="lineart" src="img/parts_ext.png" data-dark="img/parts_ext_dark.png" alt="전동개폐기 외부 명칭 (그림2-1)" loading="lazy"><figcaption>전동개폐기 외부 명칭 (그림2-1)</figcaption></figure>
+    <div class="imgleg-t">그림 속 명칭</div>
+    <ul class="imgleg">
+      <li>전동모터 (DC24V)</li>
+      <li>개폐 축 커플링</li>
+      <li>출력축</li>
+      <li>개폐 축 고정볼트</li>
+      <li>커플링 고정볼트</li>
+      <li>가이드 암 커플링 체결 홀</li>
+      <li>가이드 암 커플링 삽입부</li>
+      <li>LED (전원표시)</li>
+      <li>안전커버</li>
+      <li>전기 공급선</li>
+      <li>통기구</li>
+      <li>리미트 설정 노브 (녹색·적색)</li>
+    </ul>
 
     <div class="subh">기본 제공 부품</div>
     <div class="card">
@@ -469,7 +491,20 @@
   <!-- ===== 6. 리미트 원리 ===== -->
   <section id="limit-principle">
     <h2><span class="bar"></span>Ⅵ. 리미트 설정부 알기</h2>
-    <figure class="figbox"><img class="lineart" src="img/dial_name.png" data-dark="img/dial_name_dark.png" alt="리미트 설정부 명칭" loading="lazy"><figcaption>리미트 설정부 명칭 · 적색·녹색 다이얼 / 화살표·설정노브·회전수 눈금</figcaption></figure>
+    <figure class="figbox"><img class="lineart" src="img/dial_name.png" data-dark="img/dial_name_dark.png" alt="리미트 설정부 명칭" loading="lazy"><figcaption>리미트 설정부 명칭 (그림5-2)</figcaption></figure>
+    <div class="imgleg-t">그림 속 명칭</div>
+    <ul class="imgleg">
+      <li>모터쪽 (방향)</li>
+      <li>LED 표시</li>
+      <li>스위치 롤러</li>
+      <li>다이얼 돌기</li>
+      <li>화살표시</li>
+      <li>설정 노브</li>
+      <li>회전 숫자</li>
+      <li>회전수 눈금</li>
+      <li>적색 다이얼</li>
+      <li>녹색 다이얼</li>
+    </ul>
 
     <div class="subh">리미트를 설정하는 목적</div>
     <p style="font-size:14.5px">피복재가 열리고 닫히는 총 범위를 <b>개폐 폭</b>이라 하며, 상단 정지 위치를 <b>열림 한계점</b>, 하단 정지 위치를 <b>닫힘 한계점</b>이라 합니다. 전기가 계속 공급되어도 한계점에 도달하면 스스로 정지되도록, 리미트 스위치부에 <b>구동축 회전수를 설정</b>하는 것입니다. <span style="color:var(--sub)">(리미트=한계·경계·한도)</span></p>
@@ -504,7 +539,7 @@
     </div>
 
     <div class="sim card">
-      <svg id="house" viewBox="0 0 360 158" aria-label="개폐 폭">
+      <svg id="house" viewBox="-30 0 420 158" aria-label="개폐 폭">
         <line x1="24" y1="140" x2="336" y2="140" stroke="#bbb" stroke-width="2"/>
         <path class="houseFill" d="M52 140 V72 Q180 20 308 72 V140 Z" fill="#f5f6f8" stroke="#c9c9cf" stroke-width="2"/>
         <line x1="180" y1="26" x2="180" y2="140" stroke="#e2e2e6" stroke-width="1.5"/>
@@ -519,10 +554,10 @@
         </g>
       </svg>
 
-      <div class="polbar" id="polbar"></div>
+      <div class="polbar" id="polbar" data-notrans></div>
       <div class="statusbar">
-        <span class="item"><span id="led" class="led"></span><span id="ledtxt">전원 대기</span></span>
-        <span class="item">구동축 <span id="shaft" class="shaft">— 정지</span></span>
+        <span class="item"><span id="led" class="led"></span><span id="ledtxt" data-notrans>전원 대기</span></span>
+        <span class="item">구동축 <span id="shaft" class="shaft" data-notrans>— 정지</span></span>
       </div>
 
       <svg id="dials" viewBox="0 0 400 208" aria-label="리미트 다이얼"></svg>
@@ -796,14 +831,48 @@
     lblOpen.setAttribute('x',L?46:314);lblOpen.setAttribute('text-anchor',L?'end':'start');
     lblClose.setAttribute('x',L?46:314);lblClose.setAttribute('text-anchor',L?'end':'start');
     gapLine.setAttribute('x1',L?30:330);gapLine.setAttribute('x2',L?30:330);
-    gapTxt.setAttribute('x',L?27:333);gapTxt.setAttribute('text-anchor',L?'end':'start');
+    gapTxt.setAttribute('x',L?33:330);gapTxt.setAttribute('text-anchor',L?'end':'start');
   }
   var FILM_TOP=55, FILM_BOT=134, FILM_RANGE=FILM_BOT-FILM_TOP;
 
-  function cfg(){
+  function lang(){return window.WSM_LANG||'ko';}
+  var SIMT={
+    ko:{red:'적색',green:'녹색',cw:'시계방향',ccw:'반시계방향',cwS:'시계',ccwS:'반시계',
+      ledG:'녹색 점등',ledR:'적색 점등',ledIdle:'전원 대기',shCw:'↻ 시계방향',shCcw:'↺ 반시계방향',shStop:'— 정지',
+      polL:'열림 극성 : 청색 <b>＋</b> · 갈색 <b>－</b>',polR:'열림 극성 : 갈색 <b>＋</b> · 청색 <b>－</b>',
+      reset:'양쪽 화살표를 <b>0</b>에 맞춘 상태입니다. 이때는 두 다이얼의 돌기가 모두 롤러를 누르고 있어 <b>DC24V를 넣어도 작동하지 않습니다</b>(안전).',
+      s1:function(c,N){return '<b>'+c.openC+'</b> 노브를 눌러 <b>'+c.setDir+'</b>으로 돌려 화살표를 <b>'+N+'회전</b> 눈금에 맞춥니다. (반대색 다이얼은 0 그대로)';},
+      s2r:function(c){return '운전스위치 <b>열림</b> → LED <b>'+c.openC+'</b>, 구동축이 '+(c.openSh==='cw'?'시계':'반시계')+'방향으로 회전하며 필름이 <b>열립니다</b>. '+c.openC+' 화살표는 롤러 쪽으로 이동.';},
+      s2d:function(c,N){return '✅ <b>'+c.openC+' 돌기</b>가 롤러를 눌러 <b>자동 정지</b>. 설정한 <b>'+N+'회전</b>만큼 열렸습니다.';},
+      s3r:function(c){return '운전스위치 <b>닫힘</b> → LED <b>'+c.closeC+'</b>, 구동축이 '+(c.closeSh==='cw'?'시계':'반시계')+'방향으로 회전하며 필름이 <b>닫힙니다</b>. '+c.closeC+' 화살표가 롤러 쪽으로 이동.';},
+      s3d:function(c){return '✅ <b>'+c.closeC+' 돌기</b>가 롤러를 눌러 <b>자동 정지</b>. 열림 회전수와 <b>똑같이</b> 닫혔습니다.';},
+      s4:'🎉 <b>설정 완료!</b> 닫힘은 별도 설정 없이 열린 만큼 자동으로 맞춰집니다. 설정 후 반드시 <b>안전커버를 닫아</b> 빗물 유입을 막으세요.'},
+    ja:{red:'赤',green:'緑',cw:'時計回り',ccw:'反時計回り',cwS:'時計',ccwS:'反時計',
+      ledG:'緑 点灯',ledR:'赤 点灯',ledIdle:'電源待機',shCw:'↻ 時計回り',shCcw:'↺ 反時計回り',shStop:'— 停止',
+      polL:'開き極性 : 青 <b>＋</b> · 茶 <b>－</b>',polR:'開き極性 : 茶 <b>＋</b> · 青 <b>－</b>',
+      reset:'両方の矢印を <b>0</b> に合わせた状態です。このとき両ダイヤルの突起がローラーを押しているため、<b>DC24Vを入れても作動しません</b>（安全）。',
+      s1:function(c,N){return '<b>'+c.openC+'</b>ノブを押して<b>'+c.setDir+'</b>に回し、矢印を<b>'+N+'回転</b>の目盛に合わせます。（反対色のダイヤルは0のまま）';},
+      s2r:function(c){return '運転スイッチ<b>開</b> → LED<b>'+c.openC+'</b>、駆動軸が'+(c.openSh==='cw'?'時計':'反時計')+'回りに回転してフィルムが<b>開きます</b>。'+c.openC+'の矢印はローラー側へ移動。';},
+      s2d:function(c,N){return '✅ <b>'+c.openC+'の突起</b>がローラーを押して<b>自動停止</b>。設定した<b>'+N+'回転</b>だけ開きました。';},
+      s3r:function(c){return '運転スイッチ<b>閉</b> → LED<b>'+c.closeC+'</b>、駆動軸が'+(c.closeSh==='cw'?'時計':'反時計')+'回りに回転してフィルムが<b>閉じます</b>。'+c.closeC+'の矢印がローラー側へ移動。';},
+      s3d:function(c){return '✅ <b>'+c.closeC+'の突起</b>がローラーを押して<b>自動停止</b>。開き回転数と<b>同じだけ</b>閉じました。';},
+      s4:'🎉 <b>設定完了！</b> 閉じは別途設定しなくても開いた分だけ自動で合います。設定後は必ず<b>安全カバーを閉じて</b>雨水の侵入を防いでください。'},
+    en:{red:'Red',green:'Green',cw:'clockwise',ccw:'counter-clockwise',cwS:'CW',ccwS:'CCW',
+      ledG:'Green on',ledR:'Red on',ledIdle:'Power idle',shCw:'↻ Clockwise',shCcw:'↺ CCW',shStop:'— Stopped',
+      polL:'Open polarity : Blue <b>＋</b> · Brown <b>－</b>',polR:'Open polarity : Brown <b>＋</b> · Blue <b>－</b>',
+      reset:'Both arrows are set to <b>0</b>. Both dial tabs press their rollers, so <b>it will not run even with DC24V</b> (safe).',
+      s1:function(c,N){return 'Press the <b>'+c.openC+'</b> knob and turn it <b>'+c.setDir+'</b> to set the arrow to <b>'+N+' turns</b>. (Leave the other dial at 0.)';},
+      s2r:function(c){return 'Switch to <b>Open</b> → LED <b>'+c.openC+'</b>; the shaft turns '+(c.openSh==='cw'?'clockwise':'counter-clockwise')+' and the film <b>opens</b>. The '+c.openC+' arrow moves toward its roller.';},
+      s2d:function(c,N){return '✅ The <b>'+c.openC+' tab</b> presses the roller → <b>auto-stop</b>. Opened by the set <b>'+N+' turns</b>.';},
+      s3r:function(c){return 'Switch to <b>Close</b> → LED <b>'+c.closeC+'</b>; the shaft turns '+(c.closeSh==='cw'?'clockwise':'counter-clockwise')+' and the film <b>closes</b>. The '+c.closeC+' arrow moves toward its roller.';},
+      s3d:function(c){return '✅ The <b>'+c.closeC+' tab</b> presses the roller → <b>auto-stop</b>. Closed by the same amount it opened.';},
+      s4:'🎉 <b>Done!</b> Closing needs no separate setting — it matches how far it opened. Always <b>close the safety cover</b> afterward to keep rain out.'}
+  };
+  var lastLED='', lastShaft='', curMsgFn=null;
+  function cfg(){var T=SIMT[lang()];
     return SIDE==='left'
-      ? {openDial:'green',openC:'녹색',closeC:'적색',openLED:'green',closeLED:'red',openSh:'cw',closeSh:'ccw',pol:'열림 극성 : 청색 <b>＋</b> · 갈색 <b>－</b>',setDir:'시계방향'}
-      : {openDial:'red',openC:'적색',closeC:'녹색',openLED:'red',closeLED:'green',openSh:'ccw',closeSh:'cw',pol:'열림 극성 : 갈색 <b>＋</b> · 청색 <b>－</b>',setDir:'반시계방향'};
+      ? {openDial:'green',openC:T.green,closeC:T.red,openLED:'green',closeLED:'red',openSh:'cw',closeSh:'ccw',pol:T.polL,setDir:T.cw}
+      : {openDial:'red',openC:T.red,closeC:T.green,openLED:'red',closeLED:'green',openSh:'ccw',closeSh:'cw',pol:T.polR,setDir:T.ccw};
   }
   function setPressed(n,on,c){n.setAttribute('fill',on?c:'#cfcfcf');n.setAttribute('stroke',on?c:'#999');}
   function angleOf(dl,off){return dl.roll+dl.dir*off*D;}
@@ -817,9 +886,11 @@
     if(openF>0.02){gapDim.setAttribute('opacity','1');gapLine.setAttribute('y1',rollY);gapLine.setAttribute('y2',FILM_BOT);gapTxt.setAttribute('y',(rollY+FILM_BOT)/2+3);}
     else gapDim.setAttribute('opacity','0');
   }
-  function setLED(c){led.className='led'+(c?' '+c:'');ledtxt.textContent=c==='green'?'녹색 점등':c==='red'?'적색 점등':'전원 대기';}
-  function setShaft(d){shaft.className='shaft'+(d?' '+d:'');shaft.textContent=d==='cw'?'↻ 시계방향':d==='ccw'?'↺ 반시계방향':'— 정지';}
-  function say(h){narr.innerHTML=h;}
+  function setLED(c){lastLED=c;var T=SIMT[lang()];led.className='led'+(c?' '+c:'');ledtxt.textContent=c==='green'?T.ledG:c==='red'?T.ledR:T.ledIdle;}
+  function setShaft(d){lastShaft=d;var T=SIMT[lang()];shaft.className='shaft'+(d?' '+d:'');shaft.textContent=d==='cw'?T.shCw:d==='ccw'?T.shCcw:T.shStop;}
+  function say(fn){curMsgFn=(typeof fn==='function')?fn:function(){return fn;};narr.innerHTML=curMsgFn();}
+  function relang(){polbar.innerHTML=cfg().pol;setDialLabel();setLED(lastLED);setShaft(lastShaft);if(curMsgFn)narr.innerHTML=curMsgFn();}
+  window.WSM_SIMRELANG=relang;
   function marks(){document.querySelectorAll('#steplist li').forEach(function(li){var s=+li.dataset.s;li.classList.toggle('on',s===step);li.classList.toggle('done',s<step);});}
   function setDialLabel(){document.querySelectorAll('#steplist .setdial').forEach(function(e){e.textContent=cfg().openC;});}
 
@@ -829,22 +900,22 @@
   function reset(){
     busy=false;step=0;N=+$('cnt').value;offG=0;offR=0;openF=0;
     setLED('');setShaft('');polbar.innerHTML=cfg().pol;setDialLabel();positionHouse(SIDE);
-    say('양쪽 화살표를 <b>0</b>에 맞춘 상태입니다. 이때는 두 다이얼의 돌기가 모두 롤러를 누르고 있어 <b>DC24V를 넣어도 작동하지 않습니다</b>(안전).');
+    say(function(){return SIMT[lang()].reset;});
     marks();render();updateBtns();
   }
   function doStep1(){var c=cfg();step=1;marks();setLED('');setShaft('');
-    say('<b>'+c.openC+'</b> 노브를 눌러 <b>'+c.setDir+'</b>으로 돌려 화살표를 <b>'+N+'회전</b> 눈금에 맞춥니다. (반대색 다이얼은 0 그대로)');
+    say(function(){return SIMT[lang()].s1(cfg(),N);});
     return c.openDial==='green'?tween(900,function(t){offG=ease(t)*N;}):tween(900,function(t){offR=ease(t)*N;});
   }
   function doStep2(){var c=cfg();step=2;marks();setLED(c.openLED);setShaft(c.openSh);
-    say('운전스위치 <b>열림</b> → LED <b>'+c.openC+'</b>, 구동축이 '+(c.openSh==='cw'?'시계':'반시계')+'방향으로 회전하며 필름이 <b>열립니다</b>. '+c.openC+' 화살표는 롤러 쪽으로 이동.');
-    return tween(2600,function(t){var e=ease(t);if(c.openDial==='green'){offG=N*(1-e);offR=N*e;}else{offR=N*(1-e);offG=N*e;}openF=e;}).then(function(){setShaft('');say('✅ <b>'+c.openC+' 돌기</b>가 롤러를 눌러 <b>자동 정지</b>. 설정한 <b>'+N+'회전</b>만큼 열렸습니다.');});
+    say(function(){return SIMT[lang()].s2r(cfg());});
+    return tween(2600,function(t){var e=ease(t);if(c.openDial==='green'){offG=N*(1-e);offR=N*e;}else{offR=N*(1-e);offG=N*e;}openF=e;}).then(function(){setShaft('');say(function(){return SIMT[lang()].s2d(cfg(),N);});});
   }
   function doStep3(){var c=cfg();step=3;marks();setLED(c.closeLED);setShaft(c.closeSh);
-    say('운전스위치 <b>닫힘</b> → LED <b>'+c.closeC+'</b>, 구동축이 '+(c.closeSh==='cw'?'시계':'반시계')+'방향으로 회전하며 필름이 <b>닫힙니다</b>. '+c.closeC+' 화살표가 롤러 쪽으로 이동.');
-    return tween(2600,function(t){var e=ease(t);if(c.openDial==='green'){offR=N*(1-e);offG=N*e;}else{offG=N*(1-e);offR=N*e;}openF=1-e;}).then(function(){setShaft('');setLED(c.closeLED);say('✅ <b>'+c.closeC+' 돌기</b>가 롤러를 눌러 <b>자동 정지</b>. 열림 회전수와 <b>똑같이</b> 닫혔습니다.');});
+    say(function(){return SIMT[lang()].s3r(cfg());});
+    return tween(2600,function(t){var e=ease(t);if(c.openDial==='green'){offR=N*(1-e);offG=N*e;}else{offG=N*(1-e);offR=N*e;}openF=1-e;}).then(function(){setShaft('');setLED(c.closeLED);say(function(){return SIMT[lang()].s3d(cfg());});});
   }
-  function doStep4(){step=4;marks();setLED('');setShaft('');say('🎉 <b>설정 완료!</b> 닫힘은 별도 설정 없이 열린 만큼 자동으로 맞춰집니다. 설정 후 반드시 <b>안전커버를 닫아</b> 빗물 유입을 막으세요.');}
+  function doStep4(){step=4;marks();setLED('');setShaft('');say(function(){return SIMT[lang()].s4;});}
   var steps=[null,doStep1,doStep2,doStep3,doStep4];
 
   function updateBtns(){$('cnt').disabled=busy||step>0;$('btnStep').disabled=busy||step>=4;$('btnPlay').disabled=busy;
@@ -908,8 +979,9 @@
   function applyLang(lang){
     collect();
     for(var i=0;i<store.length;i++){var e=store[i]; e.node.nodeValue=(lang==='ko')?e.ko:translate(e.ko,lang);}
-    curLang=lang;
+    curLang=lang; window.WSM_LANG=lang;
     try{localStorage.setItem('wsm-lang',lang);}catch(_){}
+    if(window.WSM_SIMRELANG) window.WSM_SIMRELANG();
     document.querySelectorAll('#langbar button').forEach(function(b){b.classList.toggle('on',b.dataset.lang===lang);});
   }
   var modal=document.getElementById('transModal'), msg=document.getElementById('transMsg'), ok=document.getElementById('transOk');
