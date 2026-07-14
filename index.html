@@ -216,6 +216,18 @@
     .toc{grid-template-columns:repeat(4,1fr)}
   }
 
+  /* ===== 언어 전환 ===== */
+  .langbar{display:flex;justify-content:center;gap:8px;margin:14px 18px 0}
+  .langbar button{border:1px solid var(--line);background:var(--card);color:var(--ink);
+    padding:9px 16px;border-radius:999px;font-weight:800;font-size:14px;cursor:pointer;box-shadow:var(--shadow)}
+  .langbar button.on{background:var(--red);color:#fff;border-color:var(--red)}
+  .modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;padding:24px}
+  .modal.show{display:flex}
+  .modal .box{background:var(--card);color:var(--ink);border-radius:16px;max-width:400px;padding:24px 22px;box-shadow:0 8px 30px rgba(0,0,0,.3);text-align:center}
+  .modal .box .ic{font-size:34px}
+  .modal .box p{font-size:15px;line-height:1.7;margin:12px 0 18px;color:var(--sub)}
+  .modal .box button{background:var(--red);color:#fff;border:0;padding:12px 28px;border-radius:10px;font-weight:800;font-size:15px;cursor:pointer}
+
   /* ===== 다크 테마 (data-theme=dark: 자동감지 또는 수동토글) ===== */
   html[data-theme="dark"]{--ink:#eaeaea;--sub:#a8a8a8;--line:#2c2c2e;--bg:#0f0f11;--card:#1a1a1d;color-scheme:dark}
   html[data-theme="dark"] table.spec th,html[data-theme="dark"] .perf .p .t,html[data-theme="dark"] .kvtbl th{background:#202024}
@@ -239,8 +251,8 @@
 
   <div class="appbar">
     <button id="homeBtn" class="abtn">☰ 목차</button>
-    <div class="abtitle" id="abTitle">WSM-4035</div>
-    <div class="abpage" id="abPage"></div>
+    <div class="abtitle" id="abTitle" data-notrans>WSM-4035</div>
+    <div class="abpage" id="abPage" data-notrans></div>
     <button id="themeBtn" class="abtn" aria-label="다크/라이트 전환">🌙</button>
   </div>
 
@@ -251,6 +263,11 @@
       <h1>전동개폐기 사용설명서</h1>
       <div class="model">모델 WSM-4035</div>
       <img class="coverimg" src="img/product_ln.png" alt="WSM-4035 전동개폐기">
+    </div>
+    <div class="langbar" id="langbar" data-notrans>
+      <button data-lang="ko" class="on">한국어</button>
+      <button data-lang="ja">日本語</button>
+      <button data-lang="en">English</button>
     </div>
     <div class="toc" id="toc"></div>
     <p class="note" style="text-align:center">원하는 항목을 눌러 이동하세요. 페이지는 <b>좌우로 밀거나(스와이프)</b> 아래 <b>이전/다음</b> 버튼으로 넘길 수 있습니다.</p>
@@ -509,7 +526,7 @@
       </div>
 
       <svg id="dials" viewBox="0 0 400 208" aria-label="리미트 다이얼"></svg>
-      <div id="narr" class="narr"></div>
+      <div id="narr" class="narr" data-notrans></div>
 
       <div class="ctrls">
         <label>열림 회전수 설정 : <span class="cntbadge"><b id="cntval">10</b>회전</span>
@@ -849,5 +866,127 @@
 })();
 </script>
 
+<div class="modal" id="transModal" data-notrans>
+  <div class="box">
+    <div class="ic">🌐</div>
+    <p id="transMsg"></p>
+    <button id="transOk">OK</button>
+  </div>
+</div>
+<script>
+/* ===== 다국어(한/일/영) 번역 ===== */
+(function(){
+  var TR={
+    "전동개폐기 사용설명서":{ja:"電動開閉機 取扱説明書",en:"Electric Roll-up Opener — Manual"},
+    "모델 WSM-4035":{ja:"モデル WSM-4035",en:"Model WSM-4035"},
+    "☰ 목차":{ja:"☰ 目次",en:"☰ Menu"},
+    "목차 홈":{ja:"目次ホーム",en:"Menu Home"},
+    "목차":{ja:"目次",en:"Menu"},
+    "안전 주의사항":{ja:"安全上のご注意",en:"Safety Precautions"},
+    "제품 사양·성능":{ja:"製品仕様・性能",en:"Specs & Performance"},
+    "각부 명칭":{ja:"各部の名称",en:"Part Names"},
+    "설치방법":{ja:"設置方法",en:"Installation"},
+    "전원·회전방향":{ja:"電源・回転方向",en:"Power & Rotation"},
+    "리미트 설정 원리":{ja:"リミット設定の原理",en:"Limit Setting Principle"},
+    "리미트 설정하기":{ja:"リミット設定の手順",en:"Setting the Limits"},
+    "전체 설명서(원본)":{ja:"説明書 全文（原本）",en:"Full Manual (Original)"},
+    "A/S·연락처":{ja:"アフターサービス・連絡先",en:"Service & Contact"},
+    "Ⅰ. 안전을 위한 주의사항":{ja:"Ⅰ. 安全上のご注意",en:"Ⅰ. Safety Precautions"},
+    "Ⅱ. 제품 사양 및 성능":{ja:"Ⅱ. 製品仕様および性能",en:"Ⅱ. Specifications & Performance"},
+    "Ⅲ. 각부 명칭":{ja:"Ⅲ. 各部の名称",en:"Ⅲ. Part Names"},
+    "Ⅳ. 설치방법":{ja:"Ⅳ. 設置方法",en:"Ⅳ. Installation"},
+    "Ⅴ. 전원 연결 · 회전방향":{ja:"Ⅴ. 電源接続・回転方向",en:"Ⅴ. Power Connection & Rotation"},
+    "Ⅵ. 리미트 설정부 알기":{ja:"Ⅵ. リミット設定部について",en:"Ⅵ. About the Limit Unit"},
+    "Ⅶ. 리미트 설정하기 (실습)":{ja:"Ⅶ. リミット設定（実習）",en:"Ⅶ. Setting the Limits (Interactive)"},
+    "전체 설명서 (원본)":{ja:"説明書 全文（原本）",en:"Full Manual (Original)"},
+    "A/S · 제품보증":{ja:"アフターサービス・製品保証",en:"Service & Warranty"},
+    "외부 명칭":{ja:"外部の名称",en:"External Parts"},
+    "기본 제공 부품":{ja:"標準付属部品",en:"Included Parts"},
+    "성능 데이터":{ja:"性能データ",en:"Performance Data"},
+    "취급 시 주의사항":{ja:"取り扱い上の注意",en:"Handling Precautions"},
+    "⚠️ 경고":{ja:"⚠️ 警告",en:"⚠️ Warning"},
+    "⚠️ 주의":{ja:"⚠️ 注意",en:"⚠️ Caution"},
+    "입력전압":{ja:"入力電圧",en:"Input voltage"},
+    "감속비":{ja:"減速比",en:"Reduction ratio"},
+    "감속방식":{ja:"減速方式",en:"Reduction type"},
+    "제동기능":{ja:"制動機能",en:"Braking"},
+    "회전방향":{ja:"回転方向",en:"Rotation"},
+    "리미트 방식":{ja:"リミット方式",en:"Limit method"},
+    "리미트 설정":{ja:"リミット設定",en:"Limit setting"},
+    "밀폐 상태":{ja:"密閉状態",en:"Sealing"},
+    "통기 방식":{ja:"通気方式",en:"Ventilation"},
+    "몸체 / 기어":{ja:"本体 / ギア",en:"Body / Gear"},
+    "외관도장":{ja:"外観塗装",en:"Coating"},
+    "전원표시":{ja:"電源表示",en:"Power indicator"},
+    "전원공급선":{ja:"電源供給線",en:"Power cable"},
+    "무게(본체)":{ja:"重量(本体)",en:"Weight (body)"},
+    "무부하":{ja:"無負荷",en:"No load"},
+    "표준사용 ★":{ja:"標準使用 ★",en:"Standard ★"},
+    "최대허용":{ja:"最大許容",en:"Max allowed"},
+    "토크":{ja:"トルク",en:"Torque"},
+    "제조사":{ja:"製造元",en:"Manufacturer"},
+    "주소":{ja:"住所",en:"Address"},
+    "품질보증기간":{ja:"品質保証期間",en:"Warranty period"},
+    "부품보유기간":{ja:"部品保有期間",en:"Parts retention"},
+    "홈페이지":{ja:"ホームページ",en:"Website"},
+    "구입일로부터 1년":{ja:"ご購入日から1年",en:"1 year from purchase"},
+    "제조사 · A/S":{ja:"製造元・アフターサービス",en:"Manufacturer & Service"},
+    "좌측용":{ja:"左側用",en:"Left type"},
+    "우측용":{ja:"右側用",en:"Right type"},
+    "▶ 자동 시연":{ja:"▶ 自動デモ",en:"▶ Auto demo"},
+    "다음 단계 ▶":{ja:"次のステップ ▶",en:"Next step ▶"},
+    "↻ 처음으로":{ja:"↻ 最初へ",en:"↻ Reset"},
+    "적색 다이얼":{ja:"赤ダイヤル",en:"Red dial"},
+    "녹색 다이얼":{ja:"緑ダイヤル",en:"Green dial"},
+    "교류(AC) 전기에 연결하지 마십시오.":{ja:"交流(AC)電源に接続しないでください。",en:"Do not connect to AC power."},
+    "DC 24V 전용":{ja:"DC 24V専用",en:"DC 24V only"},
+    "📄 PDF 원본 다운로드 (20p · 4.5MB)":{ja:"📄 PDF原本ダウンロード (20p · 4.5MB)",en:"📄 Download PDF (20p · 4.5MB)"},
+    "📞 전화 상담 · 055-365-8801":{ja:"📞 電話相談 · 055-365-8801",en:"📞 Call · 055-365-8801"}
+  };
+  var MSG={
+    ja:{d:"このページはAI（人工知能）による翻訳です。誤訳が含まれる場合がございますが、あらかじめご了承のうえご覧いただけますと幸いです。",ok:"確認しました"},
+    en:{d:"This page has been translated by AI. Some parts may be mistranslated, so we kindly ask for your understanding. Thank you.",ok:"OK"}
+  };
+  var SKIP={SCRIPT:1,STYLE:1,NOSCRIPT:1};
+  var store=[], collected=false, curLang='ko', keys=null;
+  function getKeys(){ if(!keys) keys=Object.keys(TR).sort(function(a,b){return b.length-a.length;}); return keys; }
+  function collect(){
+    if(collected) return;
+    var tw=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+      if(!n.nodeValue||!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      var p=n.parentNode;
+      while(p&&p.nodeType===1){
+        if(SKIP[p.tagName]) return NodeFilter.FILTER_REJECT;
+        if(p.namespaceURI&&p.namespaceURI.indexOf('svg')>-1) return NodeFilter.FILTER_REJECT;
+        if(p.hasAttribute&&p.hasAttribute('data-notrans')) return NodeFilter.FILTER_REJECT;
+        p=p.parentNode;
+      }
+      return NodeFilter.FILTER_ACCEPT;
+    }});
+    var n; while(n=tw.nextNode()) store.push({node:n,ko:n.nodeValue});
+    collected=true;
+  }
+  function translate(ko,lang){
+    var s=ko, ks=getKeys();
+    for(var i=0;i<ks.length;i++){var k=ks[i]; if(s.indexOf(k)>-1){var v=TR[k][lang]; if(v!=null) s=s.split(k).join(v);}}
+    return s;
+  }
+  function applyLang(lang){
+    collect();
+    for(var i=0;i<store.length;i++){var e=store[i]; e.node.nodeValue=(lang==='ko')?e.ko:translate(e.ko,lang);}
+    curLang=lang;
+    try{localStorage.setItem('wsm-lang',lang);}catch(_){}
+    document.querySelectorAll('#langbar button').forEach(function(b){b.classList.toggle('on',b.dataset.lang===lang);});
+  }
+  var modal=document.getElementById('transModal'), msg=document.getElementById('transMsg'), ok=document.getElementById('transOk');
+  function showModal(lang){ if(!MSG[lang])return; msg.textContent=MSG[lang].d; ok.textContent=MSG[lang].ok; modal.classList.add('show'); }
+  ok.addEventListener('click',function(){modal.classList.remove('show');});
+  modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('show');});
+  function setLang(lang){ if(lang===curLang)return; applyLang(lang); if(lang!=='ko') showModal(lang); }
+  document.querySelectorAll('#langbar button').forEach(function(b){ b.addEventListener('click',function(){ setLang(b.dataset.lang); }); });
+  // 저장된 언어 복원
+  try{var saved=localStorage.getItem('wsm-lang'); if(saved==='ja'||saved==='en') applyLang(saved);}catch(_){}
+})();
+</script>
 </body>
 </html>
