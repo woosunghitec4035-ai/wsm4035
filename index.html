@@ -309,7 +309,8 @@
 (function(){
   var PW='6035';
   var gate=document.getElementById('gate'), notice=document.getElementById('notice');
-  var authed=false; try{authed=localStorage.getItem('wsm-auth')==='1';}catch(e){}
+  try{localStorage.removeItem('wsm-auth');}catch(e){} /* 이전 영구저장 정리 */
+  var authed=false; try{authed=sessionStorage.getItem('wsm-auth')==='1';}catch(e){}
   function showNoticeMaybe(){
     var seen=false; try{seen=sessionStorage.getItem('wsm-notice')==='1';}catch(e){}
     if(!seen){ notice.classList.add('show'); document.body.classList.add('locked'); }
@@ -321,7 +322,7 @@
   var pw=document.getElementById('gpw'), btn=document.getElementById('gbtn'), err=document.getElementById('gerr');
   function submit(){
     if((pw.value||'').trim()===PW){
-      try{localStorage.setItem('wsm-auth','1');}catch(e){}
+      try{sessionStorage.setItem('wsm-auth','1');}catch(e){}
       openManual();
     }else{
       err.textContent='비밀번호가 올바르지 않습니다.';
