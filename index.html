@@ -247,6 +247,33 @@
   html[data-theme="dark"] .sim .houseFill{fill:#16161a}
   /* 다크: 라인아트는 밝은선 버전(JS로 src 교체)이라 흰 배경 제거 */
   html[data-theme="dark"] .figbox img.lineart{background:transparent}
+
+  /* ===== 비밀번호 게이트 · 배포금지 안내 ===== */
+  body.locked{overflow:hidden}
+  #gate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,var(--red),var(--red-d));
+    display:flex;align-items:center;justify-content:center;padding:24px}
+  #gate .gbox{background:#fff;border-radius:18px;padding:30px 22px;max-width:340px;width:100%;text-align:center;box-shadow:0 14px 44px rgba(0,0,0,.35)}
+  #gate .glogo{font-size:13px;font-weight:800;color:var(--red);letter-spacing:1px}
+  #gate .gtitle{font-size:20px;font-weight:800;margin:6px 0 16px;color:#1a1a1a}
+  #gate .gdesc{font-size:14px;color:#555;margin-bottom:16px;line-height:1.55}
+  #gate .gdesc span{display:block;font-size:12px;color:#9a9a9a;margin-top:3px}
+  #gate input{width:100%;font-size:22px;text-align:center;letter-spacing:8px;padding:12px;border:2px solid var(--line);border-radius:10px;margin-bottom:10px;outline:none}
+  #gate input:focus{border-color:var(--red)}
+  #gate button{width:100%;background:var(--red);color:#fff;border:0;padding:13px;border-radius:10px;font-size:16px;font-weight:800;cursor:pointer}
+  #gate .gerr{color:var(--red);font-size:13px;font-weight:700;margin-top:10px;min-height:16px}
+  #notice{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:24px}
+  #notice.show{display:flex}
+  #notice .nbox{background:#fff;border-radius:16px;padding:26px 22px;max-width:370px;width:100%;text-align:center;box-shadow:0 14px 44px rgba(0,0,0,.35)}
+  #notice .nic{font-size:36px;line-height:1}
+  #notice .ntitle{font-size:18px;font-weight:800;margin:8px 0 12px;color:var(--red)}
+  #notice .ntext{font-size:14px;color:#333;line-height:1.65}
+  #notice .ntext b{color:var(--red)}
+  #notice .nsub{display:block;margin-top:12px;font-size:11.5px;color:#8a8a8a;line-height:1.45}
+  #notice button{margin-top:20px;width:100%;background:#1a1a1a;color:#fff;border:0;padding:12px;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer}
+  html[data-theme="dark"] #gate .gbox,html[data-theme="dark"] #notice .nbox{background:#1a1a1d}
+  html[data-theme="dark"] #gate .gtitle{color:#eee}
+  html[data-theme="dark"] #notice .ntext{color:#ddd}
+  html[data-theme="dark"] #gate input{background:#0f0f11;color:#eee;border-color:#2c2c2e}
 </style>
 <script>
 /* 렌더 전 테마 적용(깜빡임 방지) */
@@ -254,6 +281,60 @@
 </script>
 </head>
 <body>
+<!-- ===== 비밀번호 게이트 ===== -->
+<div id="gate">
+  <div class="gbox">
+    <div class="glogo">◤ 롤업스타 · WSM-4035</div>
+    <div class="gtitle">전동개폐기 사용설명서</div>
+    <div class="gdesc">열람하려면 비밀번호를 입력하세요.
+      <span>Enter password to view · パスワードを入力</span></div>
+    <input id="gpw" type="password" inputmode="numeric" maxlength="8" placeholder="비밀번호" autocomplete="off" aria-label="비밀번호">
+    <button id="gbtn" type="button">확인</button>
+    <div id="gerr" class="gerr"></div>
+  </div>
+</div>
+<!-- ===== 배포금지 안내 ===== -->
+<div id="notice">
+  <div class="nbox">
+    <div class="nic">⚠️</div>
+    <div class="ntitle">배포 금지 안내</div>
+    <div class="ntext">본 자료는 <b>(주)우성하이텍</b>의 자산입니다.<br>
+      무단 <b>복제·배포·전송·게시</b>를 금지하며, 허가 없이 외부로 공유할 수 없습니다.<br>
+      승인된 사용자 열람용으로만 제공됩니다.
+      <span class="nsub">This manual is proprietary to Woosung Hitec (WSH).<br>Unauthorized copying, distribution or posting is prohibited.</span></div>
+    <button id="nbtn" type="button">확인했습니다</button>
+  </div>
+</div>
+<script>
+(function(){
+  var PW='6035';
+  var gate=document.getElementById('gate'), notice=document.getElementById('notice');
+  var authed=false; try{authed=localStorage.getItem('wsm-auth')==='1';}catch(e){}
+  function showNoticeMaybe(){
+    var seen=false; try{seen=sessionStorage.getItem('wsm-notice')==='1';}catch(e){}
+    if(!seen){ notice.classList.add('show'); document.body.classList.add('locked'); }
+    else{ document.body.classList.remove('locked'); }
+  }
+  function openManual(){ gate.style.display='none'; showNoticeMaybe(); }
+  if(authed){ openManual(); }
+  else{ document.body.classList.add('locked'); }
+  var pw=document.getElementById('gpw'), btn=document.getElementById('gbtn'), err=document.getElementById('gerr');
+  function submit(){
+    if((pw.value||'').trim()===PW){
+      try{localStorage.setItem('wsm-auth','1');}catch(e){}
+      openManual();
+    }else{
+      err.textContent='비밀번호가 올바르지 않습니다.';
+      pw.value=''; pw.focus();
+    }
+  }
+  if(btn) btn.addEventListener('click',submit);
+  if(pw) pw.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); submit(); } });
+  var nbtn=document.getElementById('nbtn');
+  if(nbtn) nbtn.addEventListener('click',function(){ notice.classList.remove('show'); document.body.classList.remove('locked'); try{sessionStorage.setItem('wsm-notice','1');}catch(e){} });
+  if(!authed && pw){ setTimeout(function(){ try{pw.focus();}catch(e){} },120); }
+})();
+</script>
 <aside id="sidebar" class="sidebar"></aside>
 <div class="wrap">
 
