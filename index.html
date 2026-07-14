@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -247,6 +247,11 @@
   html[data-theme="dark"] .sim .houseFill{fill:#16161a}
   /* 다크: 라인아트는 밝은선 버전(JS로 src 교체)이라 흰 배경 제거 */
   html[data-theme="dark"] .figbox img.lineart{background:transparent}
+
+  /* 한국어에서는 그림 속 명칭 마커·범례 숨김 (원본 라벨이 이미 한글) */
+  html[data-lang="ko"] .partfig .mk{display:none}
+  html[data-lang="ko"] .imgleg-t,
+  html[data-lang="ko"] .imgleg{display:none}
 
   /* ===== 비밀번호 게이트 · 배포금지 안내 ===== */
   body.locked{overflow:hidden}
@@ -1111,6 +1116,7 @@
     collect();
     for(var i=0;i<store.length;i++){var e=store[i]; e.node.nodeValue=(lang==='ko')?e.ko:translate(e.ko,lang);}
     curLang=lang; window.WSM_LANG=lang;
+    document.documentElement.setAttribute('data-lang',lang);
     try{localStorage.setItem('wsm-lang',lang);}catch(_){}
     if(window.WSM_SIMRELANG) window.WSM_SIMRELANG();
     document.querySelectorAll('#langbar button').forEach(function(b){b.classList.toggle('on',b.dataset.lang===lang);});
