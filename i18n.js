@@ -259,7 +259,7 @@ window.WSM_TR = {
   "리미트 설정부 명칭 · 적색·녹색 다이얼 / 화살표·설정노브·회전수 눈금":{ja:"リミット設定部の名称 · 赤・緑ダイヤル / 矢印・設定ノブ・回転数目盛",en:"Limit unit parts · red/green dials / arrow, knob, turn scale"},
   "리미트를 설정하는 목적":{ja:"リミットを設定する目的",en:"Why set the limits"},
   "피복재가 열리고 닫히는 총 범위를":{ja:"被覆材が開閉する総範囲を",en:"The full range the film opens/closes is the"},
-  "개폐 폭":{ja:"開閉幅",en:"open/close width"},
+  "개폐 폭":{ja:"開閉幅",en:"Open width"},
   "이라 하며, 상단 정지 위치를":{ja:"といい、上端の停止位置を",en:"; the top stop point is the"},
   "열림 한계점":{ja:"開き限界点",en:"open limit"},
   ", 하단 정지 위치를":{ja:"、下端の停止位置を",en:", the bottom stop point is the"},

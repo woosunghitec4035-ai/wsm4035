@@ -892,7 +892,6 @@
       var p=n.parentNode;
       while(p&&p.nodeType===1){
         if(SKIP[p.tagName]) return NodeFilter.FILTER_REJECT;
-        if(p.namespaceURI&&p.namespaceURI.indexOf('svg')>-1) return NodeFilter.FILTER_REJECT;
         if(p.hasAttribute&&p.hasAttribute('data-notrans')) return NodeFilter.FILTER_REJECT;
         p=p.parentNode;
       }
