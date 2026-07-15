@@ -269,9 +269,11 @@
   #gate input:focus{border-color:var(--red)}
   #gate button{width:100%;background:var(--red);color:#fff;border:0;padding:13px;border-radius:10px;font-size:16px;font-weight:800;cursor:pointer}
   #gate .gerr{color:var(--red);font-size:13px;font-weight:700;margin-top:10px;min-height:16px}
-  #notice{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:24px}
+  #notice{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;
+    padding:20px;overflow-y:auto;-webkit-overflow-scrolling:touch}
   #notice.show{display:flex}
-  #notice .nbox{background:#fff;border-radius:16px;padding:26px 22px;max-width:370px;width:100%;text-align:center;box-shadow:0 14px 44px rgba(0,0,0,.35)}
+  #notice .nbox{background:#fff;border-radius:16px;padding:24px 22px;max-width:370px;width:100%;text-align:center;box-shadow:0 14px 44px rgba(0,0,0,.35);
+    margin:auto;max-height:calc(100vh - 40px);max-height:calc(100dvh - 40px);overflow-y:auto}
   #notice .nic{font-size:36px;line-height:1}
   #notice .ntitle{font-size:18px;font-weight:800;margin:8px 0 12px;color:var(--red)}
   #notice .ntext{font-size:14px;color:#333;line-height:1.65}
