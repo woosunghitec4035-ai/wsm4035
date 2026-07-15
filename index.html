@@ -1132,8 +1132,8 @@
   modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('show');});
   function setLang(lang){ if(lang===curLang)return; applyLang(lang); if(lang!=='ko') showModal(lang); }
   document.querySelectorAll('#langbar button').forEach(function(b){ b.addEventListener('click',function(){ setLang(b.dataset.lang); }); });
-  // 저장된 언어 복원
-  try{var saved=localStorage.getItem('wsm-lang'); if(saved==='ja'||saved==='en') applyLang(saved);}catch(_){}
+  // 항상 한국어로 시작 (언어 선택은 세션 내에서만 · 저장 복원 안 함, 옛 저장값 정리)
+  try{localStorage.removeItem('wsm-lang');}catch(_){}
 })();
 </script>
 </body>
