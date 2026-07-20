@@ -436,5 +436,10 @@ window.WSM_TR = {
   "롤러":{ja:"ローラー",en:"Roller"},
   "비닐 피복재":{ja:"ビニール被覆材",en:"Vinyl covering film"},
   "로프":{ja:"ロープ",en:"Rope"},
-  "고정기둥":{ja:"固定支柱",en:"Fixed post"}
+  "고정기둥":{ja:"固定支柱",en:"Fixed post"},
+  // 편리부품 그림 캡션
+  "가이드 롤러 세트 (본 제품 전용 · 궤도 25∅)":{ja:"ガイドローラーセット（本製品専用・軌道25∅）",en:"Guide-roller set (product-specific · 25∅ track)"},
+  "가이드 롤러 세트 (범용 · 궤도 25∅)":{ja:"ガイドローラーセット（汎用・軌道25∅）",en:"Guide-roller set (universal · 25∅ track)"},
+  "전선연결부 보호함 & 클립 세트":{ja:"配線接続部 保護ケース＆クリップセット",en:"Wire-junction protector & clip set"},
+  "비닐보호 튜브 (내경 25∅ · 22∅)":{ja:"ビニール保護チューブ（内径25∅・22∅）",en:"Vinyl protective tube (ID 25∅ · 22∅)"}
 };
