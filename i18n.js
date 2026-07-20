@@ -439,6 +439,13 @@ window.WSM_TR = {
   "비닐 피복재":{ja:"ビニール被覆材",en:"Vinyl covering film"},
   "로프":{ja:"ロープ",en:"Rope"},
   "고정기둥":{ja:"固定支柱",en:"Fixed post"},
+  "그림":{ja:"図",en:"Fig."},
+  "리미트 설정부 명칭 (그림5-2)":{ja:"リミット設定部の名称（図5-2）",en:"Limit unit parts (Fig.5-2)"},
+  "전동개폐기 외부 명칭 (그림2-1)":{ja:"電動開閉機 外部の名称（図2-1）",en:"External parts of the opener (Fig.2-1)"},
+  // 부품 그림 캡션
+  "기본 제공 부품 · ① 개폐 축 커플링 세트(황색도금) / ② 가이드 암 커플링 세트(은회색도금) / ③ 가이드 암 선회 축 부품":{ja:"標準付属部品 · ① 開閉軸カップリングセット（黄色メッキ） / ② ガイドアームカップリングセット（銀灰色メッキ） / ③ ガイドアーム旋回軸部品",en:"Included parts · ① Shaft coupling set (yellow plated) / ② Guide-arm coupling set (silver-gray plated) / ③ Guide-arm pivot parts"},
+  "편리부품(별도판매) · 가이드 롤러 세트(본 제품 전용 / 범용, 궤도 25∅) / 전선연결부 보호함 & 클립 세트 / 비닐보호 튜브(내경 25∅·22∅)":{ja:"便利部品（別売） · ガイドローラーセット（本製品専用 / 汎用、軌道25∅） / 配線接続部 保護ケース＆クリップセット / ビニール保護チューブ（内径25∅・22∅）",en:"Optional parts · Guide-roller set (product-specific / universal, 25∅ track) / Wire-junction protector & clip set / Vinyl protective tube (ID 25∅·22∅)"},
+  "편리부품 (별도판매)":{ja:"便利部品（別売）",en:"Optional parts (sold separately)"},
   // 편리부품 그림 캡션
   "가이드 롤러 세트 (본 제품 전용 · 궤도 25∅)":{ja:"ガイドローラーセット（本製品専用・軌道25∅）",en:"Guide-roller set (product-specific · 25∅ track)"},
   "가이드 롤러 세트 (범용 · 궤도 25∅)":{ja:"ガイドローラーセット（汎用・軌道25∅）",en:"Guide-roller set (universal · 25∅ track)"},

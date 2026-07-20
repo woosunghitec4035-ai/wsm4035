@@ -127,8 +127,6 @@
   .proc li::before{content:counter(p);position:absolute;left:0;top:9px;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
   .bullet{margin:8px 0;padding-left:20px}
   .bullet li{margin:6px 0;font-size:14.5px}
-  /* 부품 그림: 작게 가운데 정렬 */
-  .figbox.figkit{max-width:290px;margin:10px auto}
   /* 그림 속 번호 ①②③ 와 1:1 매칭되는 구성품 목록 */
   .numlist{margin:8px 0 0;padding:0;list-style:none;counter-reset:nl}
   .numlist li{position:relative;padding-left:25px;margin:6px 0;font-size:14.5px;counter-increment:nl;line-height:1.5}
@@ -492,16 +490,16 @@
       <li>리미트 설정 노브 (적색)</li>
     </ul>
 
-    <details class="acc"><summary>기본 제공 부품</summary><div class="accbody">
-      <div class="subh2" style="margin-top:8px">① 개폐 축 커플링 세트 (황색도금)</div>
-      <figure class="figbox figkit"><img class="lineart" src="img/kit1.png" data-dark="img/kit1_dark.png" alt="개폐 축 커플링 세트 구성품" loading="lazy"></figure>
+    <div class="subh">기본 제공 부품</div>
+    <figure class="figbox"><img class="lineart" src="img/parts_basic.png" data-dark="img/parts_basic_dark.png" alt="기본 제공 부품" loading="lazy"><figcaption>기본 제공 부품 · ① 개폐 축 커플링 세트(황색도금) / ② 가이드 암 커플링 세트(은회색도금) / ③ 가이드 암 선회 축 부품</figcaption></figure>
+    <div class="card">
+      <div class="subh2" style="margin-top:0">① 개폐 축 커플링 세트 (황색도금)</div>
       <ul class="numlist">
         <li>커플링 1개 (25∅용)</li>
         <li>커플링 고정볼트 1개 (M8×16mm)</li>
         <li>개폐 축 고정볼트 2개 (M8×16mm)</li>
       </ul>
       <div class="subh2">② 가이드 암 커플링 세트 (은회색도금)</div>
-      <figure class="figbox figkit"><img class="lineart" src="img/kit2.png" data-dark="img/kit2_dark.png" alt="가이드 암 커플링 세트 구성품" loading="lazy"></figure>
       <ul class="numlist">
         <li>커플링 1개 (25∅용)</li>
         <li>볼트 1개 (M6×55mm)</li>
@@ -509,22 +507,15 @@
         <li>볼트 1개 (M8×16mm)</li>
       </ul>
       <div class="subh2">③ 가이드 암 선회 축 부품</div>
-      <figure class="figbox figkit"><img class="lineart" src="img/kit3.png" data-dark="img/kit3_dark.png" alt="가이드 암 선회 축 부품 구성품" loading="lazy"></figure>
       <ul class="numlist">
         <li>선회 축 고정 홀더</li>
         <li>선회 축 볼트(너트 포함)</li>
         <li>가이드 암 핀 (19∅용)</li>
       </ul>
-    </div></details>
-    <details class="acc"><summary>편리부품(별도판매)</summary><div class="accbody">
-    <div class="tipbox">🛒 — 가이드 롤러 세트(본 제품 전용 / 범용, 궤도 25∅), 전선연결부 보호함 &amp; 클립 세트, 비닐보호 튜브(내경 25∅·22∅). 제품과 함께 제공되지 않습니다.</div>
-    <div class="figrow">
-      <figure class="figbox"><img class="lineart" src="img/opt1.png" data-dark="img/opt1_dark.png" alt="가이드 롤러 세트 본 제품 전용" loading="lazy"><figcaption>가이드 롤러 세트 (본 제품 전용 · 궤도 25∅)</figcaption></figure>
-      <figure class="figbox"><img class="lineart" src="img/opt2.png" data-dark="img/opt2_dark.png" alt="가이드 롤러 세트 범용" loading="lazy"><figcaption>가이드 롤러 세트 (범용 · 궤도 25∅)</figcaption></figure>
-      <figure class="figbox"><img class="lineart" src="img/opt3.png" data-dark="img/opt3_dark.png" alt="전선연결부 보호함 및 클립 세트" loading="lazy"><figcaption>전선연결부 보호함 &amp; 클립 세트</figcaption></figure>
-      <figure class="figbox"><img class="lineart" src="img/opt4.png" data-dark="img/opt4_dark.png" alt="비닐보호 튜브" loading="lazy"><figcaption>비닐보호 튜브 (내경 25∅ · 22∅)</figcaption></figure>
     </div>
-    </div></details>
+    <div class="subh">편리부품 (별도판매)</div>
+    <figure class="figbox"><img class="lineart" src="img/parts_conv.png" data-dark="img/parts_conv_dark.png" alt="편리부품 (별도판매)" loading="lazy"><figcaption>편리부품(별도판매) · 가이드 롤러 세트(본 제품 전용 / 범용, 궤도 25∅) / 전선연결부 보호함 &amp; 클립 세트 / 비닐보호 튜브(내경 25∅·22∅)</figcaption></figure>
+    <div class="tipbox">🛒 <b>편리부품(별도판매)</b> — 가이드 롤러 세트(본 제품 전용 / 범용, 궤도 25∅), 전선연결부 보호함 &amp; 클립 세트, 비닐보호 튜브(내경 25∅·22∅). 제품과 함께 제공되지 않습니다.</div>
   </section>
 
   <!-- ===== 4. 설치 ===== -->
