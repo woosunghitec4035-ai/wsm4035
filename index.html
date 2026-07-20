@@ -127,6 +127,13 @@
   .proc li::before{content:counter(p);position:absolute;left:0;top:9px;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center}
   .bullet{margin:8px 0;padding-left:20px}
   .bullet li{margin:6px 0;font-size:14.5px}
+  /* 부품 그림: 작게 가운데 정렬 */
+  .figbox.figkit{max-width:290px;margin:10px auto}
+  /* 그림 속 번호 ①②③ 와 1:1 매칭되는 구성품 목록 */
+  .numlist{margin:8px 0 0;padding:0;list-style:none;counter-reset:nl}
+  .numlist li{position:relative;padding-left:25px;margin:6px 0;font-size:14.5px;counter-increment:nl;line-height:1.5}
+  .numlist li::before{content:counter(nl);position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:50%;
+    background:var(--red);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;line-height:1}
   .kvtbl{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}
   .kvtbl th,.kvtbl td{border:1px solid var(--line);padding:8px 9px;text-align:center}
   .kvtbl th{background:#fafafa;color:var(--sub);font-weight:700}
@@ -488,22 +495,23 @@
     <div class="subh">기본 제공 부품</div>
     <div class="card">
       <div class="subh2" style="margin-top:0">① 개폐 축 커플링 세트 (황색도금)</div>
-      <figure class="figbox"><img class="lineart" src="img/kit1.png" data-dark="img/kit1_dark.png" alt="개폐 축 커플링 세트 구성품" loading="lazy"></figure>
-      <ul class="bullet" style="margin-top:2px">
+      <figure class="figbox figkit"><img class="lineart" src="img/kit1.png" data-dark="img/kit1_dark.png" alt="개폐 축 커플링 세트 구성품" loading="lazy"></figure>
+      <ul class="numlist">
         <li>커플링 1개 (25∅용)</li>
         <li>커플링 고정볼트 1개 (M8×16mm)</li>
         <li>개폐 축 고정볼트 2개 (M8×16mm)</li>
       </ul>
       <div class="subh2">② 가이드 암 커플링 세트 (은회색도금)</div>
-      <figure class="figbox"><img class="lineart" src="img/kit2.png" data-dark="img/kit2_dark.png" alt="가이드 암 커플링 세트 구성품" loading="lazy"></figure>
-      <ul class="bullet" style="margin-top:2px">
+      <figure class="figbox figkit"><img class="lineart" src="img/kit2.png" data-dark="img/kit2_dark.png" alt="가이드 암 커플링 세트 구성품" loading="lazy"></figure>
+      <ul class="numlist">
         <li>커플링 1개 (25∅용)</li>
-        <li>볼트 1개 (M6×55mm) / 너트 1개 (M6mm)</li>
+        <li>볼트 1개 (M6×55mm)</li>
+        <li>너트 1개 (M6mm)</li>
         <li>볼트 1개 (M8×16mm)</li>
       </ul>
       <div class="subh2">③ 가이드 암 선회 축 부품</div>
-      <figure class="figbox"><img class="lineart" src="img/kit3.png" data-dark="img/kit3_dark.png" alt="가이드 암 선회 축 부품 구성품" loading="lazy"></figure>
-      <ul class="bullet" style="margin-top:2px">
+      <figure class="figbox figkit"><img class="lineart" src="img/kit3.png" data-dark="img/kit3_dark.png" alt="가이드 암 선회 축 부품 구성품" loading="lazy"></figure>
+      <ul class="numlist">
         <li>선회 축 고정 홀더</li>
         <li>선회 축 볼트(너트 포함)</li>
         <li>가이드 암 핀 (19∅용)</li>

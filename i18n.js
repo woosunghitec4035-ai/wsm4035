@@ -157,6 +157,8 @@ window.WSM_TR = {
   "개폐 축 고정볼트 2개 (M8×16mm)":{ja:"開閉軸固定ボルト 2個（M8×16mm）",en:"Shaft bolts ×2 (M8×16mm)"},
   "② 가이드 암 커플링 세트 (은회색도금)":{ja:"② ガイドアームカップリングセット（銀灰色メッキ）",en:"② Guide-arm coupling set (silver-gray plated)"},
   "볼트 1개 (M6×55mm) / 너트 1개 (M6mm)":{ja:"ボルト 1個（M6×55mm） / ナット 1個（M6mm）",en:"Bolt ×1 (M6×55mm) / Nut ×1 (M6mm)"},
+  "볼트 1개 (M6×55mm)":{ja:"ボルト 1個（M6×55mm）",en:"Bolt ×1 (M6×55mm)"},
+  "너트 1개 (M6mm)":{ja:"ナット 1個（M6mm）",en:"Nut ×1 (M6mm)"},
   "볼트 1개 (M8×16mm)":{ja:"ボルト 1個（M8×16mm）",en:"Bolt ×1 (M8×16mm)"},
   "③ 가이드 암 선회 축 부품":{ja:"③ ガイドアーム旋回軸 部品",en:"③ Guide-arm pivot parts"},
   "선회 축 고정 홀더":{ja:"旋回軸 固定ホルダー",en:"Pivot holder"},
