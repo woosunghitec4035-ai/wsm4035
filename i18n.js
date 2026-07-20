@@ -443,7 +443,7 @@ window.WSM_TR = {
   "리미트 설정부 명칭 (그림5-2)":{ja:"リミット設定部の名称（図5-2）",en:"Limit unit parts (Fig.5-2)"},
   "전동개폐기 외부 명칭 (그림2-1)":{ja:"電動開閉機 外部の名称（図2-1）",en:"External parts of the opener (Fig.2-1)"},
   "편리부품 (별도판매)":{ja:"便利部品（別売）",en:"Optional parts (sold separately)"},
-  "왼쪽부터":{ja:"左から",en:"From left"},
+  "편리부품은 별도판매이며 제품과 함께 제공되지 않습니다.":{ja:"便利部品は別売で、製品には付属しません。",en:"Optional parts are sold separately and are not included with the product."},
   // 편리부품 그림 캡션
   "가이드 롤러 세트 (본 제품 전용 · 궤도 25∅)":{ja:"ガイドローラーセット（本製品専用・軌道25∅）",en:"Guide-roller set (product-specific · 25∅ track)"},
   "가이드 롤러 세트 (범용 · 궤도 25∅)":{ja:"ガイドローラーセット（汎用・軌道25∅）",en:"Guide-roller set (universal · 25∅ track)"},
