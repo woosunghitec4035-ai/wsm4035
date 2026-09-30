@@ -3387,7 +3387,7 @@
   ];
   var SIDE_LABEL_BOXES=[],SIDE_UPRIGHT_LABEL_PATCHES=[];
   function updateSideLabelLayout(){
-    var frontWidth=frontHouse&&frontHouse.getBoundingClientRect().width||0,sideWidth=sideHouse&&sideHouse.getBoundingClientRect().width||0;
+    var frontWidth=frontHouse&&frontHouse.clientWidth||0,sideWidth=sideHouse&&sideHouse.clientWidth||0;
     var scale=frontWidth>0&&sideWidth>0?(frontWidth/1320)/(sideWidth/1221):(1221/1320);
     SIDE_LABEL_BOXES=SIDE_LABEL_SOURCES.map(function(source){var w=Math.round(source.sw*scale),h=Math.round(source.sh*scale);return {text:source.text,asset:source.asset,file:source.file,sw:source.sw,sh:source.sh,x:source.cx,y:Math.round(source.cy-h/2),cy:source.cy,w:w,h:h};});
     SIDE_UPRIGHT_LABEL_PATCHES=SIDE_LABEL_BOXES.map(function(box){return {x:box.x+2,y:box.y+2,w:box.w-4,h:box.h-4};});
@@ -3398,11 +3398,17 @@
   }
   function syncFrontLabelCanvasBox(){
     if(!frontLabelCanvas||!frontHouse)return;
-    var frame=frontHouse.parentElement,frameRect=frame.getBoundingClientRect(),frontRect=frontHouse.getBoundingClientRect();
-    frontLabelCanvas.style.left=(frontRect.left-frameRect.left).toFixed(3)+'px';
-    frontLabelCanvas.style.top=(frontRect.top-frameRect.top).toFixed(3)+'px';
-    frontLabelCanvas.style.width=frontRect.width.toFixed(3)+'px';
-    frontLabelCanvas.style.height=frontRect.height.toFixed(3)+'px';
+    // 레이아웃 좌표(clientWidth/offset*)만 사용 — 전체화면 회전(transform)에도 값이 안 바뀌어
+    // getBoundingClientRect 방식과 달리 라벨 오버레이가 항상 정면 하우스를 정확히 덮는다.
+    var frame=frontHouse.parentElement;
+    var titleEl=frame.querySelector('.house-view-title');
+    var fw=frontHouse.clientWidth,fh=frontHouse.clientHeight;
+    var top=0;
+    if(titleEl){var ts=getComputedStyle(titleEl);top=titleEl.offsetTop+titleEl.offsetHeight+(parseFloat(ts.marginBottom)||0);}
+    frontLabelCanvas.style.left=Math.max(0,(frame.clientWidth-fw)/2).toFixed(3)+'px';
+    frontLabelCanvas.style.top=top.toFixed(3)+'px';
+    frontLabelCanvas.style.width=fw.toFixed(3)+'px';
+    frontLabelCanvas.style.height=fh.toFixed(3)+'px';
   }
   function drawFrontLabelsTopLayer(){
     if(!frontLabelCtx||!frontLabelCanvas||!sideAssetsReady||!SIDE_LABEL_BOXES.length)return;
@@ -3577,6 +3583,15 @@
   function queueSideLayoutRender(){if(sideLayoutRenderFrame)cancelAnimationFrame(sideLayoutRenderFrame);sideLayoutRenderFrame=requestAnimationFrame(function(){sideLayoutRenderFrame=0;if(sideAssetsReady)renderSideHouse();});}
   if(window.ResizeObserver){var sideLayoutObserver=new ResizeObserver(queueSideLayoutRender);sideLayoutObserver.observe(frontHouse);sideLayoutObserver.observe(sideHouse);}else{window.addEventListener('resize',queueSideLayoutRender);}
   document.addEventListener('fullscreenchange',queueSideLayoutRender);document.addEventListener('webkitfullscreenchange',queueSideLayoutRender);
+  // 폴백 전체화면(회전)은 fullscreenchange 이벤트가 없어 프레임 클래스 변화를 직접 감지해 전체 렌더를 다시 돌린다.
+  // (부분 렌더로는 라벨 오버레이 크기/scale이 갱신되지 않아 전체화면에서 라벨이 어긋났음)
+  var combinedFrame=document.getElementById('limitCombinedMotionFrame')||document.querySelector('.limit-combined-media-frame');
+  if(combinedFrame&&window.MutationObserver){
+    // 전체화면 진입/이탈 시 레이아웃(clientWidth) 리플로우 완료 시점이 기기마다 달라,
+    // 여러 지연으로 다시 전체 렌더해 라벨 오버레이가 확실히 새 크기에 맞춰지게 한다.
+    var fsRelayout=function(){[0,120,320,650,1000].forEach(function(ms){window.setTimeout(function(){if(sideAssetsReady)render();},ms);});};
+    new MutationObserver(fsRelayout).observe(combinedFrame,{attributes:true,attributeFilter:['class']});
+  }
   function setLED(c){lastLED=c;var T=SIMT[lang()];led.className='led'+(c?' '+c:'');ledtxt.textContent=c==='green'?T.ledG:c==='red'?T.ledR:T.ledIdle;render();}
   function setShaft(d){lastShaft=d;var T=SIMT[lang()];shaft.className='shaft'+(d?' '+d:'');shaft.textContent=d==='cw'?T.shCw:d==='ccw'?T.shCcw:T.shStop;}
   function updateStageStep(){if(!simStageStep)return;var value=lang();simStageStep.textContent=value==='ja'?'ステップ '+(step+1):value==='en'?'Step '+(step+1):(step+1)+'단계';}
