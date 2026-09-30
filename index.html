@@ -184,22 +184,25 @@
   .image-fullscreen-trigger{cursor:zoom-in;touch-action:manipulation}
   .image-fullscreen-trigger:focus-visible{outline:3px solid #f2bf19;outline-offset:3px}
   body.media-fullscreen-open{overflow:hidden}
-  :is(.media-fullscreen-frame:fullscreen,.media-fullscreen-frame:-webkit-full-screen,.media-fullscreen-frame.is-fullscreen-fallback){box-sizing:border-box;width:100vw!important;height:100vh!important;max-width:none!important;margin:0!important;padding:max(58px,calc(env(safe-area-inset-top) + 50px)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));background:#fff;display:flex!important;flex-direction:column;align-items:center;justify-content:center;overflow:auto}
+  :is(.media-fullscreen-frame:fullscreen,.media-fullscreen-frame:-webkit-full-screen,.media-fullscreen-frame.is-fullscreen-fallback){--wsm-fullscreen-inline:100vw;--wsm-fullscreen-block:100vh;box-sizing:border-box;width:var(--wsm-fullscreen-inline)!important;height:var(--wsm-fullscreen-block)!important;max-width:none!important;margin:0!important;padding:max(58px,calc(env(safe-area-inset-top) + 50px)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));background:#fff;display:flex!important;flex-direction:column;align-items:center;justify-content:center;overflow:auto}
   .media-fullscreen-frame.is-fullscreen-fallback{position:fixed!important;inset:0!important;z-index:1000!important}
+  :is(.media-fullscreen-frame.is-orientation-fallback-landscape,.media-fullscreen-frame.is-orientation-fallback-portrait):is(:fullscreen,:-webkit-full-screen,.is-fullscreen-fallback){--wsm-fullscreen-inline:100vh;--wsm-fullscreen-block:100vw;position:fixed!important;inset:auto!important;left:50%!important;top:50%!important;transform-origin:center center!important}
+  .media-fullscreen-frame.is-orientation-fallback-landscape:is(:fullscreen,:-webkit-full-screen,.is-fullscreen-fallback){transform:translate(-50%,-50%) rotate(90deg)!important}
+  .media-fullscreen-frame.is-orientation-fallback-portrait:is(:fullscreen,:-webkit-full-screen,.is-fullscreen-fallback){transform:translate(-50%,-50%) rotate(-90deg)!important}
   :is(.media-fullscreen-frame:fullscreen,.media-fullscreen-frame:-webkit-full-screen,.media-fullscreen-frame.is-fullscreen-fallback)>.media-fullscreen-toggle{position:fixed;margin:0;top:max(10px,env(safe-area-inset-top));right:max(10px,env(safe-area-inset-right));z-index:1002;background:#124f30}
   :is(.operation-media-frame:fullscreen,.operation-media-frame:-webkit-full-screen,.operation-media-frame.is-fullscreen-fallback) .dir-motion{width:min(96vw,1400px);max-width:1400px;margin:0;box-shadow:none}
   :is(.operation-media-frame:fullscreen,.operation-media-frame:-webkit-full-screen,.operation-media-frame.is-fullscreen-fallback) .dir-motion img{max-height:calc(100vh - 138px);object-fit:contain}
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback){gap:8px!important;padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))!important;overflow:hidden!important}
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.image-fullscreen-trigger{cursor:zoom-out}
-  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>img{display:block;width:min(100%,1400px)!important;height:auto!important;max-width:calc(100vw - 24px)!important;max-height:var(--image-fullscreen-media-max-height,calc(100vh - 150px))!important;margin:auto;object-fit:contain!important;object-position:center!important;transform:none!important}
+  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>img{display:block;width:min(100%,1400px)!important;height:auto!important;max-width:calc(var(--wsm-fullscreen-inline,100vw) - 24px)!important;max-height:var(--image-fullscreen-media-max-height,calc(var(--wsm-fullscreen-block,100vh) - 150px))!important;margin:auto;object-fit:contain!important;object-position:center!important;transform:none!important}
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.partfig,
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.parts-basic-groups,
-  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.opt2-clean{width:min(100%,1400px)!important;max-width:calc(100vw - 24px)!important;max-height:var(--image-fullscreen-media-max-height,calc(100vh - 150px))!important;margin:auto}
+  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.opt2-clean{width:min(100%,1400px)!important;max-width:calc(var(--wsm-fullscreen-inline,100vw) - 24px)!important;max-height:var(--image-fullscreen-media-max-height,calc(var(--wsm-fullscreen-block,100vh) - 150px))!important;margin:auto}
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.partfig img,
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.parts-basic-groups img,
-  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.opt2-clean img{display:block;width:100%!important;height:auto!important;max-height:var(--image-fullscreen-media-max-height,calc(100vh - 150px))!important;object-fit:contain!important}
-  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>a{display:flex;width:min(100%,1400px)!important;max-width:calc(100vw - 24px)!important;max-height:var(--image-fullscreen-media-max-height,calc(100vh - 150px))!important;aspect-ratio:auto!important;margin:auto;padding:0!important;align-items:center;justify-content:center;background:#fff}
-  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>a img{display:block;width:100%!important;height:100%!important;max-height:var(--image-fullscreen-media-max-height,calc(100vh - 150px))!important;object-fit:contain!important}
+  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.opt2-clean img{display:block;width:100%!important;height:auto!important;max-height:var(--image-fullscreen-media-max-height,calc(var(--wsm-fullscreen-block,100vh) - 150px))!important;object-fit:contain!important}
+  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>a{display:flex;width:min(100%,1400px)!important;max-width:calc(var(--wsm-fullscreen-inline,100vw) - 24px)!important;max-height:var(--image-fullscreen-media-max-height,calc(var(--wsm-fullscreen-block,100vh) - 150px))!important;aspect-ratio:auto!important;margin:auto;padding:0!important;align-items:center;justify-content:center;background:#fff}
+  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>a img{display:block;width:100%!important;height:100%!important;max-height:var(--image-fullscreen-media-max-height,calc(var(--wsm-fullscreen-block,100vh) - 150px))!important;object-fit:contain!important}
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>figcaption{flex:0 0 auto;width:min(100%,1400px);box-sizing:border-box;text-align:center}
   #limit .limit-combined-media-frame>.media-fullscreen-toggle{grid-column:1/-1;align-self:end;justify-self:end}
   :is(.limit-combined-media-frame:fullscreen,.limit-combined-media-frame:-webkit-full-screen,.limit-combined-media-frame.is-fullscreen-fallback){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:auto!important;align-content:center;align-items:center;gap:4px!important;padding:max(38px,calc(env(safe-area-inset-top) + 34px)) max(2px,env(safe-area-inset-right)) max(190px,calc(env(safe-area-inset-bottom) + 184px)) max(2px,env(safe-area-inset-left))}
@@ -366,6 +369,17 @@
   .side-install-table th:nth-child(1){width:29%}.side-install-table th:nth-child(2){width:29%}.side-install-table th:nth-child(3),.side-install-table th:nth-child(4){width:21%}
   .tipbox{background:#eef6ff;border:1px solid #cfe3ff;border-radius:10px;padding:12px 14px;font-size:14px;margin:10px 0;color:#0b4a8a}
   .tipbox b{color:#083a6b}
+  .limit-zero-guide{margin:12px 0 16px;padding:14px;border:2px solid #e7b247;border-radius:12px;background:#fff8e8;color:#5f3a00}
+  .limit-zero-guide-title{font-weight:900;line-height:1.5;margin-bottom:9px}
+  .limit-zero-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .limit-zero-item{display:flex;flex-direction:column;justify-content:center;min-height:76px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);line-height:1.5}
+  .limit-zero-item>span{font-weight:900;margin-bottom:2px}.limit-zero-item.red>span{color:#b91c1c}.limit-zero-item.green>span{color:#1a7f37}
+  .limit-zero-item b{color:var(--ink)}
+  .limit-zero-warning{margin:9px 0 0;font-weight:800;line-height:1.55;color:#8a3d00}
+  .limit-zero-reminder{border-width:2px;background:#fff8e8;border-color:#e7b247;color:#674000}
+  .limit-zero-reminder .limit-zero-direction-line{display:block;margin-top:3px}
+  .limit-zero-reminder b{color:#6b3600}
+  @media(max-width:639px){.limit-zero-grid{grid-template-columns:1fr}.limit-zero-item{min-height:0}}
 
   /* ===== 8. 현장 고장진단 ===== */
   .diag-alert{margin-bottom:18px}
@@ -413,6 +427,7 @@
   .diag-links a.primary{background:var(--red);color:#fff}
   .diag-service{display:flex;gap:10px;align-items:flex-start;margin:0 18px 18px;padding-top:15px;border-top:2px solid var(--line);font-size:.88rem;line-height:1.6;color:var(--sub)}
   .diag-service b{color:var(--ink)}
+  .diag-service .diag-service-decision{font-weight:900;color:var(--ink)}
   .diag-reset{justify-self:end;min-height:46px;padding:9px 15px;border:2px solid var(--line);border-radius:11px;background:var(--card);color:var(--ink);font:inherit;font-size:.88rem;font-weight:800;cursor:pointer}
   .diag-reset:focus-visible,.diag-links a:focus-visible{outline:3px solid #f2bf19;outline-offset:3px}
 
@@ -594,6 +609,11 @@
   html[data-theme="dark"] .perf .p .v small{color:#9a9a9a}
   html[data-theme="dark"] .tipbox{background:#0e2338;border-color:#1e3a5f;color:#bcd8f5}
   html[data-theme="dark"] .tipbox b{color:#e3f0ff}
+  html[data-theme="dark"] .limit-zero-guide,html[data-theme="dark"] .limit-zero-reminder{background:#33270f;border-color:#8e6d2b;color:#f4d98f}
+  html[data-theme="dark"] .limit-zero-item{background:#1d1d20;border-color:#4a4a4f}
+  html[data-theme="dark"] .limit-zero-item.red>span{color:#ff9aa4}html[data-theme="dark"] .limit-zero-item.green>span{color:#91dfa9}
+  html[data-theme="dark"] .limit-zero-item b,html[data-theme="dark"] .limit-zero-reminder b{color:#fff1bd}
+  html[data-theme="dark"] .limit-zero-warning{color:#ffd782}
   html[data-theme="dark"] .must{background:#0e2338;border-color:#1e3a5f;color:#bcd8f5}
   html[data-theme="dark"] .steps li.on{background:#2a1416}
   html[data-theme="dark"] .sim .houseFill{fill:#16161a}
@@ -646,6 +666,16 @@
   .appbar .abtn{min-width:48px;min-height:48px;padding:8px 12px;border:1px solid rgba(255,255,255,.34);font-size:.92rem;border-radius:11px}
   .appbar .fontbtn{font-size:1rem;line-height:1;font-weight:900;white-space:nowrap}
   .appbar .abtitle{font-size:1.02rem}.appbar .abpage{font-size:.86rem}
+  .appbar .abpager{display:flex;flex:0 0 auto;align-items:center;gap:4px}
+  .appbar .abpager[hidden]{display:none!important}
+  .appbar .abnav-btn{position:relative;display:grid;place-items:center;min-width:32px;min-height:30px;padding:3px 6px;border:1px solid rgba(255,255,255,.42);border-radius:7px;background:rgba(255,255,255,.16);color:#fff;line-height:0;white-space:nowrap;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,255,255,.2)}
+  .appbar .abnav-icon{display:block;width:14px;height:14px;overflow:visible}
+  .appbar .abnav-icon path{fill:none;stroke:currentColor;stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+  .appbar .abnav-text{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+  .appbar .abnav-btn[hidden]{display:none!important}
+  .appbar .abnav-btn:hover{background:rgba(255,255,255,.3)}
+  .appbar .abnav-btn:focus-visible{outline:3px solid #f2bf19;outline-offset:2px}
+  .appbar .abnav-btn:active{transform:translateY(1px);background:rgba(255,255,255,.38)}
   .cover{margin:22px 20px;padding:34px 26px;text-align:left;background:linear-gradient(135deg,#0e4b2a 0%,#17653b 62%,#2b7c4e 100%);border-radius:20px;display:grid;grid-template-columns:1.05fr .95fr;gap:8px 28px;align-items:center;box-shadow:0 14px 32px rgba(13,69,40,.22)}
   .cover .brand{font-size:.9rem;letter-spacing:.04em;grid-column:1}.cover h1{font-size:2.15rem;line-height:1.23;letter-spacing:-.045em;margin:4px 0;grid-column:1}
   .cover .model{font-size:1rem;padding:7px 14px;grid-column:1;justify-self:start}.cover .coverlead{grid-column:1;margin:7px 0 0;font-size:1rem;line-height:1.65;color:#edf8f0}
@@ -812,7 +842,7 @@
     .toc a[href="#parts"] .ti-glyph{top:-2px}
     .toc a[href="#contact"] .ti-glyph{top:-1.5px}
   }
-  @media (max-width:480px){.appbar .abtitle{display:none}.appbar .abpage{margin-left:auto}.appbar{padding-left:10px;padding-right:10px}.appbar .abtn{min-width:46px;padding:8px 9px}.sim-stage-status{top:66px;left:6px;max-width:calc(100% - 12px);padding:7px 9px 6px}.sim-stage-line{gap:8px}.sim-stage-status .polbar{white-space:normal}.steps li.has-countdown{padding-right:116px}.step-countdown{right:7px;min-width:96px;padding:4px 6px;font-size:11px}}
+  @media (max-width:480px){.appbar .abtitle{display:-webkit-box;min-width:0;overflow:hidden;font-size:.66rem;line-height:1.15;white-space:normal;text-overflow:ellipsis;-webkit-box-orient:vertical;-webkit-line-clamp:2}.appbar .abpage{margin-left:0}.appbar{padding-left:10px;padding-right:10px}.appbar .abtn{min-width:46px;padding:8px 9px}.sim-stage-status{top:66px;left:6px;max-width:calc(100% - 12px);padding:7px 9px 6px}.sim-stage-line{gap:8px}.sim-stage-status .polbar{white-space:normal}.steps li.has-countdown{padding-right:116px}.step-countdown{right:7px;min-width:96px;padding:4px 6px;font-size:11px}}
   html[data-theme="dark"]{--ink:#eef4ef;--sub:#bac6bd;--line:#36483b;--bg:#0d1510;--card:#162019}
   html[data-theme="dark"] table.spec th,html[data-theme="dark"] .perf .p .t,html[data-theme="dark"] .kvtbl th{background:#202d24}
   html[data-theme="dark"] .toc a .ti{background:transparent;color:#69c68c}
@@ -1419,6 +1449,8 @@
     .appbar .abtn{min-width:40px;min-height:40px;padding:5px 8px;border-radius:8px;font-size:.8rem}
     .appbar .abtitle{font-size:.86rem}
     .appbar .abpage{font-size:.75rem}
+    .appbar .abpager{gap:3px}
+    .appbar .abnav-btn{min-width:30px;min-height:30px;padding:3px 4px}
     #fontDownBtn,#fontUpBtn{display:none}
     #limit .sim,
     #limit.sim-right-side .sim{
@@ -1512,6 +1544,11 @@
     .appbar .abtitle{font-size:.86rem}
     .appbar .abpage{font-size:.75rem}
     #fontDownBtn,#fontUpBtn{display:none}
+  }
+  @media (max-width:480px){.appbar .abtitle{font-size:.66rem;line-height:1.15}}
+  @media (max-width:360px){
+    .appbar .abtitle{font-size:.55rem;line-height:1.12;-webkit-line-clamp:3}
+    .appbar .abnav-btn{min-width:29px;padding-left:3px;padding-right:3px;font-size:20px}
   }
   /* 모바일 리미트 전체화면: 가로 화면에서 다이얼과 하우스를 한눈에 표시한다. */
   @media (max-width:1100px) and (max-height:620px) and (orientation:landscape), (max-width:767px) and (orientation:portrait){
@@ -1693,10 +1730,47 @@
       transform-origin:center center!important;
     }
   }
+  /* ===== 상단 간편 목차와 모바일 처음으로 버튼 ===== */
+  #homeBtn{min-width:auto;min-height:42px;padding:7px 10px;font-size:.88rem}
+  .appbar .abtitle{font-size:.88rem}
+  .mobile-start-btn{display:none!important}
+  .toc-dropdown{position:absolute;top:calc(100% + 4px);left:14px;z-index:80;width:min(620px,calc(100vw - 28px));max-height:calc(100vh - 82px);padding:9px;overflow:auto;overscroll-behavior:contain;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;border:2px solid #b7cbbd;border-radius:13px;background:var(--card);color:var(--ink);box-shadow:0 14px 34px rgba(13,51,29,.28)}
+  .toc-dropdown:not([hidden]){display:grid}
+  .toc-dropdown[hidden]{display:none!important}
+  .toc-dropdown a{display:flex;min-width:0;min-height:42px;align-items:center;gap:7px;padding:7px 9px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink);font-size:.78rem;font-weight:800;line-height:1.25;text-decoration:none}
+  .toc-dropdown a:first-child{grid-column:1/-1;min-height:38px;justify-content:center;background:#eaf5ee;color:#145f37}
+  .toc-dropdown-text{min-width:0;white-space:normal;overflow-wrap:anywhere}
+  .toc-dropdown a[aria-current="page"]{border-color:#17653b;background:#dff0e5;color:#0e4b2a;box-shadow:inset 3px 0 0 #17653b}
+  html[data-theme="dark"] .toc-dropdown{border-color:#435d4b;background:#162019;box-shadow:0 14px 34px rgba(0,0,0,.5)}
+  html[data-theme="dark"] .toc-dropdown a{border-color:#36483b;background:#111b14;color:#eef4ef}
+  html[data-theme="dark"] .toc-dropdown a:first-child,html[data-theme="dark"] .toc-dropdown a[aria-current="page"]{background:#1d3426;color:#b9e8c9}
+  @media (max-width:767px){
+    html{color-scheme:light!important}
+    #themeBtn{display:none!important}
+    .mobile-start-btn{display:grid!important;width:30px;min-width:30px;height:30px;min-height:30px;padding:3px 4px}
+    .appbar .abnav-btn{width:30px;min-width:30px;flex:0 0 30px}
+    #homeBtn{min-width:56px;min-height:34px;padding:4px 6px;font-size:.74rem}
+    .appbar .abtitle{font-size:.74rem;line-height:1.18}
+    .toc-dropdown{left:8px;right:8px;width:auto;max-height:calc(100vh - 64px);padding:7px;gap:5px;border-radius:11px}
+    .toc-dropdown a{min-height:39px;gap:5px;padding:6px 7px;font-size:.72rem;line-height:1.2}
+    .toc-dropdown a:first-child{min-height:35px}
+  }
+  @media (pointer:coarse){
+    html{color-scheme:light!important}
+    #themeBtn{display:none!important}
+    .mobile-start-btn{display:grid!important;width:30px;min-width:30px;height:30px;min-height:30px;padding:3px 4px}
+    #homeBtn{min-width:56px;min-height:34px;padding:4px 6px;font-size:.74rem}
+    .appbar .abtitle{font-size:.74rem;line-height:1.18}
+  }
+  @media (max-width:359px){
+    #homeBtn{min-width:53px;padding-left:5px;padding-right:5px;font-size:.7rem}
+    .appbar .abtitle{font-size:.7rem}
+    .toc-dropdown a{font-size:.68rem}
+  }
 </style>
 <script>
 /* 렌더 전 테마 적용(깜빡임 방지) */
-(function(){try{var t=localStorage.getItem('wsm-theme');if(t!=='light'&&t!=='dark')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+(function(){try{var mobile=(window.matchMedia&&matchMedia('(max-width:767px)').matches)||(window.matchMedia&&matchMedia('(pointer:coarse)').matches),t=mobile?'light':localStorage.getItem('wsm-theme');if(t!=='light'&&t!=='dark')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
 </script>
 </head>
 <body>
@@ -1760,12 +1834,18 @@
 <div class="wrap">
 
   <div class="appbar">
-    <button id="homeBtn" class="abtn">☰ 목차</button>
+    <button type="button" id="homeBtn" class="abtn" aria-expanded="false" aria-controls="tocDropdown">☰ 목차</button>
     <div class="abtitle" id="abTitle" data-notrans>WSM-4035</div>
-    <div class="abpage" id="abPage" data-notrans></div>
+    <div class="abpager" id="abPager" hidden>
+      <button type="button" class="abnav-btn" id="topPrevBtn"><span class="abnav-text" aria-hidden="true">‹</span><svg class="abnav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button type="button" class="abnav-btn" id="topNextBtn"><span class="abnav-text" aria-hidden="true">›</span><svg class="abnav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"/></svg></button>
+      <div class="abpage" id="abPage" data-notrans></div>
+    </div>
     <button id="fontDownBtn" class="abtn fontbtn" aria-label="글자 작게" data-notrans>가−</button>
     <button id="fontUpBtn" class="abtn fontbtn" aria-label="글자 크게" data-notrans>가＋</button>
+    <button type="button" class="abnav-btn mobile-start-btn" id="startBtn"><span class="abnav-text" aria-hidden="true">처음으로</span><svg class="abnav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 11.5 12 5l8 6.5V20h-5v-5H9v5H4z"/></svg></button>
     <button id="themeBtn" class="abtn" aria-label="다크/라이트 전환">🌙</button>
+    <nav class="toc-dropdown" id="tocDropdown" aria-label="간편 목차" hidden></nav>
   </div>
 
   <!-- ===== 홈(목차) ===== -->
@@ -1897,7 +1977,7 @@
   <section id="parts">
     <h2><span class="bar"></span>3. 각부 명칭</h2>
     <div class="subh">1. 외부 명칭</div>
-    <figure class="figbox centered-media"><div class="partfig"><img class="lineart" src="img/parts_ext.png?v=20260908-1318" data-dark="img/parts_ext_dark.png" alt="전동개폐기 외부 명칭" loading="lazy"><span class="mk" style="left:49.4%;top:4.2%" data-notrans>1</span><span class="mk" style="left:23.6%;top:3.7%" data-notrans>2</span><span class="mk" style="left:30.9%;top:19.2%" data-notrans>3</span><span class="mk" style="left:2.4%;top:30.2%" data-notrans>4</span><span class="mk" style="left:18.2%;top:57.9%" data-notrans>5</span><span class="mk" style="left:15.1%;top:73.4%" data-notrans>6</span><span class="mk" style="left:36%;top:87.6%" data-notrans>7</span><span class="mk" style="left:76.2%;top:42.9%" data-notrans>8</span><span class="mk" style="left:79%;top:50.4%" data-notrans>9</span><span class="mk" style="left:83.8%;top:58.9%" data-notrans>10</span><span class="mk" style="left:82%;top:65.6%" data-notrans>11</span><span class="mk" style="left:67.1%;top:70.9%" data-notrans>12</span><span class="mk" style="left:59.8%;top:84.1%" data-notrans>13</span></div><figcaption>전동개폐기 외부 명칭</figcaption></figure>
+    <figure class="figbox centered-media"><div class="partfig"><img class="lineart" src="img/parts_ext.png?v=20260930-1326" data-dark="img/parts_ext_dark.png?v=20260930-1326" alt="전동개폐기 외부 명칭" loading="lazy"><span class="mk" style="left:49.4%;top:4.2%" data-notrans>1</span><span class="mk" style="left:23.6%;top:3.7%" data-notrans>2</span><span class="mk" style="left:30.9%;top:19.2%" data-notrans>3</span><span class="mk" style="left:2.4%;top:30.2%" data-notrans>4</span><span class="mk" style="left:18.2%;top:57.9%" data-notrans>5</span><span class="mk" style="left:15.1%;top:73.4%" data-notrans>6</span><span class="mk" style="left:36%;top:87.6%" data-notrans>7</span><span class="mk" style="left:76.2%;top:42.9%" data-notrans>8</span><span class="mk" style="left:79%;top:50.4%" data-notrans>9</span><span class="mk" style="left:83.8%;top:58.9%" data-notrans>10</span><span class="mk" style="left:82%;top:65.6%" data-notrans>11</span><span class="mk" style="left:67.1%;top:70.9%" data-notrans>12</span><span class="mk" style="left:59.8%;top:84.1%" data-notrans>13</span></div><figcaption>전동개폐기 외부 명칭</figcaption></figure>
     <div class="imgleg-t">그림 속 명칭</div>
     <ul class="imgleg">
       <li>전동모터 (DC24V)</li>
@@ -1942,10 +2022,10 @@
     <div class="tipbox">📖 9. 전체 설명서(원본)를 기준으로, 연결 부품을 조립하는 방법은 9페이지를 참고하십시오.</div>
     <div class="subh2">2) 편리부품 (별도판매)</div>
     <div class="figrow">
-      <figure class="figbox"><img class="lineart" src="img/opt1.png" data-dark="img/opt1_dark.png" alt="가이드 롤러 세트 본 제품 전용" loading="lazy"><figcaption>가이드 롤러 세트 (본 제품 전용 · 궤도 25∅)</figcaption></figure>
-      <figure class="figbox"><div class="opt2-clean"><img class="lineart" src="img/opt2.png" alt="가이드 롤러 세트 범용" loading="lazy"></div><figcaption>가이드 롤러 세트 (범용 · 궤도 25∅)</figcaption></figure>
-      <figure class="figbox"><img class="lineart" src="img/opt3.png" data-dark="img/opt3_dark.png" alt="전선연결부 보호함 및 클립 세트" loading="lazy"><figcaption>전선연결부 보호함 &amp; 클립 세트</figcaption></figure>
-      <figure class="figbox"><img class="lineart" src="img/opt4.png" data-dark="img/opt4_dark.png" alt="비닐보호 튜브" loading="lazy"><figcaption>비닐보호 튜브 (내경 25∅ · 22∅)</figcaption></figure>
+      <figure class="figbox" data-mobile-fullscreen-orientation="portrait"><img class="lineart" src="img/opt1.png" data-dark="img/opt1_dark.png" alt="가이드 롤러 세트 본 제품 전용" loading="lazy"><figcaption>가이드 롤러 세트 (본 제품 전용 · 궤도 25∅)</figcaption></figure>
+      <figure class="figbox" data-mobile-fullscreen-orientation="portrait"><div class="opt2-clean"><img class="lineart" src="img/opt2.png" alt="가이드 롤러 세트 범용" loading="lazy"></div><figcaption>가이드 롤러 세트 (범용 · 궤도 25∅)</figcaption></figure>
+      <figure class="figbox" data-mobile-fullscreen-orientation="portrait"><img class="lineart" src="img/opt3.png" data-dark="img/opt3_dark.png" alt="전선연결부 보호함 및 클립 세트" loading="lazy"><figcaption>전선연결부 보호함 &amp; 클립 세트</figcaption></figure>
+      <figure class="figbox" data-mobile-fullscreen-orientation="portrait"><img class="lineart" src="img/opt4.png" data-dark="img/opt4_dark.png" alt="비닐보호 튜브" loading="lazy"><figcaption>비닐보호 튜브 (내경 25∅ · 22∅)</figcaption></figure>
     </div>
     <div class="tipbox">🛒 편리부품은 별도판매이며 제품과 함께 제공되지 않습니다.</div>
   </section>
@@ -2088,9 +2168,9 @@
         <div class="row">LED 🟢 <b>녹색</b></div>
         <div class="media-fullscreen-frame operation-media-frame" id="clockwiseMotionFrame" data-media-name-ko="시계방향 구동 예시" data-media-name-ja="時計回り作動例" data-media-name-en="Clockwise operation example">
           <button type="button" class="dir-motion" data-notrans data-name-ko="시계방향" data-name-ja="時計回り" data-name-en="Clockwise"
-            data-poster="video/op-green-still.png"
+            data-poster="video/op-green-still.png?v=20260930-1150"
             data-gif="video/op-green.gif" aria-pressed="false" aria-label="시계방향 구동 예시 보기">
-            <span class="dir-motion-visual" id="clockwiseMotionVisual"><img src="video/op-green-still.png" alt="시계방향 회전 화면 정지 상태" loading="lazy" width="1771" height="604"><span class="dir-eye-blink" aria-hidden="true"></span></span>
+            <span class="dir-motion-visual" id="clockwiseMotionVisual"><img src="video/op-green-still.png?v=20260930-1150" alt="시계방향 회전 화면 정지 상태" loading="lazy" width="1771" height="604"><span class="dir-eye-blink" aria-hidden="true"></span></span>
             <span class="dir-motion-label"><span class="dir-motion-icon">▶</span><span class="dir-motion-text">구동 예시 보기</span></span>
           </button>
           <button type="button" class="media-fullscreen-toggle" data-notrans aria-pressed="false"><span class="media-fullscreen-icon" aria-hidden="true">⛶</span><span class="media-fullscreen-text">전체화면</span></button>
@@ -2102,9 +2182,9 @@
         <div class="row">LED 🔴 <b>적색</b></div>
         <div class="media-fullscreen-frame operation-media-frame" id="counterclockwiseMotionFrame" data-media-name-ko="반시계방향 구동 예시" data-media-name-ja="反時計回り作動例" data-media-name-en="Counter-clockwise operation example">
           <button type="button" class="dir-motion" data-notrans data-name-ko="반시계방향" data-name-ja="反時計回り" data-name-en="Counter-clockwise"
-            data-poster="video/op-red-still.png"
+            data-poster="video/op-red-still.png?v=20260930-1150"
             data-gif="video/op-red.gif" aria-pressed="false" aria-label="반시계방향 구동 예시 보기">
-            <span class="dir-motion-visual" id="counterclockwiseMotionVisual"><img src="video/op-red-still.png" alt="반시계방향 회전 화면 정지 상태" loading="lazy" width="1771" height="604"><span class="dir-eye-blink" aria-hidden="true"></span></span>
+            <span class="dir-motion-visual" id="counterclockwiseMotionVisual"><img src="video/op-red-still.png?v=20260930-1150" alt="반시계방향 회전 화면 정지 상태" loading="lazy" width="1771" height="604"><span class="dir-eye-blink" aria-hidden="true"></span></span>
             <span class="dir-motion-label"><span class="dir-motion-icon">▶</span><span class="dir-motion-text">구동 예시 보기</span></span>
           </button>
           <button type="button" class="media-fullscreen-toggle" data-notrans aria-pressed="false"><span class="media-fullscreen-icon" aria-hidden="true">⛶</span><span class="media-fullscreen-text">전체화면</span></button>
@@ -2114,7 +2194,7 @@
     <div class="tipbox">🔋 정전 또는 컨트롤러 고장 시 전동개폐기를 <b>DC 24V 배터리</b>로 작동 가능합니다. 자동차용 12V 배터리 <b>2개를 직렬</b>로 연결해야 24V가 됩니다. (DC 12V만 쓰면 속도·힘이 절반으로 줄고 모터가 손상될 수 있음)</div>
 
     <div class="subh">좌측용 · 우측용 구분</div>
-    <p>전동개폐기는 설치 위치(좌/우)에 따라 필요한 개폐축의 열림 회전방향(좌=시계, 우=반시계)이 다르므로, 전동개폐기의 <b class="term-image-preview-trigger" tabindex="0" aria-describedby="termImagePreview" data-preview-kind="power-cable" data-preview-src="img/전기공급선 설명사진.png?v=20260909-1549" data-preview-alt="전기 공급선 위치 설명 그림" data-preview-caption="전기 공급선(청색선, 갈색선) 위치" data-preview-highlight="power-cable">전기 공급선(청색선, 갈색선)</b>을 바르게 연결해야 합니다.</p>
+    <p>전동개폐기는 설치 위치(좌/우)에 따라 필요한 개폐축의 열림 회전방향(좌=시계, 우=반시계)이 다르므로, 전동개폐기의 <b class="term-image-preview-trigger" tabindex="0" aria-describedby="termImagePreview" data-preview-kind="power-cable" data-preview-src="img/전기공급선 설명사진.png?v=20260930-1336" data-preview-alt="전기 공급선 위치 설명 그림" data-preview-caption="전기 공급선(청색선, 갈색선) 위치" data-preview-highlight="power-cable">전기 공급선(청색선, 갈색선)</b>을 바르게 연결해야 합니다.</p>
     <table class="kvtbl side-install-table">
       <tr><th>열림시(컨트롤러 스위치)</th><th>구동축 회전방향</th><th>청색선</th><th>갈색선</th></tr>
       <tr><td><b>좌측용</b></td><td>시계방향 ↻</td><td>왼쪽 단자(열림시+)</td><td>오른쪽 단자(열림시-)</td></tr>
@@ -2152,6 +2232,14 @@
       <li>다이얼 화살표 끝의 <b>돌기</b>가 스위치 롤러를 누르면 작동이 정지됩니다. — <b style="color:#b91c1c">적색 LED</b>일 때는 적색 다이얼의 화살표 모양 돌기가, <b style="color:#1a7f37">녹색 LED</b>일 때는 녹색 다이얼의 화살표 모양 돌기가 롤러를 눌러야 정지.</li>
       <li>설정 후 노브에서 손을 떼면 다이얼이 다시 구동축과 기어 연결됩니다.</li>
     </ul>
+    <div class="limit-zero-guide" aria-label="최초 영점 조정 돌기 방향">
+      <div class="limit-zero-guide-title">최초 영점 조정 시 <b>숫자와 돌기 방향</b>을 함께 맞추십시오.</div>
+      <div class="limit-zero-grid">
+        <div class="limit-zero-item red"><span>좌측(적색) 리미트 다이얼</span><div>화살표 돌기 → <b>좌측 롤러의 좌측 아래</b></div></div>
+        <div class="limit-zero-item green"><span>우측(녹색) 리미트 다이얼</span><div>화살표 돌기 → <b>우측 롤러의 우측 아래</b></div></div>
+      </div>
+      <p class="limit-zero-warning">숫자 0만 맞추고 돌기 방향을 반대로 두면 잘못된 영점 조정입니다. 반드시 위 방향을 확인하십시오.</p>
+    </div>
 
     <div class="subh">DC 24V(전기)</div>
     <ul class="bullet">
@@ -2161,13 +2249,14 @@
     </ul>
 
     <div class="subh">설정 전 숙지사항</div>
-    <div class="tipbox">🛠 <b class="term-image-preview-trigger" tabindex="0" aria-describedby="termImagePreview" data-preview-kind="safety-cover" data-preview-src="img/전기공급선 설명사진.png?v=20260909-1549" data-preview-alt="안전커버 위치 설명 그림" data-preview-caption="안전커버 위치" data-preview-highlight="safety-cover">안전커버</b> 중앙 하단부를 살짝 들어 올려 열면 2개(적색·녹색) 설정 <b class="term-image-preview-trigger" tabindex="0" aria-describedby="termImagePreview" data-preview-kind="limit-knob" data-preview-src="img/전기공급선 설명사진.png?v=20260909-1549" data-preview-alt="리미트 설정 노브 위치 설명 그림" data-preview-caption="리미트 설정 노브(녹색) 위치" data-preview-highlight="limit-knob">노브</b>가 있습니다. <b>노브</b>를 누른 상태에서 <b>+형 드라이버 또는 손</b>으로 돌려 설정합니다. <b style="color:#b91c1c">설정 후에는 반드시 안전커버를 닫아야</b> 빗물 유입을 막습니다.</div>
+    <div class="tipbox">🛠 <b class="term-image-preview-trigger" tabindex="0" aria-describedby="termImagePreview" data-preview-kind="safety-cover" data-preview-src="img/전기공급선 설명사진.png?v=20260930-1336" data-preview-alt="안전커버 위치 설명 그림" data-preview-caption="안전커버 위치" data-preview-highlight="safety-cover">안전커버</b> 중앙 하단부를 살짝 들어 올려 열면 2개(적색·녹색) 설정 <b class="term-image-preview-trigger" tabindex="0" aria-describedby="termImagePreview" data-preview-kind="limit-knob" data-preview-src="img/전기공급선 설명사진.png?v=20260930-1336" data-preview-alt="리미트 설정 노브 위치 설명 그림" data-preview-caption="리미트 설정 노브(녹색) 위치" data-preview-highlight="limit-knob">노브</b>가 있습니다. <b>노브</b>를 누른 상태에서 <b>+형 드라이버 또는 손</b>으로 돌려 설정합니다. <b style="color:#b91c1c">설정 후에는 반드시 안전커버를 닫아야</b> 빗물 유입을 막습니다.</div>
   </section>
 
   <!-- ===== 7. 리미트 설정 시뮬레이터 ===== -->
   <section id="limit">
     <h2><span class="bar"></span>7. 리미트 설정하기 (실습)</h2>
     <p class="lead">2개 다이얼로 개폐 폭을 설정합니다. 아래 시뮬레이터로 직접 눌러보며 원리를 익혀보세요.</p>
+    <div class="tipbox limit-zero-reminder"><b>시작 전 최초 영점 조정 확인:</b><span class="limit-zero-direction-line"><b>적색 돌기를 좌측 롤러의 좌측 아래에 맞춥니다.</b></span><span class="limit-zero-direction-line"><b>녹색 돌기를 우측 롤러의 우측 아래에 맞춥니다.</b></span><span class="limit-zero-direction-line">숫자와 돌기 방향을 함께 확인하십시오.</span></div>
 
     <div class="sim card">
       <div class="sim-visuals media-fullscreen-frame limit-combined-media-frame" id="limitCombinedMotionFrame" data-media-name-ko="리미트 다이얼·비닐하우스 정면·측면 통합 시연" data-media-name-ja="リミットダイヤル・ビニールハウス正面・側面の統合デモ" data-media-name-en="Combined limit dial and greenhouse front and side demonstration">
@@ -2254,7 +2343,7 @@
         <div class="sim-control-head"><span class="sim-panel-index">3</span><div><b>단계 조작</b><small>순서대로 눌러 확인</small></div></div>
         <div class="fullscreen-sim-actions"><button type="button" class="primary" id="fullscreenBtnPlay">▶ 자동 시연</button><button type="button" id="fullscreenBtnPause" aria-pressed="false">⏸ 일시정지</button><button type="button" id="fullscreenBtnStep"><span class="next-step-icon" aria-hidden="true"><svg viewBox="0 0 20 20" focusable="false"><path d="M3 3L13 10L3 17Z" fill="currentColor"/><rect x="12" y="3" width="3" height="14" rx="1" fill="currentColor"/></svg></span><span class="next-step-label">다음 단계</span></button><button type="button" id="fullscreenBtnReset">↻ 처음으로</button><button type="button" class="sim-fullscreen-proxy" data-fullscreen-proxy="limitCombinedMotionFrame"><span aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span><span class="media-fullscreen-label">전체화면<br>닫기</span></button></div>
         <label class="sim-compact-turn-setting fullscreen-sim-turn-setting"><span class="sim-turn-setting-title">열림 회전수 설정 :</span><span class="cntbadge"><b id="fullscreenCntval">10</b>회전</span><input id="fullscreenCnt" type="range" min="3" max="30" value="10" step="1"></label>
-        <ol class="fullscreen-sim-steps" id="fullscreenStepList" aria-label="전체화면 단계 선택"><li data-s="0">양쪽 0에 맞춤</li><li data-s="1">적색 다이얼 열림 회전수 설정</li><li data-s="2">열림 작동</li><li data-s="3">닫힘 작동</li><li data-s="4">완료</li></ol>
+        <ol class="fullscreen-sim-steps" id="fullscreenStepList" aria-label="전체화면 단계 선택"><li data-s="0">최초 영점 조정 방향 확인</li><li data-s="1">적색 다이얼 열림 회전수 설정</li><li data-s="2">열림 작동</li><li data-s="3">닫힘 작동</li><li data-s="4">완료</li></ol>
       </div>
       <div class="fullscreen-sim-subtitles" id="fullscreenSimSubtitles" aria-hidden="true" data-notrans><div class="fullscreen-sim-step" id="fullscreenSimStep"></div><div class="fullscreen-sim-polarity" id="fullscreenSimPolarity"></div><div class="fullscreen-sim-narr" id="fullscreenSimNarr"></div></div>
       <button type="button" class="media-fullscreen-toggle" data-notrans aria-pressed="false"><span class="media-fullscreen-icon" aria-hidden="true">⛶</span><span class="media-fullscreen-text">전체화면</span></button>
@@ -2281,7 +2370,7 @@
         <label class="sim-compact-turn-setting"><span class="sim-turn-setting-title">열림 회전수 설정 :</span> <span class="cntbadge"><b id="compactCntval">10</b>회전</span><input id="compactCnt" type="range" min="3" max="30" value="10" step="1"></label>
 
       <ol class="steps" id="steplist">
-        <li data-s="0">양쪽 화살표를 <b>0</b>에 맞춤 (안전 상태 · 전기 넣어도 정지)</li>
+        <li data-s="0"><b>최초 영점 조정:</b> 적색 돌기는 좌측 롤러의 좌측 아래 · 녹색 돌기는 우측 롤러의 우측 아래</li>
         <li data-s="1"><span class="setdial">녹색</span> 다이얼로 열림 회전수 설정</li>
         <li data-s="2"><b>열림</b> 작동 → 다이얼의 화살표 모양 돌기가 롤러를 눌러 자동 정지</li>
         <li data-s="3"><b>닫힘</b> 작동 → 반대쪽 다이얼의 화살표 모양 돌기가 롤러를 눌러 자동 정지</li>
@@ -2294,7 +2383,7 @@
     <details class="acc"><summary>좌측용 설정 (열림·닫힘)</summary><div class="accbody">
       <div class="subh2">1) 열림 회전수 설정</div>
       <ol class="proc">
-        <li>전기 공급 전 <b>양쪽 화살표를 모두 "0"</b>에 맞춤. (둘 다 0이면 DC24V를 넣어도 작동 안 함)</li>
+        <li>전기 공급 전 <b>양쪽 화살표를 모두 "0"</b>에 맞추고 돌기 방향을 확인합니다. <b>적색 돌기는 좌측 롤러의 좌측 아래</b>, <b>녹색 돌기는 우측 롤러의 우측 아래</b>에 둡니다. (둘 다 올바르게 영점 조정되면 DC 24V를 넣어도 작동하지 않음)</li>
         <li><b>녹색 노브를 시계방향</b>으로 돌려 화살표를 원하는 회전수 눈금에 맞춤. (적색은 0 그대로)</li>
         <li>운전 스위치(컨트롤러)를 <b>열림</b>으로 → 청색＋·갈색－ 전원(DC 24V)공급 → LED(리미트부) <b style="color:#1a7f37">녹색</b> 점등.</li>
         <li>구동축이 <b>시계방향</b>으로 회전하며 열림. 녹색 화살표는 롤러 쪽으로, 적색 화살표는 롤러에서 멀어짐.</li>
@@ -2309,7 +2398,7 @@
       <div class="tipbox">닫힘을 조금 더 하려면, 닫힘 완료 후 적색 다이얼을 반시계로 돌리거나 적색 노브를 살짝 한 번 누르면 구동축이 약 반 바퀴 더 회전합니다.</div>
     </div></details>
     <details class="acc"><summary>우측용 설정 (거울대칭)</summary><div class="accbody">
-      <p>우측용은 전기 공급 전 양쪽 화살표를 모두 "0"에 맞추는 것은 같고, <b>극성·회전방향·설정 다이얼이 반대</b>입니다.</p>
+      <p>우측용도 최초 영점 조정 방향은 같습니다. <b>적색 돌기는 좌측 롤러의 좌측 아래</b>, <b>녹색 돌기는 우측 롤러의 우측 아래</b>에 둡니다. 이후 <b>극성·회전방향·설정 다이얼이 반대</b>입니다.</p>
       <ul class="bullet">
         <li><b>열림</b> — 운전 스위치(컨트롤러) 열림 → <b>갈색＋·청색－</b> 전원(DC 24V)공급 → LED(리미트부) <b style="color:#b91c1c">적색</b>, 구동축은 <b>반시계 방향</b> 회전하며 열림. <b>적색 노브를 반시계</b>로 돌려 열림 회전수 설정(녹색은 0). 적색 다이얼의 화살표 모양 돌기가 적색 다이얼 위 롤러를 누르면 정지.</li>
         <li><b>닫힘</b> — 운전 스위치(컨트롤러) 닫힘 → LED(리미트부) <b style="color:#1a7f37">녹색</b>, 구동축은 <b>시계 방향</b> 회전하며 닫힘. 녹색 다이얼의 화살표 모양 돌기가 녹색 다이얼 위 롤러를 누르면 정지. 열린 만큼 자동으로 닫힘.</li>
@@ -2360,10 +2449,10 @@
           <div class="diag-stop">먼저 운전 스위치를 정지 위치에 놓고 전원을 차단한 뒤 점검하십시오.</div>
           <div class="diag-body">
             <div class="diag-block"><h4>가능한 원인</h4><ol><li>컨트롤러 전원·출력 또는 정격 퓨즈 이상</li><li>청색선·갈색선의 단선이나 연결부 접촉 불량</li><li>적색·녹색 다이얼의 양쪽 돌기가 모두 정지 위치에 있음 (= 리미트 설정을 하지 않았을 경우)</li></ol></div>
-            <div class="diag-block"><h4>원인별 대책</h4><ol><li>컨트롤러 전원 표시와 정격 퓨즈 상태를 확인합니다. 전기 지식이 있는 작업자는 해당 LINE의 DC 24V 출력 여부를 측정하고, 출력이 없으면 다른 정상 LINE으로 교차 확인합니다.</li><li>전원을 차단한 뒤 청색선·갈색선의 손상·단선과 단자대 연결부 풀림을 확인하고 올바르게 다시 연결합니다. 단선 발생이 유력한 경우 전동개폐기 A/S 담당자와 상담하십시오.</li><li>리미트의 양쪽 화살표가 모두 0이면 리미트 설정을 하지 않은 상태이므로, 리미트 설정 설명을 참고하여 열림 회전수를 다시 설정합니다.</li></ol></div>
+            <div class="diag-block"><h4>원인별 대책</h4><ol><li>컨트롤러 전원 표시와 정격 퓨즈 상태를 확인합니다. 전기 지식이 있는 작업자는 해당 LINE의 DC 24V 출력 여부를 측정하고, 출력이 없으면 다른 정상 LINE으로 교차 확인합니다.</li><li>전원을 차단한 뒤 청색선·갈색선의 손상·단선과 단자대 연결부 풀림을 확인하고 올바르게 다시 연결합니다. 단선 발생이 유력한 경우 전동개폐기 A/S 담당자와 상담하십시오.</li><li>리미트의 양쪽 화살표가 모두 0이면 숫자만 보지 말고 <b>적색 돌기는 좌측 롤러의 좌측 아래</b>, <b>녹색 돌기는 우측 롤러의 우측 아래</b>인지 먼저 확인한 뒤 열림 회전수를 다시 설정합니다.</li></ol></div>
           </div>
           <div class="diag-action"><strong>현장 조치</strong><p>컨트롤러 해당 LINE의 전원 출력 또는 정격 퓨즈 이상일 수 있습니다. 반드시 전원을 차단한 뒤 연결된 개폐기를 정상 작동하는 다른 LINE에 연결하여 작동 여부를 확인하십시오. 다른 LINE에서 정상 작동한다면 기존에 연결했던 해당 LINE의 컨트롤러 이상일 가능성이 있습니다.</p><p><b>적색·녹색 다이얼의 양쪽 돌기가 모두 정지 위치에 있다면 리미트 설정을 하지 않은 상태이므로, 리미트 설정 설명서를 참고하여 다시 설정하여 주십시오.</b></p><div class="diag-links"><a href="#power">전원 연결 확인</a><a href="#limit" class="primary">리미트 설정 열기</a></div></div>
-          <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> 제품 입력부에 정상 DC 24V가 공급되는데도 LED와 모터가 모두 반응하지 않으면 사용을 중지하고 A/S를 요청하십시오. 전동개폐기는 작동하지만 LED 램프만 켜지지 않는 경우에도 바로 A/S에 연락하십시오.</div></div>
+          <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> <strong class="diag-service-decision">제품 입력부에 정상 DC 24V가 공급되는데도 LED와 모터가 모두 반응하지 않으면 사용을 중지하고 A/S를 요청하십시오. 전동개폐기는 작동하지만 LED 램프만 켜지지 않는 경우에도 바로 A/S에 연락하십시오.</strong></div></div>
         </article>
 
         <article class="diag-panel" id="diag-reverse" hidden tabindex="-1">
@@ -2374,18 +2463,18 @@
             <div class="diag-block"><h4>원인별 대책</h4><ol><li>전원을 차단한 뒤 5번 탭의 극성표와 청색선·갈색선 연결 위치를 대조하여 올바르게 연결합니다.</li><li>제품의 좌측용·우측용 설치 위치와 열림 시 필요한 구동축 회전방향을 확인한 뒤 해당 방향의 설정 기준을 적용합니다.</li><li>사용 중인 컨트롤러 설명서에서 열림 출력단자의 ＋·－ 극성을 확인하고 그 극성에 맞춰 연결합니다.</li><li>리미트 설정하기 탭을 참고하여 닫힘 한계점을 실제 작동 범위 안에서 다시 설정합니다.</li></ol></div>
           </div>
           <div class="diag-action"><strong>현장 조치</strong><p>‘전원 연결 및 단자극성과 회전방향’, ‘리미트 설정 원리’ 및 ‘리미트 설정하기’ 탭을 참고하여 회전방향과 설정 원리를 확인한 뒤 리미트를 다시 설정하여 주십시오.</p><div class="diag-links"><a href="#power">전원 연결 및 단자극성과 회전방향</a><a href="#limit-principle">리미트 설정 원리</a><a href="#limit" class="primary">리미트 설정하기</a></div></div>
-          <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> 배선과 컨트롤러 출력 극성이 정상인데도 방향이 일치하지 않으면 설치 상태를 촬영한 뒤 A/S에 문의하십시오.</div></div>
+          <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> <strong class="diag-service-decision">배선과 컨트롤러 출력 극성이 정상인데도 방향이 일치하지 않으면 설치 상태를 촬영한 뒤 A/S에 문의하십시오.</strong></div></div>
         </article>
 
         <article class="diag-panel" id="diag-no-stop" hidden tabindex="-1">
           <div class="diag-result-head"><span class="diag-state urgent">즉시 정지</span><h3>한계점에서 자동 정지하지 않을 때</h3></div>
           <div class="diag-stop">개폐 축과 피복재가 파손될 수 있습니다. 특히 닫힘 한계점을 넘도록 설정하면 전동개폐기가 하단 닫힘 한계점을 지나 반대편으로 말려 올라가며 작동할 수 있으므로 주의하십시오. 운전 스위치를 즉시 정지하고 전원을 차단하십시오.</div>
           <div class="diag-body">
-            <div class="diag-block"><h4>가능한 원인</h4><ol><li>롤러·다이얼 또는 내부 기어가 손상됨</li><li>리미트 설정 높이를 열림·닫힘 한계점 이상으로 설정함</li></ol></div>
-            <div class="diag-block"><h4>원인별 대책</h4><ol><li>전원을 차단하고 롤러·다이얼의 파손과 복귀 상태를 확인합니다. 손상되었거나 정상 위치로 복귀하지 않으면 재작동하지 말고 A/S를 요청합니다.</li><li>열림·닫힘 한계점을 실제 작동 범위 안으로 다시 설정하고 각 방향에서 자동 정지하는지 확인합니다.</li></ol></div>
+            <div class="diag-block"><h4>가능한 원인</h4><ol><li>롤러·다이얼 또는 내부 기어가 손상됨</li><li>리미트 설정 높이를 열림·닫힘 한계점 이상으로 설정함</li><li>과전류 또는 과부하로 인한 리미트 제어부 PCB의 다이오드 부품 결함</li></ol></div>
+            <div class="diag-block"><h4>원인별 대책</h4><ol><li>전원을 차단하고 롤러·다이얼의 파손과 복귀 상태를 확인합니다. 손상되었거나 정상 위치로 복귀하지 않으면 재작동하지 말고 A/S를 요청합니다.</li><li>열림·닫힘 한계점을 실제 작동 범위 안으로 다시 설정하고 각 방향에서 자동 정지하는지 확인합니다.</li><li>리미트 제어부 PCB의 다이오드 부품 결함은 고객이 직접 조치할 수 없습니다. 제품을 임의로 분해하지 말고 A/S 담당자에게 문의하십시오.</li></ol></div>
           </div>
           <div class="diag-action"><strong>현장 조치</strong><p>리미트가 정상적으로 작동할 경우 리미트의 열림·닫힘 한계점을 올바르게 다시 설정하여 주십시오. 재설정 후에는 실제 작동 범위 안에서 열림과 닫힘이 각각 자동 정지하는지 확인하십시오.</p><div class="diag-links"><a href="#limit-principle">작동 원리 확인</a><a href="#limit" class="primary">리미트 재설정</a></div></div>
-          <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> 다이얼의 화살표 모양 돌기가 롤러를 눌러도 멈추지 않거나 노브·롤러가 복귀하지 않으면 재작동하지 말고 A/S를 요청하십시오.</div></div>
+          <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> <strong class="diag-service-decision">다이얼의 화살표 모양 돌기가 롤러를 눌러도 멈추지 않거나 노브·롤러가 복귀하지 않으면 재작동하지 말고 A/S를 요청하십시오. 또한 과전류 또는 과부하로 리미트 제어부 PCB의 다이오드 부품 결함이 의심되는 경우에는 고객이 직접 조치할 수 없으므로 제품을 임의로 분해하지 말고 A/S 담당자에게 문의하거나 A/S를 요청하십시오.</strong></div></div>
         </article>
 
         <article class="diag-panel" id="diag-one-way" hidden tabindex="-1">
@@ -2396,7 +2485,7 @@
             <div class="diag-block"><h4>원인별 대책</h4><ol><li>현장에서 조치하기 어려운 부분이므로 A/S 담당자와 상담 후 제품 점검이 필요합니다.</li></ol></div>
           </div>
           <div class="diag-action"><strong>현장 조치</strong><p>리미트 부위 마이크로 스위치는 현장에서 조치하기 어려우므로 임의로 분해하거나 반복 운전하지 마시고, A/S 담당자와 상담 후 제품 점검을 받으십시오.</p></div>
-          <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> 과도한 부하가 가해졌거나 구동축 또는 피복재에 이물질이 끼어 작동이 강제로 정지된 경우를 제외하고, 한쪽 방향만 작동하면 리미트 부위 마이크로 스위치 이상일 수 있으므로 A/S 담당자에게 문의하여 제품 점검을 받으십시오.</div></div>
+          <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> <strong class="diag-service-decision">과도한 부하가 가해졌거나 구동축 또는 피복재에 이물질이 끼어 작동이 강제로 정지된 경우를 제외하고, 한쪽 방향만 작동하면 리미트 부위 마이크로 스위치 이상일 수 있으므로 A/S 담당자에게 문의하여 제품 점검을 받으십시오.</strong></div></div>
         </article>
 
         <article class="diag-panel" id="diag-weak-noise" hidden tabindex="-1">
@@ -2423,7 +2512,7 @@
             <p class="guide-arm-warning-note"><span class="guide-arm-warning-note-label">※ 참고 사항:</span> <span class="guide-arm-warning-note-copy">전동개폐기를 분리할 때는 반드시 <span class="power-off-phrase">전원을 끈(OFF) 상태에서</span><br class="guide-arm-warning-mobile-break"> 분리하십시오.</span></p>
           </div></div>
           <div class="diag-action"><strong>현장 조치</strong><p>걸림과 축 휨을 먼저 제거하고 반드시 DC 24V 정격 전원을 사용하십시오. 원인이 제거되기 전에는 반복 운전하지 마십시오.</p><div class="diag-links"><a href="#spec">허용 성능 확인</a><a href="#install" class="primary">설치 상태 확인</a></div></div>
-          <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> 작동 중에는 어느 정도의 소음이 발생할 수 있습니다. 다만 평소와 다른 심한 소음이 계속되거나 타는 냄새(모터 과부하 징후), 심한 발열 또는 퓨즈 이상이 있으면 즉시 전원을 차단하고 A/S에 연락하십시오.</div></div>
+          <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> <strong class="diag-service-decision">작동 중에는 어느 정도의 소음이 발생할 수 있습니다. 다만 평소와 다른 심한 소음이 계속되거나 타는 냄새(모터 과부하 징후), 심한 발열 또는 퓨즈 이상이 있으면 즉시 전원을 차단하고 A/S에 연락하십시오.</strong></div></div>
         </article>
 
       </div>
@@ -2491,7 +2580,8 @@
   ];
   var home=document.getElementById('home');
   var toc=document.getElementById('toc');
-  var homeBtn=document.getElementById('homeBtn'), abTitle=document.getElementById('abTitle'), abPage=document.getElementById('abPage');
+  var homeBtn=document.getElementById('homeBtn'), abTitle=document.getElementById('abTitle'), abPager=document.getElementById('abPager'), abPage=document.getElementById('abPage');
+  var topPrevBtn=document.getElementById('topPrevBtn'), topNextBtn=document.getElementById('topNextBtn'), startBtn=document.getElementById('startBtn'), tocDropdown=document.getElementById('tocDropdown');
   function pagerTitle(p){
     if(p.id==='power')return '<span class="pager-power-desktop">'+p.t+'</span><span class="pager-power-mobile"><span>전원 연결 및</span><span>단자극성과 회전방향</span></span>';
     if(p.id==='limit-principle')return '<span class="pager-principle-desktop">'+p.t+'</span><span class="pager-principle-mobile"><span>리미트</span><span>설정 원리 <span class="pager-principle-emoji" aria-hidden="true">'+p.i+'</span></span></span>';
@@ -2499,6 +2589,12 @@
   }
   function pagerIcon(p){return '<span class="pager-target-icon pager-target-icon-'+p.id+'">'+p.i+'</span>';}
 
+  if(tocDropdown){
+    var dropdownHome=document.createElement('a');
+    dropdownHome.href='#home';dropdownHome.dataset.id='home';
+    dropdownHome.innerHTML='<span class="toc-dropdown-text">목차 홈</span>';
+    tocDropdown.appendChild(dropdownHome);
+  }
   PAGES.forEach(function(p,idx){
     var s=document.getElementById(p.id); if(!s) return;
     s.classList.add('page');
@@ -2506,6 +2602,11 @@
     var a=document.createElement('a'); a.href='#'+p.id;
     a.innerHTML='<span class="ti"><span class="ti-glyph">'+p.i+'</span></span><span class="tt">'+(idx+1)+'. '+p.t+'</span><span class="tn">'+(idx+1)+' / '+PAGES.length+'</span>';
     toc.appendChild(a);
+    if(tocDropdown){
+      var quick=document.createElement('a');quick.href='#'+p.id;quick.dataset.id=p.id;
+      quick.innerHTML='<span class="toc-dropdown-text">'+(idx+1)+'. '+p.t+'</span>';
+      tocDropdown.appendChild(quick);
+    }
     // 이전/다음 페이저
     var prev=idx>0?PAGES[idx-1]:null, next=idx<PAGES.length-1?PAGES[idx+1]:null;
     var d=document.createElement('div'); d.className='pager';
@@ -2528,21 +2629,68 @@
     });
   }
 
-  homeBtn.addEventListener('click',function(){location.hash='home';});
+  function setTocDropdown(open){
+    if(!tocDropdown)return;
+    tocDropdown.hidden=!open;
+    homeBtn.setAttribute('aria-expanded',open?'true':'false');
+    syncTopNavigationLabels();
+  }
+  homeBtn.addEventListener('click',function(event){event.stopPropagation();setTocDropdown(tocDropdown.hidden);});
+  if(tocDropdown){
+    tocDropdown.addEventListener('click',function(event){if(event.target.closest('a'))setTocDropdown(false);});
+    document.addEventListener('click',function(event){if(!tocDropdown.hidden&&!event.target.closest('.appbar'))setTocDropdown(false);});
+    document.addEventListener('keydown',function(event){if(event.key==='Escape'&&!tocDropdown.hidden){setTocDropdown(false);homeBtn.focus();}});
+  }
+  if(startBtn){
+    startBtn.dataset.routeKo='처음으로';
+    startBtn.addEventListener('click',function(){setTocDropdown(false);if((location.hash||'#home')==='#home')show('home');else location.hash='home';});
+  }
+  function navigateTop(delta){
+    var id=(location.hash||'#home').slice(1),index=-1;
+    PAGES.forEach(function(p,i){if(p.id===id)index=i;});
+    if(index<0)return;
+    var target=index+delta;
+    if(target<0||target>=PAGES.length)return;
+    location.hash=PAGES[target].id;
+  }
+  topPrevBtn.addEventListener('click',function(){if(!topPrevBtn.hidden)navigateTop(-1);});
+  topNextBtn.addEventListener('click',function(){if(!topNextBtn.hidden)navigateTop(1);});
+  function syncTopNavigationLabels(){
+    [topPrevBtn,topNextBtn].forEach(function(button){
+      var ko=button.dataset.routeKo||'';
+      if(!ko){button.removeAttribute('aria-label');button.removeAttribute('title');return;}
+      var value=routeLabel(ko);
+      button.setAttribute('aria-label',value);
+      button.title=value;
+    });
+    var menuValue=routeLabel(tocDropdown&&!tocDropdown.hidden?'목차 닫기':'목차 열기');
+    homeBtn.setAttribute('aria-label',menuValue);homeBtn.title=menuValue;
+    if(tocDropdown)tocDropdown.setAttribute('aria-label',routeLabel('간편 목차'));
+    if(startBtn){var startValue=routeLabel(startBtn.dataset.routeKo||'처음으로');startBtn.setAttribute('aria-label',startValue);startBtn.title=startValue;}
+  }
+  window.WSM_UPDATE_TOP_NAV=syncTopNavigationLabels;
 
   function show(id){
     var found=null, fi=-1;
     PAGES.forEach(function(p,i){if(p.id===id){found=p;fi=i;}});
+    setTocDropdown(false);
     home.classList.remove('active');
     PAGES.forEach(function(p){var s=document.getElementById(p.id);if(s)s.classList.remove('active');});
     if(!found){
-      home.classList.add('active'); abTitle.dataset.routeKo='◤ 롤업스타 · WSM-4035'; abTitle.textContent=routeLabel(abTitle.dataset.routeKo); abPage.textContent='';
-      homeBtn.style.visibility='hidden';
+      home.classList.add('active'); abTitle.dataset.routeKo='롤업스타 · WSM-4035'; abTitle.textContent=routeLabel(abTitle.dataset.routeKo); abPage.textContent=''; abPager.hidden=true;
+      homeBtn.style.visibility='visible';
     } else {
       var sec=document.getElementById(id);
       sec.classList.add('active');
-      abTitle.dataset.routeKo=found.i+' '+found.t; abTitle.textContent=routeLabel(abTitle.dataset.routeKo);
+      abTitle.dataset.routeKo=found.t; abTitle.textContent=routeLabel(abTitle.dataset.routeKo);
       abPage.textContent=(fi+1)+'/'+PAGES.length;
+      abPager.hidden=false;
+      var topPrev=fi>0?PAGES[fi-1]:null,topNext=fi<PAGES.length-1?PAGES[fi+1]:null;
+      topPrevBtn.hidden=!topPrev;
+      topNextBtn.hidden=!topNext;
+      topPrevBtn.dataset.routeKo=topPrev?'이전: '+fi+'. '+topPrev.t:'';
+      topNextBtn.dataset.routeKo=topNext?'다음: '+(fi+2)+'. '+topNext.t:'';
+      syncTopNavigationLabels();
       homeBtn.style.visibility='visible';
       // display:none→block 전환 시 lazy 이미지가 안 뜨는 경우 강제 로드
       sec.querySelectorAll('img').forEach(function(im){
@@ -2551,6 +2699,8 @@
       });
     }
     if(sidebar){var cur=found?id:'home';sidebar.querySelectorAll('a').forEach(function(a){a.classList.toggle('on',a.dataset.id===cur);});}
+    if(tocDropdown){var current=found?id:'home';tocDropdown.querySelectorAll('a').forEach(function(a){if(a.dataset.id===current)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
+    syncTopNavigationLabels();
     window.scrollTo(0,0);
   }
   window.addEventListener('hashchange',function(){show((location.hash||'#home').slice(1));});
@@ -2580,17 +2730,21 @@
       if(im.getAttribute('src')!==want) im.setAttribute('src',want);
     });
   }
-  function setTheme(t){
+  function mobileThemeDisabled(){return (window.matchMedia&&matchMedia('(max-width:767px)').matches)||(window.matchMedia&&matchMedia('(pointer:coarse)').matches);}
+  function setTheme(t,persist){
+    if(mobileThemeDisabled())t='light';
     document.documentElement.setAttribute('data-theme',t);
-    try{localStorage.setItem('wsm-theme',t);}catch(e){}
+    if(persist!==false){try{localStorage.setItem('wsm-theme',t);}catch(e){}}
     applyImages(t==='dark');
     var b=document.getElementById('themeBtn'); if(b) b.textContent=(t==='dark'?'☀️':'🌙');
   }
-  var curTheme=document.documentElement.getAttribute('data-theme')||'light';
+  var curTheme=mobileThemeDisabled()?'light':(document.documentElement.getAttribute('data-theme')||'light');
+  if(mobileThemeDisabled())document.documentElement.setAttribute('data-theme','light');
   applyImages(curTheme==='dark');
   var tb=document.getElementById('themeBtn');
   if(tb){ tb.textContent=(curTheme==='dark'?'☀️':'🌙');
     tb.addEventListener('click',function(){ setTheme((document.documentElement.getAttribute('data-theme')==='dark')?'light':'dark'); }); }
+  window.addEventListener('resize',function(){if(mobileThemeDisabled()&&document.documentElement.getAttribute('data-theme')!=='light')setTheme('light',false);});
   var manualFontSize=18;
   try{manualFontSize=parseInt(localStorage.getItem('wsm-font-size'),10)||18;}catch(_e){}
   manualFontSize=Math.max(17,Math.min(22,manualFontSize));
@@ -2604,7 +2758,7 @@
   if(fdb)fdb.addEventListener('click',function(){changeFont(-1);});
   if(fub)fub.addEventListener('click',function(){changeFont(1);});
   // 시스템 테마 변경 추종(수동 저장이 없을 때만)
-  try{ if(window.matchMedia){ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){ if(!localStorage.getItem('wsm-theme')) setTheme(e.matches?'dark':'light'); }); } }catch(e){}
+  try{ if(window.matchMedia){ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(e){ if(!mobileThemeDisabled()&&!localStorage.getItem('wsm-theme')) setTheme(e.matches?'dark':'light'); }); } }catch(e){}
 })();
 </script>
 
@@ -2960,7 +3114,7 @@
   function currentRollerState(){
     var redContact=rollerContactAmount(offR),greenContact=rollerContactAmount(offG);
     var redLift=rollerContactLift(offR),greenLift=rollerContactLift(offG);
-    // 열림·닫힘 중에는 회전을 막 시작한 반대편 0점 다이얼의 롤러가
+    // 열림·닫힘 중에는 회전을 막 시작한 반대편 영점 조정 다이얼의 롤러가
     // 순간적으로 다시 눌려 보이지 않도록 실제 정지 대상 롤러만 활성화한다.
     if(step===2||step===3){
       var targetDial=step===2?cfg().openDial:cfg().closeDial;
@@ -3131,7 +3285,7 @@
     ko:{red:'적색',green:'녹색',cw:'시계방향',ccw:'반시계방향',cwS:'시계',ccwS:'반시계',
       ledG:'녹색 점등',ledR:'적색 점등',ledIdle:'전원 대기',shCw:'↻ 시계방향',shCcw:'↺ 반시계방향',shStop:'— 정지',
       polL:'열림 극성(좌측용) : 청색 <b>＋</b> · 갈색 <b>－</b>',polR:'열림 극성(우측용) : 갈색 <b>＋</b> · 청색 <b>－</b>',
-      reset:'양쪽 화살표를 <b>0</b>에 맞춘 상태입니다. 이때는 두 다이얼의 화살표 모양 돌기가 모두 롤러를 누르고 있어 <b>DC24V를 넣어도 작동하지 않습니다</b>(안전).',
+      reset:'<b>최초 영점 조정</b>: 적색 돌기는 <b>좌측 롤러의 좌측 아래</b>, 녹색 돌기는 <b>우측 롤러의 우측 아래</b>에 있어야 합니다. 숫자 0만 보고 돌기 방향을 반대로 맞추지 마십시오. 두 돌기가 롤러를 누르는 안전 상태라 <b>DC 24V를 넣어도 작동하지 않습니다</b>.',
       s1:function(c,N){return '<b>'+c.openC+'</b> 노브를 눌러 <b>'+c.setDir+'</b>으로 돌려 화살표를 <b>'+N+'회전</b> 눈금에 맞춥니다. (반대색 다이얼은 0 그대로)';},
       s2r:function(c){return '운전 스위치(컨트롤러) <b>열림</b> → LED <b>'+c.openC+'</b>, 구동축이 '+(c.openSh==='cw'?'시계':'반시계')+'방향으로 회전하며 피복재가 <b>열립니다</b>. '+c.openC+' 화살표는 롤러 쪽으로 이동.';},
       s2d:function(c,N){return '✅ <b>'+c.openC+' 다이얼의 화살표 모양 돌기</b>가 롤러를 눌러 <b>자동 정지</b>. 설정한 <b>'+N+'회전</b>만큼 열렸습니다.';},
@@ -3141,7 +3295,7 @@
     ja:{red:'赤',green:'緑',cw:'時計回り',ccw:'反時計回り',cwS:'時計',ccwS:'反時計',
       ledG:'緑 点灯',ledR:'赤 点灯',ledIdle:'電源待機',shCw:'↻ 時計回り',shCcw:'↺ 反時計回り',shStop:'— 停止',
       polL:'開き極性（左側用） : 青 <b>＋</b> · 茶 <b>－</b>',polR:'開き極性（右側用） : 茶 <b>＋</b> · 青 <b>－</b>',
-      reset:'両方の矢印を <b>0</b> に合わせた状態です。このとき両ダイヤルの突起がローラーを押しているため、<b>DC24Vを入れても作動しません</b>（安全）。',
+      reset:'<b>初期ゼロ点調整</b>：赤ダイヤルの突起は<b>左ローラーの左下</b>、緑ダイヤルの突起は<b>右ローラーの右下</b>に合わせます。数字の0だけでなく、突起の向きを確認してください。両方の突起がローラーを押す安全状態のため、<b>DC 24Vを供給しても作動しません</b>。',
       s1:function(c,N){return '<b>'+c.openC+'</b>ノブを押して<b>'+c.setDir+'</b>に回し、矢印を<b>'+N+'回転</b>の目盛に合わせます。（反対色のダイヤルは0のまま）';},
       s2r:function(c){return '運転スイッチ<b>開</b> → LED<b>'+c.openC+'</b>、駆動軸が'+(c.openSh==='cw'?'時計':'反時計')+'回りに回転してフィルムが<b>開きます</b>。'+c.openC+'の矢印はローラー側へ移動。';},
       s2d:function(c,N){return '✅ <b>'+c.openC+'の突起</b>がローラーを押して<b>自動停止</b>。設定した<b>'+N+'回転</b>だけ開きました。';},
@@ -3151,7 +3305,7 @@
     en:{red:'Red',green:'Green',cw:'clockwise',ccw:'counter-clockwise',cwS:'CW',ccwS:'CCW',
       ledG:'Green on',ledR:'Red on',ledIdle:'Power idle',shCw:'↻ Clockwise',shCcw:'↺ CCW',shStop:'— Stopped',
       polL:'Open polarity (left-side) : Blue <b>＋</b> · Brown <b>－</b>',polR:'Open polarity (right-side) : Brown <b>＋</b> · Blue <b>－</b>',
-      reset:'Both arrows are set to <b>0</b>. Both dial tabs press their rollers, so <b>it will not run even with DC24V</b> (safe).',
+      reset:'<b>Initial zero adjustment</b>: place the red dial tab <b>below-left of the left roller</b> and the green dial tab <b>below-right of the right roller</b>. Do not rely on the 0 marks alone; confirm the tab directions. Both tabs press their rollers, so the unit <b>remains stopped even with DC 24 V applied</b>.',
       s1:function(c,N){return 'Press the <b>'+c.openC+'</b> knob and turn it <b>'+c.setDir+'</b> to set the arrow to <b>'+N+' turns</b>. (Leave the other dial at 0.)';},
       s2r:function(c){return 'Switch to <b>Open</b> → LED <b>'+c.openC+'</b>; the shaft turns '+(c.openSh==='cw'?'clockwise':'counter-clockwise')+' and the film <b>opens</b>. The '+c.openC+' arrow moves toward its roller.';},
       s2d:function(c,N){return '✅ The <b>'+c.openC+' tab</b> presses the roller → <b>auto-stop</b>. Opened by the set <b>'+N+' turns</b>.';},
@@ -3168,18 +3322,18 @@
   function updatePolarity(){var value=cfg().pol;if(polbar)polbar.innerHTML=value;if(fullscreenPolarity)fullscreenPolarity.innerHTML=value;}
   function updateCompactStepTitles(){
     var code=lang(),c=cfg(),titles=code==='ja'
-      ? ['両方を0に合わせる',c.openC+'ダイヤル 開き回転数設定','開き動作','閉じ動作','完了']
+      ? ['初期ゼロ点調整の方向を確認',c.openC+'ダイヤル 開き回転数設定','開き動作','閉じ動作','完了']
       : code==='en'
-        ? ['Set both to 0','Set opening turns on '+c.openC+' dial','Open operation','Close operation','Complete']
-        : ['양쪽 0에 맞춤',c.openC+' 다이얼 열림 회전수 설정','열림 작동','닫힘 작동','완료'];
+        ? ['Check initial zero-adjustment directions','Set opening turns on '+c.openC+' dial','Open operation','Close operation','Complete']
+        : ['최초 영점 조정 방향 확인',c.openC+' 다이얼 열림 회전수 설정','열림 작동','닫힘 작동','완료'];
     document.querySelectorAll('#steplist li,#fullscreenStepList li').forEach(function(li){var i=+li.dataset.s;li.dataset.compactTitle=titles[i]||'';li.setAttribute('aria-label',(i+1)+'. '+titles[i]);});
   }
   function stepDetailText(){
     var code=lang(),c=cfg(),details=code==='ja'
-      ? ['両方の矢印を0に合わせる（安全状態・通電しても停止）',c.openC+'ダイヤルで開き回転数を設定','開き動作 → 突起がローラーを押して自動停止','閉じ動作 → 反対側の突起がローラーを押して自動停止','完了（開いた量だけ自動で閉じる）']
+      ? ['初期ゼロ点調整：赤の突起は左ローラーの左下、緑の突起は右ローラーの右下',c.openC+'ダイヤルで開き回転数を設定','開き動作 → 突起がローラーを押して自動停止','閉じ動作 → 反対側の突起がローラーを押して自動停止','完了（開いた量だけ自動で閉じる）']
       : code==='en'
-        ? ['Set both arrows to 0 (safe state; remains stopped with power on)','Set the opening turns with the '+c.openC+' dial','Open operation → the tab presses the roller and stops automatically','Close operation → the opposite tab presses the roller and stops automatically','Complete (automatically closes by the amount opened)']
-        : ['양쪽 화살표를 0에 맞춤 (안전 상태 · 전기 넣어도 정지)',c.openC+' 다이얼로 열림 회전수 설정','열림 작동 → 다이얼의 화살표 모양 돌기가 롤러를 눌러 자동 정지','닫힘 작동 → 반대쪽 다이얼의 화살표 모양 돌기가 롤러를 눌러 자동 정지','완료 (열린 만큼 자동으로 닫힘)'];
+        ? ['Initial zero adjustment: red tab below-left of the left roller; green tab below-right of the right roller','Set the opening turns with the '+c.openC+' dial','Open operation → the tab presses the roller and stops automatically','Close operation → the opposite tab presses the roller and stops automatically','Complete (automatically closes by the amount opened)']
+        : ['최초 영점 조정: 적색 돌기는 좌측 롤러의 좌측 아래 · 녹색 돌기는 우측 롤러의 우측 아래',c.openC+' 다이얼로 열림 회전수 설정','열림 작동 → 다이얼의 화살표 모양 돌기가 롤러를 눌러 자동 정지','닫힘 작동 → 반대쪽 다이얼의 화살표 모양 돌기가 롤러를 눌러 자동 정지','완료 (열린 만큼 자동으로 닫힘)'];
     return details[step]||details[0];
   }
   function narrationHtml(){var main=curMsgFn?curMsgFn():'',value=lang(),label=value==='ja'?'ステップ '+(step+1)+'：':value==='en'?'Step '+(step+1)+':':(step+1)+'단계 :';return '<div class="sim-narr-main">'+main+'</div><span class="sim-narr-step-detail"><b>'+label+'</b> '+stepDetailText()+'</span>';}
@@ -3625,17 +3779,22 @@
     var frame=demo.closest('.operation-media-frame');
     if(!frame)return;
     var mobile=window.matchMedia('(max-width:767px), (max-width:1100px) and (max-height:620px) and (orientation:landscape)').matches||frame.getAttribute('data-mobile-direct-fullscreen')==='true';
-    if(!mobile)return;
+    if(!mobile)return false;
     frame.setAttribute('data-mobile-direct-fullscreen','true');
     var fullscreenButton=frame.querySelector(':scope>.media-fullscreen-toggle');
     if(fullscreenButton)fullscreenButton.click();
+    return true;
   }
   demos.forEach(function(demo){
     updateLabel(demo);
     demo.addEventListener('click',function(){
-      if(demo.getAttribute('aria-pressed')==='true')stop(demo);else play(demo);
       blinkEye(demo);
-      toggleMobileFullscreen(demo);
+      if(toggleMobileFullscreen(demo))return;
+      if(demo.getAttribute('aria-pressed')==='true')stop(demo);else play(demo);
+    });
+    var frame=demo.closest('.operation-media-frame');
+    if(frame)frame.addEventListener('wsm-media-fullscreen-change',function(event){
+      if(event.detail&&event.detail.active)play(demo);else stop(demo);
     });
   });
   document.addEventListener('visibilitychange',function(){if(document.hidden)stopAll();});
@@ -3675,9 +3834,10 @@
   };
   var pendingFrame=null;
   var pendingOrientation='landscape';
+  var rootFullscreenFrame=null;
   function lang(){var value=document.documentElement.getAttribute('data-lang')||'ko';return labels[value]?value:'ko';}
   function nativeFrame(){return document.fullscreenElement||document.webkitFullscreenElement||null;}
-  function isActive(frame){return nativeFrame()===frame||frame.classList.contains('is-fullscreen-fallback');}
+  function isActive(frame){var native=nativeFrame();return native===frame||(native===document.documentElement&&rootFullscreenFrame===frame)||frame.classList.contains('is-fullscreen-fallback');}
   function mediaName(frame){var value=lang();return frame.getAttribute('data-media-name-'+value)||frame.getAttribute('data-media-name-ko')||'';}
   function fullscreenIcon(active){return active
     ? '<svg viewBox="0 0 24 24" focusable="false"><path d="M6 6 18 18M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>'
@@ -3687,25 +3847,35 @@
     if(!active){frame.style.removeProperty('--image-fullscreen-media-max-height');return;}
     frame.style.removeProperty('--image-fullscreen-media-max-height');
     var style=getComputedStyle(frame),caption=frame.querySelector(':scope>figcaption');
-    var captionHeight=caption&&getComputedStyle(caption).display!=='none'?caption.getBoundingClientRect().height:0;
+    var captionHeight=caption&&getComputedStyle(caption).display!=='none'?caption.offsetHeight:0;
     var gap=captionHeight?(parseFloat(style.rowGap)||parseFloat(style.gap)||0):0;
     var available=Math.max(80,Math.floor(frame.clientHeight-(parseFloat(style.paddingTop)||0)-(parseFloat(style.paddingBottom)||0)-captionHeight-gap-2));
     frame.style.setProperty('--image-fullscreen-media-max-height',available+'px');
   }
+  function syncVisualOrientation(frame,active){
+    var requested=frame._mobileFullscreenOrientation||'';
+    var landscapeNow=innerWidth>innerHeight;
+    frame.classList.toggle('is-orientation-fallback-landscape',!!(active&&requested==='landscape'&&!landscapeNow));
+    frame.classList.toggle('is-orientation-fallback-portrait',!!(active&&requested==='portrait'&&landscapeNow));
+  }
   function update(frame){
-    var active=isActive(frame),button=frame.querySelector('.media-fullscreen-toggle'),text=button&&button.querySelector('.media-fullscreen-text'),icon=button&&button.querySelector('.media-fullscreen-icon');
+    var active=isActive(frame),wasActive=frame._mediaFullscreenActive,button=frame.querySelector('.media-fullscreen-toggle'),text=button&&button.querySelector('.media-fullscreen-text'),icon=button&&button.querySelector('.media-fullscreen-icon');
+    frame._mediaFullscreenActive=active;
+    syncVisualOrientation(frame,active);
     fitImageFullscreen(frame,active);
     var imageTrigger=frame._imageFullscreenTrigger;
     if(imageTrigger){
       imageTrigger.setAttribute('aria-pressed',active?'true':'false');
       imageTrigger.setAttribute('aria-label',mediaName(frame)+' · '+(active?labels[lang()].close:labels[lang()].open));
     }
-    if(!button)return;
-    button.setAttribute('aria-pressed',active?'true':'false');
-    button.setAttribute('aria-label',mediaName(frame)+' · '+(active?labels[lang()].close:labels[lang()].open));
-    if(text)text.textContent=active?labels[lang()].close:labels[lang()].open;
-    if(icon)icon.textContent=active?'✕':'⛶';
-    document.querySelectorAll('[data-fullscreen-proxy="'+frame.id+'"]').forEach(function(proxy){var value=active?labels[lang()].close:labels[lang()].open;proxy.setAttribute('aria-pressed',active?'true':'false');proxy.setAttribute('aria-label',mediaName(frame)+' · '+value);if(active&&lang()==='ko'&&proxy.closest('.fullscreen-sim-actions'))value='<span class="media-fullscreen-label">전체화면<br>닫기</span>';proxy.innerHTML='<span aria-hidden="true">'+fullscreenIcon(active)+'</span> '+value;});
+    if(button){
+      button.setAttribute('aria-pressed',active?'true':'false');
+      button.setAttribute('aria-label',mediaName(frame)+' · '+(active?labels[lang()].close:labels[lang()].open));
+      if(text)text.textContent=active?labels[lang()].close:labels[lang()].open;
+      if(icon)icon.textContent=active?'✕':'⛶';
+      document.querySelectorAll('[data-fullscreen-proxy="'+frame.id+'"]').forEach(function(proxy){var value=active?labels[lang()].close:labels[lang()].open;proxy.setAttribute('aria-pressed',active?'true':'false');proxy.setAttribute('aria-label',mediaName(frame)+' · '+value);if(active&&lang()==='ko'&&proxy.closest('.fullscreen-sim-actions'))value='<span class="media-fullscreen-label">전체화면<br>닫기</span>';proxy.innerHTML='<span aria-hidden="true">'+fullscreenIcon(active)+'</span> '+value;});
+    }
+    if(wasActive!==undefined&&wasActive!==active)frame.dispatchEvent(new CustomEvent('wsm-media-fullscreen-change',{detail:{active:active}}));
   }
   function updateAll(){frames.forEach(update);}
   function closeFallback(){
@@ -3715,6 +3885,7 @@
   }
   function enterFallback(frame){
     pendingFrame=null;
+    rootFullscreenFrame=null;
     closeFallback();
     frame.classList.add('is-fullscreen-fallback');
     document.body.classList.add('media-fullscreen-open');
@@ -3725,33 +3896,21 @@
     return window.matchMedia('(max-width:767px), (max-width:1100px) and (max-height:620px) and (orientation:landscape)').matches;
   }
   function fullscreenOrientation(frame){
-    if(!frame.classList.contains('image-fullscreen-frame')||!isMobileLayout())return 'landscape';
+    var mobile=isMobileLayout();
+    frame._mobileFullscreenOrientation=mobile?'landscape':'';
+    if(!mobile||!frame.classList.contains('image-fullscreen-frame'))return 'landscape';
     var forced=frame.getAttribute('data-mobile-fullscreen-orientation');
     if(forced==='portrait'||forced==='landscape'){
+      frame._mobileFullscreenOrientation=forced;
       frame.setAttribute('data-mobile-fullscreen-selected-orientation',forced);
+      frame.removeAttribute('data-mobile-fullscreen-portrait-scale');
+      frame.removeAttribute('data-mobile-fullscreen-landscape-scale');
       return forced;
     }
-    var trigger=frame._imageFullscreenTrigger||frame.querySelector('.image-fullscreen-trigger');
-    var bounds=trigger&&trigger.getBoundingClientRect();
-    var mediaWidth=bounds&&bounds.width||1,mediaHeight=bounds&&bounds.height||1;
-    var shortSide=Math.max(320,Math.min(innerWidth,innerHeight));
-    var longSide=Math.max(shortSide,Math.max(innerWidth,innerHeight));
-    var caption=frame.querySelector(':scope>figcaption');
-    var captionHeight=caption&&getComputedStyle(caption).display!=='none'?caption.getBoundingClientRect().height:0;
-    var portraitCaption=captionHeight;
-    var landscapeCaption=captionHeight?Math.max(30,captionHeight*shortSide/longSide):0;
-    function scale(viewWidth,viewHeight,reservedCaption){
-      var width=Math.max(80,viewWidth-24);
-      var height=Math.max(80,viewHeight-24-(reservedCaption?reservedCaption+8:0));
-      return Math.min(width/mediaWidth,height/mediaHeight);
-    }
-    var portraitScale=scale(shortSide,longSide,portraitCaption);
-    var landscapeScale=scale(longSide,shortSide,landscapeCaption);
-    var selected=portraitScale>=landscapeScale?'portrait':'landscape';
-    frame.setAttribute('data-mobile-fullscreen-selected-orientation',selected);
-    frame.setAttribute('data-mobile-fullscreen-portrait-scale',portraitScale.toFixed(4));
-    frame.setAttribute('data-mobile-fullscreen-landscape-scale',landscapeScale.toFixed(4));
-    return selected;
+    frame.setAttribute('data-mobile-fullscreen-selected-orientation','landscape');
+    frame.removeAttribute('data-mobile-fullscreen-portrait-scale');
+    frame.removeAttribute('data-mobile-fullscreen-landscape-scale');
+    return 'landscape';
   }
   function lockOrientation(orientation){
     if(screen.orientation&&screen.orientation.lock)Promise.resolve(screen.orientation.lock(orientation==='portrait'?'portrait':'landscape')).catch(function(){});
@@ -3776,17 +3935,26 @@
     frame._fullscreenOrientation=orientation;
     pendingOrientation=orientation;
     if(setMobilePreviewOrientation(true,orientation)){enterFallback(frame);return;}
-    var request=frame.requestFullscreen||frame.webkitRequestFullscreen;
+    var orientationMismatch=!!frame._mobileFullscreenOrientation&&((orientation==='landscape'&&innerHeight>innerWidth)||(orientation==='portrait'&&innerWidth>innerHeight));
+    var fullscreenTarget=orientationMismatch?document.documentElement:frame;
+    rootFullscreenFrame=orientationMismatch?frame:null;
+    var request=fullscreenTarget.requestFullscreen||fullscreenTarget.webkitRequestFullscreen;
     if(!request){enterFallback(frame);return;}
     pendingFrame=frame;
     try{
-      var result=request.call(frame);
+      var result=request.call(fullscreenTarget,{navigationUI:'hide'});
       if(result&&result.catch)result.catch(function(){if(pendingFrame===frame&&!nativeFrame())enterFallback(frame);});
       window.setTimeout(function(){if(pendingFrame===frame&&!nativeFrame())enterFallback(frame);},450);
     }catch(_){enterFallback(frame);}
   }
   function exit(frame){
-    if(frame.classList.contains('is-fullscreen-fallback')){closeFallback();setMobilePreviewOrientation(false,frame._fullscreenOrientation||'landscape');unlockOrientation();return;}
+    if(frame.classList.contains('is-fullscreen-fallback')){
+      var rootActive=nativeFrame()===document.documentElement&&rootFullscreenFrame===frame;
+      rootFullscreenFrame=null;
+      closeFallback();setMobilePreviewOrientation(false,frame._fullscreenOrientation||'landscape');unlockOrientation();
+      if(rootActive){var rootClose=document.exitFullscreen||document.webkitExitFullscreen;if(rootClose)try{var rootResult=rootClose.call(document);if(rootResult&&rootResult.catch)rootResult.catch(function(){});}catch(_){}}
+      return;
+    }
     var close=document.exitFullscreen||document.webkitExitFullscreen;
     if(close){try{var result=close.call(document);if(result&&result.catch)result.catch(function(){});}catch(_){}}
   }
@@ -3815,14 +3983,15 @@
     var current=nativeFrame();
     pendingFrame=null;
     closeFallback();
-    if(current){document.body.classList.add('media-fullscreen-open');lockOrientation(current._fullscreenOrientation||pendingOrientation||'landscape');}
-    else{document.body.classList.remove('media-fullscreen-open');unlockOrientation();if(window.parent!==window)try{window.parent.postMessage({type:'wsm-mobile-preview-orientation',active:false,orientation:pendingOrientation||'landscape'},'*');}catch(_){}}
+    if(current===document.documentElement&&rootFullscreenFrame){rootFullscreenFrame.classList.add('is-fullscreen-fallback');document.body.classList.add('media-fullscreen-open');lockOrientation(rootFullscreenFrame._fullscreenOrientation||pendingOrientation||'landscape');}
+    else if(current){rootFullscreenFrame=null;document.body.classList.add('media-fullscreen-open');lockOrientation(current._fullscreenOrientation||pendingOrientation||'landscape');}
+    else{rootFullscreenFrame=null;document.body.classList.remove('media-fullscreen-open');unlockOrientation();if(window.parent!==window)try{window.parent.postMessage({type:'wsm-mobile-preview-orientation',active:false,orientation:pendingOrientation||'landscape'},'*');}catch(_){} }
     updateAll();
   }
   document.addEventListener('fullscreenchange',onFullscreenChange);
   document.addEventListener('webkitfullscreenchange',onFullscreenChange);
-  document.addEventListener('fullscreenerror',function(){if(pendingFrame)enterFallback(pendingFrame);});
-  document.addEventListener('webkitfullscreenerror',function(){if(pendingFrame)enterFallback(pendingFrame);});
+  document.addEventListener('fullscreenerror',function(){rootFullscreenFrame=null;if(pendingFrame)enterFallback(pendingFrame);});
+  document.addEventListener('webkitfullscreenerror',function(){rootFullscreenFrame=null;if(pendingFrame)enterFallback(pendingFrame);});
   window.addEventListener('resize',function(){window.setTimeout(updateAll,0);});
   window.addEventListener('message',function(event){
     if(event.source!==window.parent||!event.data)return;
@@ -3839,8 +4008,8 @@
       unlockOrientation();
     }
   });
-  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&frames.some(function(frame){return frame.classList.contains('is-fullscreen-fallback');})){closeFallback();setMobilePreviewOrientation(false,pendingOrientation);unlockOrientation();}});
-  window.addEventListener('hashchange',function(){closeFallback();setMobilePreviewOrientation(false,pendingOrientation);if(nativeFrame()){var close=document.exitFullscreen||document.webkitExitFullscreen;if(close)try{close.call(document);}catch(_){}}});
+  document.addEventListener('keydown',function(event){if(event.key==='Escape'&&frames.some(function(frame){return frame.classList.contains('is-fullscreen-fallback');})){rootFullscreenFrame=null;closeFallback();setMobilePreviewOrientation(false,pendingOrientation);unlockOrientation();}});
+  window.addEventListener('hashchange',function(){rootFullscreenFrame=null;closeFallback();setMobilePreviewOrientation(false,pendingOrientation);if(nativeFrame()){var close=document.exitFullscreen||document.webkitExitFullscreen;if(close)try{close.call(document);}catch(_){}}});
   document.querySelectorAll('#langbar button').forEach(function(button){button.addEventListener('click',function(){window.setTimeout(updateAll,0);});});
 })();
 
@@ -4021,6 +4190,7 @@
     var fontDown=document.getElementById('fontDownBtn'), fontUp=document.getElementById('fontUpBtn');
     if(fontDown){fontDown.textContent=lang==='ko'?'가−':'A−';fontDown.setAttribute('aria-label',lang==='ja'?'文字を小さく':lang==='en'?'Decrease text size':'글자 작게');}
     if(fontUp){fontUp.textContent=lang==='ko'?'가＋':'A＋';fontUp.setAttribute('aria-label',lang==='ja'?'文字を大きく':lang==='en'?'Increase text size':'글자 크게');}
+    if(window.WSM_UPDATE_TOP_NAV)window.WSM_UPDATE_TOP_NAV();
     try{localStorage.setItem('wsm-lang',lang);}catch(_){}
     if(window.WSM_SIMRELANG) window.WSM_SIMRELANG();
     document.querySelectorAll('#langbar button').forEach(function(b){b.classList.toggle('on',b.dataset.lang===lang);});
