@@ -1,5 +1,6 @@
 /* WSM-4035 완성 문장 우선 번역: 짧은 단어 치환보다 먼저 적용합니다. */
 window.WSM_EXACT_TEXT_TR = {
+  "아래 PDF와 스캔 자료의 사양표는 전원공급선 색상을 청색·갈색으로 정정한 자료입니다.":{ja:"以下のPDFとスキャン資料の仕様表では、電源供給線の色を青・茶に訂正しています。",en:"The specification tables in the PDF and scanned pages below have been corrected to show blue and brown power-supply wires."},
   ",":{ja:"、",en:","},
   "안전":{ja:"安全",en:"Safety"},
   "사양·성능":{ja:"仕様・性能",en:"Specs"},

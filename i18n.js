@@ -286,7 +286,7 @@ window.WSM_TR = {
   "전원표시":{ja:"電源表示",en:"Power indicator"},
   "LED(전동개폐기 리미트부, 2컬러 발광 다이오드)":{ja:"LED（電動開閉機のリミット部・2色発光ダイオード）",en:"LED (opener limit unit, 2-color)"},
   "전원공급선":{ja:"電源供給線",en:"Power cable"},
-  "VCTF 1.0×2C (갈색·녹색)":{ja:"VCTF 1.0×2C（茶・緑）",en:"VCTF 1.0×2C (brown/green)"},
+  "VCTF 1.0×2C (청색·갈색)":{ja:"VCTF 1.0×2C（青・茶）",en:"VCTF 1.0×2C (blue/brown)"},
   "무게(본체)":{ja:"重量(本体)",en:"Weight (body)"},
   "성능 데이터":{ja:"性能データ",en:"Performance Data"},
   "1. 외부 명칭":{ja:"1. 外部名称",en:"1. External Parts"},

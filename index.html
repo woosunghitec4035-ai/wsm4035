@@ -198,7 +198,7 @@
   :is(.operation-media-frame:fullscreen,.operation-media-frame:-webkit-full-screen,.operation-media-frame.is-fullscreen-fallback) .dir-motion{width:min(96vw,1400px);max-width:1400px;margin:0;box-shadow:none}
   :is(.operation-media-frame:fullscreen,.operation-media-frame:-webkit-full-screen,.operation-media-frame.is-fullscreen-fallback) .dir-motion img{max-height:calc(100vh - 138px);object-fit:contain}
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback){gap:8px!important;padding:max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))!important;overflow:hidden!important}
-  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.image-fullscreen-trigger{cursor:zoom-out}
+  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.image-fullscreen-trigger{cursor:default}
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>img{display:block;width:min(100%,1400px)!important;height:auto!important;max-width:calc(var(--wsm-fullscreen-inline,100vw) - 24px)!important;max-height:var(--image-fullscreen-media-max-height,calc(var(--wsm-fullscreen-block,100vh) - 150px))!important;margin:auto;object-fit:contain!important;object-position:center!important;transform:none!important}
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.partfig,
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.parts-basic-groups,
@@ -210,6 +210,10 @@
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>a img{display:block;width:100%!important;height:100%!important;max-height:var(--image-fullscreen-media-max-height,calc(var(--wsm-fullscreen-block,100vh) - 150px))!important;object-fit:contain!important}
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>figcaption{flex:0 0 auto;width:min(100%,1400px);box-sizing:border-box;text-align:center}
   :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>:is(.imgleg-t,.imgleg){flex:0 0 auto;width:min(100%,1400px);box-sizing:border-box}
+  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.image-fullscreen-trigger{position:relative;z-index:1;touch-action:none!important;transform:translate3d(var(--image-fullscreen-zoom-x,0px),var(--image-fullscreen-zoom-y,0px),0) scale(var(--image-fullscreen-zoom-scale,1))!important;transform-origin:center center!important;transition:none!important;will-change:transform;-webkit-user-select:none;user-select:none;-webkit-user-drag:none}
+  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback)>.image-fullscreen-trigger img{-webkit-user-select:none;user-select:none;-webkit-user-drag:none}
+  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback).is-image-zoomed>.image-fullscreen-trigger{cursor:grab}
+  :is(.image-fullscreen-frame:fullscreen,.image-fullscreen-frame:-webkit-full-screen,.image-fullscreen-frame.is-fullscreen-fallback).is-image-zoom-gesturing>.image-fullscreen-trigger{cursor:grabbing}
   #limit .limit-combined-media-frame>.media-fullscreen-toggle{grid-column:1/-1;align-self:end;justify-self:end}
   :is(.limit-combined-media-frame:fullscreen,.limit-combined-media-frame:-webkit-full-screen,.limit-combined-media-frame.is-fullscreen-fallback){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;grid-template-rows:auto!important;align-content:center;align-items:center;gap:4px!important;padding:max(38px,calc(env(safe-area-inset-top) + 34px)) max(2px,env(safe-area-inset-right)) max(190px,calc(env(safe-area-inset-bottom) + 184px)) max(2px,env(safe-area-inset-left))}
   :is(.limit-combined-media-frame:fullscreen,.limit-combined-media-frame:-webkit-full-screen,.limit-combined-media-frame.is-fullscreen-fallback)>.limit-visual-panel{grid-column:1;grid-row:1;width:100%;min-width:0}
@@ -602,6 +606,19 @@
   .imgleg li{min-width:0;font-size:12.5px;color:var(--sub);padding-left:23px;position:relative;line-height:1.45;counter-increment:leg;overflow-wrap:anywhere}
   .imgleg li::before{content:counter(leg);position:absolute;left:0;top:0;width:16px;height:16px;border-radius:50%;background:var(--red);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;line-height:1}
   .imgleg-t{font-size:12.5px;font-weight:800;color:var(--red);margin:10px 0 2px}
+  /* 채도가 높은 회전방향 카드의 번역 범례는 부드러운 별도 바탕에서 읽도록 한다. */
+  .dir .d>.imgleg-t{margin:14px 0 0;padding:11px 14px 4px;border-radius:10px 10px 0 0;background:#edf2ee;color:#294434}
+  .dir .d>.imgleg{margin:0;padding:5px 14px 13px;border-radius:0 0 10px 10px;background:#edf2ee;text-align:left}
+  .dir .d>.imgleg li{color:#354b3d}
+  .dir .d>.imgleg li::before{background:#486451;color:#f6f7f3}
+  .dir .ccw>.imgleg-t,.dir .ccw>.imgleg{background:#f4eeeb}
+  .dir .ccw>.imgleg-t{color:#503b35}
+  .dir .ccw>.imgleg li{color:#58443e}
+  .dir .ccw>.imgleg li::before{background:#775850}
+  html[data-theme="dark"] .dir .d>.imgleg-t,html[data-theme="dark"] .dir .d>.imgleg{background:#24332a;color:#e0e8df}
+  html[data-theme="dark"] .dir .d>.imgleg li{color:#d2ddd3}
+  html[data-theme="dark"] .dir .ccw>.imgleg-t,html[data-theme="dark"] .dir .ccw>.imgleg{background:#392d2a;color:#ece1dc}
+  html[data-theme="dark"] .dir .ccw>.imgleg li{color:#e0d3cd}
   .imgleg.imgleg-start-11{counter-reset:leg 10}
   @media (min-width:640px){.imgleg{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
@@ -1701,6 +1718,11 @@
       transform:translateX(-2%) scale(1.04);
       transform-origin:center center;
     }
+    /* 실제 모바일 전체화면에서는 외부 PNG에 건 SVG 필터가 합성 레이어 전환 때
+       통째로 빠질 수 있다. 작은 전체화면 크기에는 원본 선명도가 충분하므로 필터와
+       이동 레이어의 강제 합성 힌트만 이 범위에서 해제해 정면 본체를 확실히 그린다. */
+    :is(.limit-combined-media-frame:fullscreen,.limit-combined-media-frame:-webkit-full-screen,.limit-combined-media-frame.is-fullscreen-fallback).is-right-side>.house-views #frontHouse image{filter:none!important}
+    :is(.limit-combined-media-frame:fullscreen,.limit-combined-media-frame:-webkit-full-screen,.limit-combined-media-frame.is-fullscreen-fallback).is-right-side>.house-views #frontHouse .front-motion-layer{will-change:auto}
     :is(.limit-combined-media-frame:fullscreen,.limit-combined-media-frame:-webkit-full-screen,.limit-combined-media-frame.is-fullscreen-fallback).is-right-side>.house-views #sideHouse{
       width:min(94%,calc((100vh - 215px)*1.225))!important;
       max-width:none!important;
@@ -1893,11 +1915,11 @@
   .media-orientation-guide-actions .primary{border-color:#17653b;background:#17653b;color:#fff}
   .media-orientation-guide-actions button:focus-visible{outline:3px solid #f2bf19;outline-offset:2px}
   .media-fullscreen-exit{display:none;align-items:center;justify-content:center;gap:6px;min-height:42px;padding:8px 12px;border:2px solid #fff;border-radius:10px;background:#173f2a;color:#fff;font:900 .84rem/1 var(--font-body);box-shadow:0 3px 12px rgba(0,0,0,.34);cursor:pointer}
-  .media-fullscreen-exit svg{display:block;width:17px;height:17px;flex:0 0 17px}.media-fullscreen-exit path{fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round}
-  @media (max-width:767px),(pointer:coarse){
-    :is(.media-fullscreen-frame:fullscreen,.media-fullscreen-frame:-webkit-full-screen,.media-fullscreen-frame.is-fullscreen-fallback)>.media-fullscreen-exit{position:fixed;top:max(9px,env(safe-area-inset-top));right:max(9px,env(safe-area-inset-right));z-index:2050;display:flex!important}
-    :is(.media-fullscreen-frame.is-orientation-fallback-landscape):is(:fullscreen,:-webkit-full-screen,.is-fullscreen-fallback)>.media-fullscreen-exit{right:auto;left:max(9px,env(safe-area-inset-left))}
-  }
+  .media-fullscreen-exit svg{display:block;width:17px;height:17px;flex:0 0 17px;background:transparent!important}.media-fullscreen-exit path{fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round}
+  :is(.media-fullscreen-frame:fullscreen,.media-fullscreen-frame:-webkit-full-screen,.media-fullscreen-frame.is-fullscreen-fallback)>.media-fullscreen-exit{position:fixed;top:max(9px,env(safe-area-inset-top));right:max(9px,env(safe-area-inset-right));z-index:2050;display:flex!important;isolation:isolate;transform:translateZ(0);-webkit-transform:translateZ(0);backface-visibility:hidden;-webkit-backface-visibility:hidden}
+  :is(.media-fullscreen-frame:fullscreen,.media-fullscreen-frame:-webkit-full-screen,.media-fullscreen-frame.is-fullscreen-fallback)>.media-fullscreen-exit>svg,
+  :is(.media-fullscreen-frame:fullscreen,.media-fullscreen-frame:-webkit-full-screen,.media-fullscreen-frame.is-fullscreen-fallback)>.media-fullscreen-exit>span{position:relative;z-index:1;transform:translateZ(0);-webkit-transform:translateZ(0)}
+  :is(.media-fullscreen-frame.is-orientation-fallback-landscape):is(:fullscreen,:-webkit-full-screen,.is-fullscreen-fallback)>.media-fullscreen-exit{right:auto;left:max(9px,env(safe-area-inset-left))}
   html[data-theme="dark"] .media-orientation-guide-card{border-color:#4f8865;background:#162019}
   html[data-theme="dark"] .media-orientation-guide-icon{background:#203c29;color:#a9e8bf}
   html[data-theme="dark"] .media-orientation-guide-actions button:not(.primary){background:#1a3021;color:#b9e8c9}
@@ -2082,7 +2104,7 @@
         <tr><th>몸체 / 기어</th><td>알루미늄 합금 / SCM415(침탄 열처리)</td></tr>
         <tr><th>외관도장</th><td>분체 도장</td></tr>
         <tr><th>전원표시</th><td>LED(전동개폐기 리미트부, 2컬러 발광 다이오드)</td></tr>
-        <tr><th>전원공급선</th><td>VCTF 1.0×2C (갈색·녹색)</td></tr>
+      <tr><th>전원공급선</th><td>VCTF 1.0×2C (청색·갈색)</td></tr>
         <tr><th>무게(본체)</th><td>2.4 Kg</td></tr>
       </table>
     </div>
@@ -2447,7 +2469,7 @@
       <div class="house-views">
       <div class="sim-panel-head sim-house-head"><span class="sim-panel-index">2</span><div><b>하우스 작동</b><small>정면과 측면을 함께 확인</small></div></div>
       <div class="house-view" id="frontHouseMotionFrame"><div class="house-view-title"><span id="frontViewTitle" data-notrans>정면 (가이드 암 적용)</span></div>
-      <svg id="frontHouse" viewBox="0 0 1320 630" aria-label="가이드암을 사용하는 비닐하우스 정면 개폐 폭 시연">
+      <svg id="frontHouse" viewBox="0 0 1320 630" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="가이드암을 사용하는 비닐하우스 정면 개폐 폭 시연">
         <defs>
           <linearGradient id="frontOpeningFill" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#70bcff" stop-opacity=".78"/>
@@ -2464,7 +2486,7 @@
             </feComponentTransfer>
           </filter>
         </defs>
-        <image id="frontStaticBase" data-sim-src="video/limit-front-house-motion/front-house-static-base.png" x="0" y="0" width="1707" height="630" filter="url(#frontLineClarity)" data-line-clarity="side-matched"/>
+        <image id="frontStaticBase" data-sim-src="video/limit-front-house-motion/front-house-static-base.png?v=20261022-0833" x="0" y="0" width="1707" height="630" filter="url(#frontLineClarity)" data-line-clarity="side-matched"/>
         <g class="front-opening-range" id="frontOpeningLeft" opacity="0">
           <rect id="frontGapLeft" x="430" y="516" width="66" height="0" fill="#168beb" fill-opacity=".28" stroke="none"/>
           <line id="frontGapTopLeft" x1="430" y1="516" x2="496" y2="516" stroke="none"/>
@@ -2489,10 +2511,10 @@
           <line id="frontRightOuterCore" x1="1276" y1="516" x2="1122" y2="516" stroke="#f7f7f4" stroke-width="4"/>
           <line id="frontRightCollarB" x1="1123" y1="510" x2="1123" y2="522" stroke="#111" stroke-width="3"/>
         </g>
-        <image id="frontLeftMover" class="front-motion-layer" data-sim-src="video/limit-front-house-motion/front-house-left-opener.png" x="0" y="0" width="1707" height="630" filter="url(#frontLineClarity)" data-line-clarity="side-matched"/>
-        <image id="frontRightMover" class="front-motion-layer" data-sim-src="video/limit-front-house-motion/front-house-right-opener.png" x="0" y="0" width="1707" height="630" filter="url(#frontLineClarity)" data-line-clarity="side-matched"/>
-        <image id="frontLeftLabels" data-sim-src="video/limit-front-house-motion/front-house-left-label-lines-only.png?v=20260915-1154" x="0" y="0" width="1707" height="630" filter="url(#frontLineClarity)" data-line-clarity="side-matched" style="mix-blend-mode:multiply"/>
-        <image id="frontRightLabels" data-sim-src="video/limit-front-house-motion/front-house-right-label-lines-only.png?v=20260915-1154" x="0" y="0" width="1707" height="630" opacity="0" filter="url(#frontLineClarity)" data-line-clarity="side-matched" style="mix-blend-mode:multiply"/>
+        <image id="frontLeftMover" class="front-motion-layer" data-sim-src="video/limit-front-house-motion/front-house-left-opener.png?v=20261022-0833" x="0" y="0" width="1707" height="630" filter="url(#frontLineClarity)" data-line-clarity="side-matched"/>
+        <image id="frontRightMover" class="front-motion-layer" data-sim-src="video/limit-front-house-motion/front-house-right-opener.png?v=20261022-0833" x="0" y="0" width="1707" height="630" filter="url(#frontLineClarity)" data-line-clarity="side-matched"/>
+        <image id="frontLeftLabels" data-sim-src="video/limit-front-house-motion/front-house-left-label-lines-only.png?v=20261022-0833" x="0" y="0" width="1707" height="630" filter="url(#frontLineClarity)" data-line-clarity="side-matched" style="mix-blend-mode:multiply"/>
+        <image id="frontRightLabels" data-sim-src="video/limit-front-house-motion/front-house-right-label-lines-only.png?v=20261022-0833" x="0" y="0" width="1707" height="630" opacity="0" filter="url(#frontLineClarity)" data-line-clarity="side-matched" style="mix-blend-mode:multiply"/>
       </svg><canvas id="frontHouseLabelOverlay" width="1320" height="630" aria-hidden="true"></canvas></div>
       <div class="house-view" id="sideHouseMotionFrame"><div class="house-view-title"><span id="sideViewTitle" data-notrans>측면 (가이드 롤러 적용)</span></div>
       <canvas id="sideHouse" width="1221" height="997" role="img" aria-label="리미트 다이얼 및 정면 시연과 동시에 작동하는 좌측용 비닐하우스 측면 개폐 폭 시연">
@@ -2691,7 +2713,8 @@
   <section id="manual">
     <h2><span class="bar"></span>9. 전체 설명서 (원본)</h2>
     <p class="manual-intro">이 웹설명서는 원본 PDF의 모든 내용을 담고 있습니다. 원본 스캔이 필요할 때만 아래에서 펼쳐 보세요.</p>
-    <a class="btn pdf" href="WSM-4035_manual.pdf" target="_blank" rel="noopener">📄 PDF 원본 다운로드 (20p · 4.5MB)</a>
+    <p class="note">아래 PDF와 스캔 자료의 사양표는 전원공급선 색상을 청색·갈색으로 정정한 자료입니다.</p>
+    <a class="btn pdf" href="WSM-4035_manual.pdf?v=20261112-wire-color" target="_blank" rel="noopener">📄 PDF 원본 다운로드 (20p · 4.5MB)</a>
     <details class="acc" id="galleryAcc"><summary>원본 스캔 20페이지 펼쳐보기</summary><div class="accbody"><div class="gallery" id="gallery"></div></div></details>
   </section>
 
@@ -2917,7 +2940,7 @@
   document.addEventListener('touchstart',function(e){
     if(e.touches.length!==1){tskip=true;return;}
     var t=e.touches[0];tsx=t.clientX;tsy=t.clientY;tst=Date.now();
-    tskip=!!(e.target&&e.target.closest&&e.target.closest('.sim,input,button,select,textarea,a,.gallery'));
+    tskip=!!(e.target&&e.target.closest&&e.target.closest('.sim,input,button,select,textarea,a,.gallery,.media-fullscreen-frame'));
   },{passive:true});
   document.addEventListener('touchend',function(e){
     if(tskip||e.changedTouches.length!==1)return;
@@ -3014,7 +3037,7 @@
     var n=(i<10?'0':'')+i;
     var fig=document.createElement('figure');
     fig.setAttribute('data-manual-page',String(i));
-    var img=document.createElement('img'); img.src='img/p'+n+'.jpg'; img.loading='lazy'; img.alt='설명서 '+i+'페이지';
+    var img=document.createElement('img'); img.src='img/p'+n+'.jpg'+(i===5?'?v=20261112-wire-color':''); img.loading='lazy'; img.alt='설명서 '+i+'페이지';
     var cap=document.createElement('figcaption'); cap.textContent=i+' / 20 페이지';
     fig.appendChild(img); fig.appendChild(cap); g.appendChild(fig);
   }
@@ -3046,10 +3069,20 @@
 /* ===== 리미트 설정 시뮬레이터 (좌측용/우측용) ===== */
 (function(){
   var initialized=false;
+  function bindFrontSvgAssets(){
+    document.querySelectorAll('#limit svg image[data-sim-src]').forEach(function(image){
+      var source=image.getAttribute('data-sim-src');
+      image.removeAttribute('href');
+      image.removeAttributeNS('http://www.w3.org/1999/xlink','href');
+      image.setAttribute('href',source);
+      image.setAttributeNS('http://www.w3.org/1999/xlink','xlink:href',source);
+    });
+  }
+  window.WSM_REBIND_LIMIT_FRONT_ASSETS=bindFrontSvgAssets;
   function initLimitSimulator(){
+  bindFrontSvgAssets();
   if(initialized)return;
   initialized=true;
-  document.querySelectorAll('#limit svg image[data-sim-src]').forEach(function(image){image.setAttribute('href',image.getAttribute('data-sim-src'));});
   var D=9, RED="#d21f3c", GRN="#1a9a4a";
   var canvas=document.getElementById('dials'); if(!canvas||!canvas.getContext) return;
   var dialCtx=canvas.getContext('2d');
@@ -3916,7 +3949,7 @@
     updateBtns();
   }
   function pause(dur,token){return new Promise(function(res){var startedAt=simNow();(function wait(){if(token!==simRunVersion){res(false);return;}var remaining=dur-(simNow()-startedAt);if(remaining<=0){res(true);return;}setTimeout(wait,Math.min(remaining,50));})();});}
-  function tween(dur,fn,token){return new Promise(function(res){var t0=simNow();(function fr(){if(token!==simRunVersion){res(false);return;}var t=Math.min(1,(simNow()-t0)/dur);fn(t);render();if(t<1)setTimeout(fr,16);else res(true);})();});}
+  function tween(dur,fn,token){return new Promise(function(res){var t0=simNow();(function fr(){if(token!==simRunVersion){res(false);return;}if(simPaused){setTimeout(fr,50);return;}var t=Math.min(1,(simNow()-t0)/dur);fn(t);render();if(t<1)setTimeout(fr,16);else res(true);})();});}
   var ease=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;};
   var countdownTimer=0,countdownEl=null,countdownToken=0;
   function countdownLabel(){return lang()==='ja'?'残り時間':lang()==='en'?'Time left':'남은 시간';}
@@ -4014,14 +4047,20 @@
   $('btnPrev').onclick=function(){if(step<=0)return;runListStep(step-1);};
   $('btnStep').onclick=function(){if(step>=4)return;runListStep(step+1);};
   $('btnPause').onclick=function(){setSimulationPaused(!simPaused);};
+  function simulationPageIsActive(){return location.hash==='#limit'&&document.getElementById('limit').classList.contains('active');}
   document.addEventListener('keydown',function(event){
-    if((event.code!=='Space'&&event.key!==' ')||event.repeat||!busy)return;
+    if(event.defaultPrevented||(event.code!=='Space'&&event.key!==' ')||event.repeat||!busy||!simulationPageIsActive()||document.hidden)return;
     var target=event.target,tag=target&&target.tagName;
     if(target&&(target.isContentEditable||tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||tag==='BUTTON'))return;
     event.preventDefault();setSimulationPaused(!simPaused);
   });
   $('btnReset').onclick=reset;
   var pendingAutoPlay=false;
+  function pauseInactiveSimulation(){
+    if(!simulationPageIsActive()||document.hidden){pendingAutoPlay=false;setSimulationPaused(true);}
+  }
+  window.addEventListener('hashchange',pauseInactiveSimulation);
+  document.addEventListener('visibilitychange',pauseInactiveSimulation);
   function enterMobileFullscreenForPlay(){
     if(!combinedMotionFrame)return false;
     var mobileSize=window.matchMedia&&window.matchMedia('(max-width:767px), (max-width:1100px) and (max-height:620px) and (orientation:landscape)').matches;
@@ -4045,7 +4084,11 @@
   $('btnPlay').onclick=function(){if(busy)return;if(enterMobileFullscreenForPlay())return;runAutoPlay();};
   if(combinedMotionFrame){
     combinedMotionFrame.addEventListener('wsm-media-fullscreen-change',function(event){if(event.detail&&event.detail.active&&pendingAutoPlay)runAutoPlay();else if(!event.detail||!event.detail.active)pendingAutoPlay=false;});
-    combinedMotionFrame.addEventListener('wsm-media-fullscreen-cancel',function(){pendingAutoPlay=false;});
+    combinedMotionFrame.addEventListener('wsm-media-fullscreen-cancel',function(event){
+      var playInline=pendingAutoPlay&&event.detail&&event.detail.resumeInline&&location.hash==='#limit';
+      pendingAutoPlay=false;
+      if(playInline)runAutoPlay();
+    });
   }
   fullscreenControlPairs.forEach(function(pair){var source=$(pair[0]),target=$(pair[1]);if(target&&source)target.addEventListener('click',function(){if(!target.disabled)source.click();});});
   document.querySelectorAll('#fullscreenStepList li').forEach(function(li){li.setAttribute('role','button');li.tabIndex=0;li.addEventListener('click',function(){runListStep(+li.dataset.s);});li.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();runListStep(+li.dataset.s);}});});
@@ -4114,9 +4157,12 @@
   function toggleMobileFullscreen(demo){
     var frame=demo.closest('.operation-media-frame');
     if(!frame)return;
+    var nativeFullscreen=document.fullscreenElement||document.webkitFullscreenElement||null;
+    if(nativeFullscreen===frame||frame.classList.contains('is-fullscreen-fallback'))return false;
     var mobile=window.matchMedia('(max-width:767px), (max-width:1100px) and (max-height:620px) and (orientation:landscape)').matches||frame.getAttribute('data-mobile-direct-fullscreen')==='true';
     if(!mobile)return false;
     frame.setAttribute('data-mobile-direct-fullscreen','true');
+    frame._pendingInlineMotionDemo=demo;
     var fullscreenButton=frame.querySelector(':scope>.media-fullscreen-toggle');
     if(fullscreenButton){frame._fullscreenReturnFocus=demo;fullscreenButton.click();}
     return true;
@@ -4130,7 +4176,13 @@
     });
     var frame=demo.closest('.operation-media-frame');
     if(frame)frame.addEventListener('wsm-media-fullscreen-change',function(event){
+      frame._pendingInlineMotionDemo=null;
       if(event.detail&&event.detail.active)play(demo);else stop(demo);
+    });
+    if(frame)frame.addEventListener('wsm-media-fullscreen-cancel',function(event){
+      var playInline=frame._pendingInlineMotionDemo===demo&&event.detail&&event.detail.resumeInline&&location.hash==='#power';
+      frame._pendingInlineMotionDemo=null;
+      if(playInline)play(demo);
     });
   });
   document.addEventListener('visibilitychange',function(){if(document.hidden)stopAll();});
@@ -4162,9 +4214,9 @@
   var frames=Array.prototype.slice.call(document.querySelectorAll('.media-fullscreen-frame'));
   if(!frames.length)return;
   var labels={
-    ko:{open:'전체화면',close:'전체화면 닫기',exit:'닫기',guideTitle:'기기를 가로로 돌려 보세요',guideBody:'전체화면은 가로 방향으로 표시됩니다.',guideContinue:'가로 화면으로 보기'},
-    ja:{open:'全画面',close:'全画面を閉じる',exit:'閉じる',guideTitle:'端末を横向きにしてください',guideBody:'全画面は横向きで表示されます。',guideContinue:'横向きで表示'},
-    en:{open:'Full screen',close:'Exit full screen',exit:'Close',guideTitle:'Rotate your device to landscape',guideBody:'Full-screen content is shown in landscape.',guideContinue:'View in landscape'}
+    ko:{open:'전체화면',close:'전체화면 닫기',exit:'닫기',zoom:'두 손가락으로 확대·축소',guideTitle:'기기를 가로로 돌려 보세요',guideBody:'전체화면은 가로 방향으로 표시됩니다.',guideContinue:'가로 화면으로 보기'},
+    ja:{open:'全画面',close:'全画面を閉じる',exit:'閉じる',zoom:'2本の指で拡大・縮小',guideTitle:'端末を横向きにしてください',guideBody:'全画面は横向きで表示されます。',guideContinue:'横向きで表示'},
+    en:{open:'Full screen',close:'Exit full screen',exit:'Close',zoom:'Pinch with two fingers to zoom',guideTitle:'Rotate your device to landscape',guideBody:'Full-screen content is shown in landscape.',guideContinue:'View in landscape'}
   };
   var pendingFrame=null;
   var pendingOrientation='landscape';
@@ -4183,14 +4235,14 @@
   var guideTitle=guide.querySelector('h3'),guideCopy=guide.querySelector('.media-orientation-guide-copy'),guideClose=guide.querySelector('.media-orientation-guide-close'),guideContinue=guide.querySelector('.media-orientation-guide-continue');
   function lang(){var value=document.documentElement.getAttribute('data-lang')||'ko';return labels[value]?value:'ko';}
   function syncGuideLabels(){var text=labels[lang()];guideTitle.textContent=text.guideTitle;guideCopy.textContent=text.guideBody;guideClose.textContent=text.exit;guideContinue.textContent=text.guideContinue;guideClose.setAttribute('aria-label',text.exit);}
-  function closeGuide(restoreFocus,cancelled){
+  function closeGuide(restoreFocus,cancelled,resumeInline){
     var cancelledFrame=guideFrame;
     guide.hidden=true;
     guideFrame=null;
     var focusTarget=guideReturnFocus;
     guideReturnFocus=null;
     if(restoreFocus&&focusTarget&&document.contains(focusTarget))focusTarget.focus();
-    if(cancelled&&cancelledFrame){cancelledFrame._fullscreenExitFocus=null;cancelledFrame.dispatchEvent(new CustomEvent('wsm-media-fullscreen-cancel'));}
+    if(cancelled&&cancelledFrame){cancelledFrame._fullscreenExitFocus=null;cancelledFrame.dispatchEvent(new CustomEvent('wsm-media-fullscreen-cancel',{detail:{resumeInline:!!resumeInline}}));}
   }
   function showGuide(frame,trigger){
     guideFrame=frame;
@@ -4224,6 +4276,101 @@
     var available=Math.max(80,Math.floor(frame.clientHeight-(parseFloat(style.paddingTop)||0)-(parseFloat(style.paddingBottom)||0)-supportHeight-gap-2));
     frame.style.setProperty('--image-fullscreen-media-max-height',available+'px');
   }
+  function installImagePinchZoom(frame,target){
+    var state={scale:1,x:0,y:0,mode:'',startScale:1,startDistance:0,startX:0,startY:0,startClientX:0,startClientY:0,baseCenterX:0,baseCenterY:0,focusX:0,focusY:0};
+    var maxScale=4;
+    frame._imageFullscreenZoomState=state;
+    function clamp(value,min,max){return Math.max(min,Math.min(max,value));}
+    function rotation(){
+      if(frame.classList.contains('is-orientation-fallback-landscape'))return 90;
+      if(frame.classList.contains('is-orientation-fallback-portrait'))return -90;
+      return 0;
+    }
+    function localToScreen(x,y){var angle=rotation();if(angle===90)return{x:-y,y:x};if(angle===-90)return{x:y,y:-x};return{x:x,y:y};}
+    function screenToLocal(x,y){var angle=rotation();if(angle===90)return{x:y,y:-x};if(angle===-90)return{x:-y,y:x};return{x:x,y:y};}
+    function availableSize(){
+      var style=getComputedStyle(frame);
+      return{
+        width:Math.max(1,frame.clientWidth-(parseFloat(style.paddingLeft)||0)-(parseFloat(style.paddingRight)||0)),
+        height:Math.max(1,frame.clientHeight-(parseFloat(style.paddingTop)||0)-(parseFloat(style.paddingBottom)||0))
+      };
+    }
+    function clampPosition(){
+      if(state.scale<=1.001){state.scale=1;state.x=0;state.y=0;return;}
+      var available=availableSize();
+      var maxX=Math.max(0,(target.offsetWidth*state.scale-available.width)/2);
+      var maxY=Math.max(0,(target.offsetHeight*state.scale-available.height)/2);
+      state.x=clamp(state.x,-maxX,maxX);
+      state.y=clamp(state.y,-maxY,maxY);
+    }
+    function render(){
+      clampPosition();
+      frame.style.setProperty('--image-fullscreen-zoom-scale',String(Math.round(state.scale*10000)/10000));
+      frame.style.setProperty('--image-fullscreen-zoom-x',(Math.round(state.x*100)/100)+'px');
+      frame.style.setProperty('--image-fullscreen-zoom-y',(Math.round(state.y*100)/100)+'px');
+      frame.setAttribute('data-image-zoom-scale',String(Math.round(state.scale*100)/100));
+      frame.classList.toggle('is-image-zoomed',state.scale>1.001);
+    }
+    function reset(active){
+      state.scale=1;state.x=0;state.y=0;state.mode='';
+      frame.classList.remove('is-image-zoomed','is-image-zoom-gesturing');
+      if(active){render();return;}
+      frame.style.removeProperty('--image-fullscreen-zoom-scale');
+      frame.style.removeProperty('--image-fullscreen-zoom-x');
+      frame.style.removeProperty('--image-fullscreen-zoom-y');
+      frame.removeAttribute('data-image-zoom-scale');
+    }
+    function points(touches){return Array.prototype.slice.call(touches,0,2).map(function(touch){return{x:touch.clientX,y:touch.clientY};});}
+    function midpoint(pair){return{x:(pair[0].x+pair[1].x)/2,y:(pair[0].y+pair[1].y)/2};}
+    function distance(pair){return Math.hypot(pair[1].x-pair[0].x,pair[1].y-pair[0].y);}
+    function beginPinch(touches){
+      var pair=points(touches),mid=midpoint(pair),rect=target.getBoundingClientRect(),screenTranslation=localToScreen(state.x,state.y);
+      state.mode='pinch';state.startScale=state.scale;state.startDistance=Math.max(1,distance(pair));
+      state.baseCenterX=rect.left+rect.width/2-screenTranslation.x;
+      state.baseCenterY=rect.top+rect.height/2-screenTranslation.y;
+      var focus=screenToLocal(mid.x-state.baseCenterX-screenTranslation.x,mid.y-state.baseCenterY-screenTranslation.y);
+      state.focusX=focus.x/state.scale;state.focusY=focus.y/state.scale;
+      frame.classList.add('is-image-zoom-gesturing');
+    }
+    function movePinch(touches){
+      var pair=points(touches),mid=midpoint(pair);
+      state.scale=clamp(state.startScale*distance(pair)/state.startDistance,1,maxScale);
+      var focusScreen=localToScreen(state.focusX*state.scale,state.focusY*state.scale);
+      var translation=screenToLocal(mid.x-state.baseCenterX-focusScreen.x,mid.y-state.baseCenterY-focusScreen.y);
+      state.x=translation.x;state.y=translation.y;render();
+    }
+    function beginPan(touch){
+      state.mode='pan';state.startX=state.x;state.startY=state.y;state.startClientX=touch.clientX;state.startClientY=touch.clientY;
+      frame.classList.add('is-image-zoom-gesturing');
+    }
+    function movePan(touch){
+      var delta=screenToLocal(touch.clientX-state.startClientX,touch.clientY-state.startClientY);
+      state.x=state.startX+delta.x;state.y=state.startY+delta.y;render();
+    }
+    target.addEventListener('touchstart',function(event){
+      if(!isActive(frame))return;
+      event.stopPropagation();
+      if(event.touches.length>=2){event.preventDefault();beginPinch(event.touches);}
+      else if(event.touches.length===1&&state.scale>1.001){event.preventDefault();beginPan(event.touches[0]);}
+    },{passive:false});
+    target.addEventListener('touchmove',function(event){
+      if(!isActive(frame))return;
+      event.stopPropagation();
+      if(event.touches.length>=2){event.preventDefault();if(state.mode!=='pinch')beginPinch(event.touches);movePinch(event.touches);}
+      else if(event.touches.length===1&&state.scale>1.001){event.preventDefault();if(state.mode!=='pan')beginPan(event.touches[0]);movePan(event.touches[0]);}
+    },{passive:false});
+    target.addEventListener('touchend',function(event){
+      if(!isActive(frame))return;
+      event.stopPropagation();
+      if(event.touches.length>=2){beginPinch(event.touches);return;}
+      if(event.touches.length===1&&state.scale>1.001){beginPan(event.touches[0]);return;}
+      state.mode='';frame.classList.remove('is-image-zoom-gesturing');
+    },{passive:false});
+    target.addEventListener('touchcancel',function(event){if(!isActive(frame))return;event.stopPropagation();state.mode='';frame.classList.remove('is-image-zoom-gesturing');},{passive:false});
+    ['gesturestart','gesturechange','gestureend'].forEach(function(type){target.addEventListener(type,function(event){if(!isActive(frame))return;event.preventDefault();event.stopPropagation();},{passive:false});});
+    frame._setImageFullscreenZoomActive=reset;
+    frame._refreshImageFullscreenZoom=function(){if(isActive(frame))render();};
+  }
   function syncVisualOrientation(frame,active){
     var requested=frame._mobileFullscreenOrientation||'';
     var landscapeNow=innerWidth>innerHeight;
@@ -4238,7 +4385,10 @@
     var imageTrigger=frame._imageFullscreenTrigger;
     if(imageTrigger){
       imageTrigger.setAttribute('aria-pressed',active?'true':'false');
-      imageTrigger.setAttribute('aria-label',mediaName(frame)+' · '+(active?labels[lang()].close:labels[lang()].open));
+      if(active){imageTrigger.setAttribute('aria-disabled','true');imageTrigger.setAttribute('aria-label',mediaName(frame)+' · '+labels[lang()].zoom);}
+      else{imageTrigger.removeAttribute('aria-disabled');imageTrigger.setAttribute('aria-label',mediaName(frame)+' · '+labels[lang()].open);}
+      if(frame._setImageFullscreenZoomActive&&wasActive!==active)frame._setImageFullscreenZoomActive(active);
+      else if(active&&frame._refreshImageFullscreenZoom)frame._refreshImageFullscreenZoom();
     }
     if(button){
       button.setAttribute('aria-pressed',active?'true':'false');
@@ -4318,6 +4468,7 @@
     return false;
   }
   function enter(frame){
+    if(frame.id==='limitCombinedMotionFrame'&&typeof window.WSM_REBIND_LIMIT_FRONT_ASSETS==='function')window.WSM_REBIND_LIMIT_FRONT_ASSETS();
     closeFallback();
     var orientation=fullscreenOrientation(frame);
     frame._fullscreenOrientation=orientation;
@@ -4349,8 +4500,8 @@
   function shouldShowGuide(frame){return isMobileLayout()&&innerHeight>innerWidth&&fullscreenOrientation(frame)==='landscape';}
   function toggle(frame,trigger){if(isActive(frame))exit(frame);else{frame._fullscreenExitFocus=frame._fullscreenReturnFocus||trigger||frame._imageFullscreenTrigger||null;if(shouldShowGuide(frame))showGuide(frame,trigger);else enter(frame);}}
   guideContinue.addEventListener('click',function(){var frame=guideFrame;closeGuide(false,false);if(frame)enter(frame);});
-  guideClose.addEventListener('click',function(){closeGuide(true,true);});
-  guide.addEventListener('click',function(event){if(event.target===guide)closeGuide(true,true);});
+  guideClose.addEventListener('click',function(){closeGuide(true,true,true);});
+  guide.addEventListener('click',function(event){if(event.target===guide)closeGuide(true,true,true);});
   frames.forEach(function(frame){
     var button=frame.querySelector('.media-fullscreen-toggle');
     var imageTrigger=frame.classList.contains('image-fullscreen-frame')&&frame.querySelector(':scope>img,:scope>a,:scope>.partfig,:scope>.parts-basic-groups,:scope>.opt2-clean');
@@ -4367,12 +4518,13 @@
     if(imageTrigger){
       frame._imageFullscreenTrigger=imageTrigger;
       imageTrigger.classList.add('image-fullscreen-trigger');
+      installImagePinchZoom(frame,imageTrigger);
       if(!/^(A|BUTTON)$/.test(imageTrigger.tagName)){
         imageTrigger.setAttribute('role','button');
         imageTrigger.tabIndex=0;
       }
-      imageTrigger.addEventListener('click',function(event){event.preventDefault();event.stopPropagation();toggle(frame,imageTrigger);});
-      imageTrigger.addEventListener('keydown',function(event){if(event.target!==imageTrigger||!['Enter',' '].includes(event.key))return;event.preventDefault();event.stopPropagation();toggle(frame,imageTrigger);});
+      imageTrigger.addEventListener('click',function(event){event.preventDefault();event.stopPropagation();if(!isActive(frame))toggle(frame,imageTrigger);});
+      imageTrigger.addEventListener('keydown',function(event){if(event.target!==imageTrigger||!['Enter',' '].includes(event.key))return;event.preventDefault();event.stopPropagation();if(!isActive(frame))toggle(frame,imageTrigger);});
     }
     update(frame);
     if(button)button.addEventListener('click',function(event){
@@ -4418,10 +4570,10 @@
       return;
     }
     if(event.key!=='Escape')return;
-    if(!guide.hidden){closeGuide(true,true);return;}
+    if(!guide.hidden){closeGuide(true,true,true);return;}
     if(frames.some(function(frame){return frame.classList.contains('is-fullscreen-fallback');})){rootFullscreenFrame=null;closeFallback();setMobilePreviewOrientation(false,pendingOrientation);unlockOrientation();}
   });
-  window.addEventListener('hashchange',function(){frames.forEach(function(frame){frame._fullscreenExitFocus=null;});closeGuide(false,true);rootFullscreenFrame=null;closeFallback();setMobilePreviewOrientation(false,pendingOrientation);if(nativeFrame()){var close=document.exitFullscreen||document.webkitExitFullscreen;if(close)try{close.call(document);}catch(_){}}});
+  window.addEventListener('hashchange',function(){frames.forEach(function(frame){frame._fullscreenExitFocus=null;});closeGuide(false,true,false);rootFullscreenFrame=null;closeFallback();setMobilePreviewOrientation(false,pendingOrientation);if(nativeFrame()){var close=document.exitFullscreen||document.webkitExitFullscreen;if(close)try{close.call(document);}catch(_){}}});
   document.querySelectorAll('#langbar button').forEach(function(button){button.addEventListener('click',function(){window.setTimeout(function(){syncGuideLabels();updateAll();},0);});});
 })();
 
@@ -4615,15 +4767,15 @@
 })();
 </script>
 
-<div class="modal" id="transModal" data-notrans>
+<div class="modal" id="transModal" data-notrans role="dialog" aria-modal="true" aria-describedby="transMsg" aria-label="번역 안내">
   <div class="box">
     <div class="ic">🌐</div>
     <p id="transMsg"></p>
-    <button id="transOk">OK</button>
+    <button type="button" id="transOk">OK</button>
   </div>
 </div>
-<script src="i18n.js"></script>
-<script src="i18n-exact.js"></script>
+<script src="i18n.js?v=20261112-final"></script>
+<script src="i18n-exact.js?v=20261112-final"></script>
 <script>
 /* ===== 다국어(한/일/영) 번역 ===== */
 (function(){
@@ -4755,11 +4907,41 @@
     document.querySelectorAll('#langbar button').forEach(function(b){var active=b.dataset.lang===lang;b.classList.toggle('on',active);b.setAttribute('aria-pressed',active?'true':'false');});
   }
   var modal=document.getElementById('transModal'), msg=document.getElementById('transMsg'), ok=document.getElementById('transOk');
-  function showModal(lang){ if(!MSG[lang])return; msg.textContent=MSG[lang].d; ok.textContent=MSG[lang].ok; modal.classList.add('show'); }
-  ok.addEventListener('click',function(){modal.classList.remove('show');});
-  modal.addEventListener('click',function(e){if(e.target===modal)modal.classList.remove('show');});
-  function setLang(lang){ if(lang===curLang)return; applyLang(lang); if(lang!=='ko') showModal(lang); }
-  document.querySelectorAll('#langbar button').forEach(function(b){ b.addEventListener('click',function(){ setLang(b.dataset.lang); }); });
+  var modalReturnFocus=null, modalBackground=[], modalOverflow=null;
+  function closeModal(){
+    if(!modal.classList.contains('show'))return;
+    modal.classList.remove('show');
+    modalBackground.forEach(function(item){if(!item.wasInert)item.node.removeAttribute('inert');});
+    modalBackground=[];
+    if(modalOverflow){
+      if(modalOverflow.value)document.documentElement.style.setProperty('overflow',modalOverflow.value,modalOverflow.priority);
+      else document.documentElement.style.removeProperty('overflow');
+      modalOverflow=null;
+    }
+    var trigger=modalReturnFocus;modalReturnFocus=null;
+    if(trigger&&document.contains(trigger)&&!trigger.closest('[inert]'))trigger.focus({preventScroll:true});
+  }
+  function showModal(lang,trigger){
+    if(!MSG[lang])return;
+    if(!modal.classList.contains('show')){
+      modalReturnFocus=trigger||document.activeElement;
+      modalOverflow={value:document.documentElement.style.getPropertyValue('overflow'),priority:document.documentElement.style.getPropertyPriority('overflow')};
+      document.documentElement.style.setProperty('overflow','hidden');
+      modalBackground=Array.prototype.filter.call(document.body.children,function(node){return node!==modal&&!/^(SCRIPT|STYLE)$/.test(node.tagName);}).map(function(node){var item={node:node,wasInert:node.hasAttribute('inert')};node.setAttribute('inert','');return item;});
+    }
+    msg.textContent=MSG[lang].d;ok.textContent=MSG[lang].ok;
+    modal.setAttribute('aria-label',lang==='ja'?'翻訳について':lang==='en'?'Translation notice':'번역 안내');
+    modal.classList.add('show');ok.focus({preventScroll:true});
+  }
+  ok.addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',function(event){
+    if(!modal.classList.contains('show'))return;
+    if(event.key==='Escape'){event.preventDefault();event.stopImmediatePropagation();closeModal();}
+    else if(event.key==='Tab'){event.preventDefault();event.stopImmediatePropagation();ok.focus({preventScroll:true});}
+  },true);
+  function setLang(lang,trigger){ if(lang===curLang)return; applyLang(lang); if(lang!=='ko') showModal(lang,trigger); }
+  document.querySelectorAll('#langbar button').forEach(function(b){ b.addEventListener('click',function(){ setLang(b.dataset.lang,b); }); });
   document.querySelectorAll('#langbar button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang==='ko'?'true':'false');});
   // 항상 한국어로 시작 (언어 선택은 세션 내에서만 · 저장 복원 안 함, 옛 저장값 정리)
   try{localStorage.removeItem('wsm-lang');}catch(_){}
