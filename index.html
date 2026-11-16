@@ -660,7 +660,12 @@
   html.limit-only #abPager,
   html.limit-only #startBtn,
   html.limit-only #tocDropdown,
-  html.limit-only .pager{display:none!important}
+  html.limit-only .sidebar,
+  html.limit-only .pager,
+  html.limit-only .limit-page-num,
+  html.limit-only #limit .limit-detail-proc,
+  html.limit-only #limit .controller-polarity-ref{display:none!important}
+  html.limit-only body{padding-left:0!important}
   html.limit-only #langbar{position:sticky;top:var(--ab-h,68px);z-index:25;margin:0;padding:7px 10px;gap:8px;
     background:var(--card);border-bottom:1px solid var(--line)}
   html.limit-only #langbar button{min-height:34px;padding:5px 12px;font-size:13px;border-width:1px}
@@ -2445,7 +2450,7 @@
 
   <!-- ===== 7. 리미트 설정 시뮬레이터 ===== -->
   <section id="limit">
-    <h2><span class="bar"></span>7. 리미트 설정하기 (실습)</h2>
+    <h2><span class="bar"></span><span class="limit-page-num" data-notrans>7. </span>리미트 설정하기 (실습)</h2>
     <p class="lead">2개 다이얼로 개폐 폭을 설정합니다. 아래 시뮬레이터로 직접 눌러보며 원리를 익혀보세요.</p>
     <div class="tipbox limit-zero-reminder"><b>시작 전 최초 영점 조정 확인:</b><span class="limit-zero-direction-line"><b>적색 돌기를 좌측 롤러의 좌측 아래에 맞춥니다.</b></span><span class="limit-zero-direction-line"><b>녹색 돌기를 우측 롤러의 우측 아래에 맞춥니다.</b></span><span class="limit-zero-direction-line">숫자와 돌기 방향을 함께 확인하십시오.</span></div>
 
@@ -2571,6 +2576,7 @@
       </div>
     </div>
 
+    <div class="limit-detail-proc">
     <div class="subh">글로 보는 상세 절차</div>
     <details class="acc"><summary>좌측용 설정 (열림·닫힘)</summary><div class="accbody">
       <div class="subh2">1) 열림 회전수 설정</div>
@@ -2597,6 +2603,7 @@
       </ul>
       <p class="note" data-i18n-html="right-simulator-note">※ 위 시뮬레이터에서 <b>우측용</b>을 선택하면 극성·LED(전동개폐기 리미트부)·회전방향·설정 다이얼이 자동으로 바뀝니다.</p>
     </div></details>
+    </div>
 
     <div class="controller-polarity-ref" aria-labelledby="controllerPolarityTitle">
       <div class="subh" id="controllerPolarityTitle">참고 · 컨트롤러 작동 시 단자 출력 극성</div>

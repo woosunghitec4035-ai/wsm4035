@@ -502,6 +502,7 @@ window.WSM_TR = {
 
   // 7. 리미트 설정하기(실습) / 시뮬레이터
   "7. 리미트 설정하기 (실습)":{ja:"7. リミット設定（実習）",en:"7. Setting the Limits (Interactive)"},
+  "리미트 설정하기 (실습)":{ja:"リミット設定（実習）",en:"Setting the Limits (Interactive)"},
   "2개 다이얼로 개폐 폭을 설정합니다. 아래 시뮬레이터로 직접 눌러보며 원리를 익혀보세요.":{ja:"2つのダイヤルで開閉幅を設定します。下のシミュレーターで実際に操作して原理を確認してください。",en:"Set the opening/closing range with the two dials. Use the simulator below to learn how the mechanism works."},
   "시작 전 최초 영점 조정 확인:":{ja:"開始前に初期ゼロ点調整を確認：",en:"Before starting, check the initial zero adjustment:"},
   "적색 돌기를 좌측 롤러의 좌측 아래에 맞춥니다.":{ja:"赤の突起を左ローラーの左下に合わせます。",en:"Set the red tab below-left of the left roller."},
