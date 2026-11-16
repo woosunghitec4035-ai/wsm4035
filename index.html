@@ -655,6 +655,15 @@
   html[data-lang="ko"] .partfig .mk{display:none}
   html[data-lang="ko"] .imgleg-t,
   html[data-lang="ko"] .imgleg{display:none}
+  /* ===== 리미트 전용 모드 (limit.html, ?only=limit) ===== */
+  html.limit-only #homeBtn,
+  html.limit-only #abPager,
+  html.limit-only #startBtn,
+  html.limit-only #tocDropdown,
+  html.limit-only .pager{display:none!important}
+  html.limit-only #langbar{position:sticky;top:var(--ab-h,68px);z-index:25;margin:0;padding:7px 10px;gap:8px;
+    background:var(--card);border-bottom:1px solid var(--line)}
+  html.limit-only #langbar button{min-height:34px;padding:5px 12px;font-size:13px;border-width:1px}
   /* ===== 비밀번호 게이트 · 배포금지 안내 ===== */
   body.locked{overflow:hidden}
   #gate{position:fixed;inset:0;z-index:9999;background:linear-gradient(135deg,var(--red),var(--red-d));
@@ -2756,6 +2765,9 @@
   function routeLabel(ko){
     return window.WSM_TRANSLATE_TEXT ? window.WSM_TRANSLATE_TEXT(ko) : ko;
   }
+  // 리미트 전용 모드(limit.html → ?only=limit): #limit 한 페이지만, 내비 잠금
+  var LIMITONLY=/[?&]only=limit\b/.test(location.search);
+  if(LIMITONLY){document.documentElement.classList.add('limit-only'); if((location.hash||'')!=='#limit'){try{history.replaceState(null,'','#limit');}catch(e){location.hash='limit';}}}
   var PAGES=[
     {id:'safe',t:'안전 주의사항',short:'안전',i:'⚠︎'},
     {id:'spec',t:'제품 사양 및 성능',short:'사양·성능',i:'📄︎'},
@@ -2885,6 +2897,7 @@
   if(compactTitleQuery.addEventListener)compactTitleQuery.addEventListener('change',onNavigationLayoutChange);else compactTitleQuery.addListener(onNavigationLayoutChange);
 
   function show(id){
+    if(LIMITONLY)id='limit';
     var found=null, fi=-1;
     PAGES.forEach(function(p,i){if(p.id===id){found=p;fi=i;}});
     currentPage=found;
@@ -2921,6 +2934,14 @@
   }
   window.addEventListener('hashchange',function(){show((location.hash||'#home').slice(1));});
   show((location.hash||'#home').slice(1));
+  if(LIMITONLY){
+    // 언어바를 홈에서 꺼내 상단바 바로 아래 고정 줄로 옮기고, 상단바 높이에 맞춰 붙인다.
+    var _lb=document.getElementById('langbar'),_ab=document.querySelector('.appbar');
+    if(_lb&&_ab){_ab.insertAdjacentElement('afterend',_lb);
+      var setAbH=function(){document.documentElement.style.setProperty('--ab-h',_ab.offsetHeight+'px');};
+      setAbH(); window.addEventListener('resize',setAbH); window.addEventListener('load',setAbH);
+    }
+  }
 
   document.querySelectorAll('[data-safety-target]').forEach(function(button){
     button.addEventListener('click',function(){
@@ -2934,8 +2955,8 @@
 
   // ===== 모바일 좌우 스와이프로 페이지 넘기기 =====
   function pageIndex(){var id=(location.hash||'#home').slice(1);for(var i=0;i<PAGES.length;i++)if(PAGES[i].id===id)return i;return -1;}
-  function swipeNext(){var i=pageIndex();location.hash=(i===-1)?PAGES[0].id:(i<PAGES.length-1?PAGES[i+1].id:'home');}
-  function swipePrev(){var i=pageIndex();if(i>0)location.hash=PAGES[i-1].id;else if(i===0)location.hash='home';}
+  function swipeNext(){if(LIMITONLY)return;var i=pageIndex();location.hash=(i===-1)?PAGES[0].id:(i<PAGES.length-1?PAGES[i+1].id:'home');}
+  function swipePrev(){if(LIMITONLY)return;var i=pageIndex();if(i>0)location.hash=PAGES[i-1].id;else if(i===0)location.hash='home';}
   var tsx=0,tsy=0,tst=0,tskip=false;
   document.addEventListener('touchstart',function(e){
     if(e.touches.length!==1){tskip=true;return;}
