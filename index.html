@@ -96,6 +96,22 @@
   .opt2-clean{position:relative;background:#fff}
   .opt2-clean::after{content:"";position:absolute;left:19%;top:30%;width:12%;height:4%;background:#fff;pointer-events:none}
 
+  .parts-component-card{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);grid-template-rows:auto 1fr;grid-template-areas:"photo title" "photo list";column-gap:22px;align-items:start}
+  .parts-component-card>.parts-label-heading{grid-area:title;margin:0 0 10px;align-items:flex-start;line-height:1.5;min-width:0}
+  .parts-component-card>.parts-label-heading .parts-label-no{margin-top:1px}
+  .parts-component-card>.figbox{grid-area:photo;margin:0;align-self:center;min-width:0;width:100%}
+  .parts-component-card>.numlist{grid-area:list;margin:0;min-width:0}
+  .figbox img.product-photo{height:auto;background:#fff}
+  .parts-component-card .product-photo{aspect-ratio:4/3;object-fit:contain;background:#fff}
+  .optional-parts-grid>.figbox{display:flex;flex-direction:column;min-width:0}
+  .optional-parts-grid>.figbox>.product-photo{aspect-ratio:4/3;object-fit:contain;background:#fff}
+  .optional-parts-grid>.figbox.roller-product>.product-photo{aspect-ratio:4/5}
+  .optional-parts-grid>.figbox>figcaption{margin-top:auto}
+  @media(max-width:767px){
+    .parts-component-card{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto;grid-template-areas:"title" "photo" "list";gap:12px}
+    .parts-component-card>.parts-label-heading{margin-bottom:0}
+  }
+
   table.spec{width:100%;border-collapse:collapse;font-size:15.5px}
   table.spec th,table.spec td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
   table.spec th{width:38%;color:var(--sub);font-weight:700;background:#fafafa}
@@ -2027,7 +2043,7 @@
       <h1>전동개폐기 사용설명서</h1>
       <div class="model">모델 WSM-4035</div>
       <p class="coverlead">제품을 안전하고 올바르게 사용하기 위해 사용 전에 안전 주의사항과 설치방법을 반드시 확인하십시오.</p>
-      <img class="coverimg" src="img/product_ln.png" alt="WSM-4035 전동개폐기">
+      <img class="coverimg" src="img/photo-sync-261116/product-cover-4035.png" alt="WSM-4035 전동개폐기">
     </div>
     <div class="langbar" id="langbar" data-notrans>
       <button data-lang="ko" class="on">한국어</button>
@@ -2161,7 +2177,7 @@
   <section id="parts">
     <h2><span class="bar"></span>3. 각부 명칭</h2>
     <div class="subh">1. 외부 명칭</div>
-    <figure class="figbox centered-media"><div class="partfig"><img class="lineart" src="img/parts_ext.png?v=20260930-1326" data-dark="img/parts_ext_dark.png?v=20260930-1326" alt="전동개폐기 외부 명칭" loading="lazy"><span class="mk" style="left:49.4%;top:4.2%" data-notrans>1</span><span class="mk" style="left:23.6%;top:3.7%" data-notrans>2</span><span class="mk" style="left:30.9%;top:19.2%" data-notrans>3</span><span class="mk" style="left:2.4%;top:30.2%" data-notrans>4</span><span class="mk" style="left:18.2%;top:57.9%" data-notrans>5</span><span class="mk" style="left:15.1%;top:73.4%" data-notrans>6</span><span class="mk" style="left:36%;top:87.6%" data-notrans>7</span><span class="mk" style="left:76.2%;top:42.9%" data-notrans>8</span><span class="mk" style="left:79%;top:50.4%" data-notrans>9</span><span class="mk" style="left:83.8%;top:58.9%" data-notrans>10</span><span class="mk" style="left:82%;top:65.6%" data-notrans>11</span><span class="mk" style="left:67.1%;top:70.9%" data-notrans>12</span><span class="mk" style="left:59.8%;top:84.1%" data-notrans>13</span></div><figcaption>전동개폐기 외부 명칭</figcaption></figure>
+    <figure class="figbox centered-media"><div class="partfig"><img class="product-photo" src="img/photo-sync-261116/parts-exterior-4035.svg" width="1230" height="675" alt="전동개폐기 외부 명칭" loading="lazy"><span class="mk" style="left:49.4%;top:4.2%" data-notrans>1</span><span class="mk" style="left:23.6%;top:3.7%" data-notrans>2</span><span class="mk" style="left:30.9%;top:19.2%" data-notrans>3</span><span class="mk" style="left:2.4%;top:30.2%" data-notrans>4</span><span class="mk" style="left:18.2%;top:57.9%" data-notrans>5</span><span class="mk" style="left:15.1%;top:73.4%" data-notrans>6</span><span class="mk" style="left:36%;top:87.6%" data-notrans>7</span><span class="mk" style="left:76.2%;top:42.9%" data-notrans>8</span><span class="mk" style="left:79%;top:50.4%" data-notrans>9</span><span class="mk" style="left:83.8%;top:58.9%" data-notrans>10</span><span class="mk" style="left:67.1%;top:70.9%" data-notrans>11</span><span class="mk" style="left:59.8%;top:84.1%" data-notrans>12</span></div><figcaption>전동개폐기 외부 명칭</figcaption></figure>
     <div class="imgleg-t">그림 속 명칭</div>
     <ul class="imgleg">
       <li>전동모터 (DC24V)</li>
@@ -2174,29 +2190,34 @@
       <li>LED(전동개폐기 리미트부 전원표시)</li>
       <li>안전커버</li>
       <li>전기 공급선</li>
-      <li>통기구</li>
       <li>리미트 설정 노브 (녹색)</li>
       <li>리미트 설정 노브 (적색)</li>
     </ul>
 
     <div class="subh">2. 부품 명칭</div>
     <div class="subh2">1) 기본 제공 부품</div>
-    <figure class="figbox centered-media parts-basic-figure"><div class="parts-basic-groups"><img class="lineart" src="img/parts_basic_precise.png" alt="세로 구분선과 그룹 번호로 구분한 기본 제공 부품 1·2·3 세트 그림" loading="lazy"><span class="parts-group-no" style="left:16.7%" data-notrans>1</span><span class="parts-group-no" style="left:50%" data-notrans>2</span><span class="parts-group-no" style="left:83.3%" data-notrans>3</span><span class="parts-group-divider" style="left:34%" aria-hidden="true"></span><span class="parts-group-divider" style="left:67%" aria-hidden="true"></span></div></figure>
-    <div class="card">
+    <div class="card parts-component-card">
       <div class="subh2 parts-label-heading" style="margin-top:0"><span class="parts-label-no" data-notrans>1</span><span>개폐 축 커플링 세트 (황색도금)</span></div>
+      <figure class="figbox" data-mobile-fullscreen-orientation="landscape"><img class="product-photo" src="img/photo-sync-261116/coupling-opening.svg" width="1200" height="900" alt="개폐 축 커플링 세트 (황색도금)" loading="lazy"></figure>
       <ul class="numlist">
         <li>커플링 1개 (25∅용)</li>
         <li>커플링 고정볼트 1개 (M8×16mm)</li>
         <li>개폐 축 고정볼트 2개 (M8×16mm)</li>
       </ul>
+    </div>
+    <div class="card parts-component-card">
       <div class="subh2 parts-label-heading"><span class="parts-label-no" data-notrans>2</span><span>가이드 암 커플링 세트 (은회색도금)</span></div>
+      <figure class="figbox" data-mobile-fullscreen-orientation="landscape"><img class="product-photo" src="img/photo-sync-261116/coupling-guide-arm.svg" width="1200" height="900" alt="가이드 암 커플링 세트 (은회색도금)" loading="lazy"></figure>
       <ul class="numlist">
         <li>커플링 1개 (25∅용)</li>
         <li>볼트 1개 (M6×55mm)</li>
         <li>너트 1개 (M6mm)</li>
         <li>볼트 1개 (M8×16mm)</li>
       </ul>
+    </div>
+    <div class="card parts-component-card">
       <div class="subh2 parts-label-heading"><span class="parts-label-no" data-notrans>3</span><span>가이드 암 선회 축 부품</span></div>
+      <figure class="figbox" data-mobile-fullscreen-orientation="landscape"><img class="product-photo" src="img/photo-sync-261116/swivel-shaft-4035-19.svg" width="1200" height="900" alt="가이드 암 선회 축 부품" loading="lazy"></figure>
       <ul class="numlist">
         <li>선회 축 고정 홀더</li>
         <li>선회 축 볼트(너트 포함)</li>
@@ -2205,11 +2226,11 @@
     </div>
     <div class="tipbox">📖 9. 전체 설명서(원본)를 기준으로, 연결 부품을 조립하는 방법은 9페이지를 참고하십시오.</div>
     <div class="subh2">2) 편리부품 (별도판매)</div>
-    <div class="figrow">
-      <figure class="figbox" data-mobile-fullscreen-orientation="portrait"><img class="lineart" src="img/opt1.png" data-dark="img/opt1_dark.png" alt="가이드 롤러 세트 본 제품 전용" loading="lazy"><figcaption>가이드 롤러 세트 (본 제품 전용 · 궤도 25∅)</figcaption></figure>
-      <figure class="figbox" data-mobile-fullscreen-orientation="portrait"><div class="opt2-clean"><img class="lineart" src="img/opt2.png" alt="가이드 롤러 세트 범용" loading="lazy"></div><figcaption>가이드 롤러 세트 (범용 · 궤도 25∅)</figcaption></figure>
-      <figure class="figbox" data-mobile-fullscreen-orientation="portrait"><img class="lineart" src="img/opt3.png" data-dark="img/opt3_dark.png" alt="전선연결부 보호함 및 클립 세트" loading="lazy"><figcaption>전선연결부 보호함 &amp; 클립 세트</figcaption></figure>
-      <figure class="figbox" data-mobile-fullscreen-orientation="portrait"><img class="lineart" src="img/opt4.png" data-dark="img/opt4_dark.png" alt="비닐보호 튜브" loading="lazy"><figcaption>비닐보호 튜브 (내경 25∅ · 22∅)</figcaption></figure>
+    <div class="figrow optional-parts-grid">
+      <figure class="figbox roller-product" data-mobile-fullscreen-orientation="portrait"><img class="product-photo" src="img/photo-sync-261116/guide-roller-dedicated.png" width="1122" height="1402" alt="가이드 롤러 세트 본 제품 전용" loading="lazy"><figcaption>가이드 롤러 세트 (본 제품 전용 · 궤도 25∅)</figcaption></figure>
+      <figure class="figbox roller-product" data-mobile-fullscreen-orientation="portrait"><img class="product-photo" src="img/photo-sync-261116/guide-roller-universal.png" width="1122" height="1402" alt="가이드 롤러 세트 범용" loading="lazy"><figcaption>가이드 롤러 세트 (범용 · 궤도 25∅)</figcaption></figure>
+      <figure class="figbox" data-mobile-fullscreen-orientation="landscape"><img class="product-photo" src="img/photo-sync-261116/wire-cover-clips.svg" width="1200" height="900" alt="전선연결부 보호함 및 클립 세트" loading="lazy"><figcaption>전선연결부 보호함 &amp; 클립 세트</figcaption></figure>
+      <figure class="figbox" data-mobile-fullscreen-orientation="landscape"><img class="product-photo" src="img/photo-sync-261116/vinyl-protection-tubes.svg" width="1200" height="900" alt="비닐보호 튜브" loading="lazy"><figcaption>비닐보호 튜브 (내경 25∅ · 22∅)</figcaption></figure>
     </div>
     <div class="tipbox">🛒 편리부품은 별도판매이며 제품과 함께 제공되지 않습니다.</div>
   </section>
@@ -2247,7 +2268,7 @@
           <li>최대 길이에서 전선이 당겨지지 않도록 여유 있게 연결</li>
           <li id="supportBandInstallItem">전동개폐기 무게로 피복재가 처지지 않게 <b id="supportBandTerm" class="term-image-preview-trigger" tabindex="0" aria-describedby="termImagePreview" data-preview-kind="support-band" data-preview-src="img/보조밴드 설명용 그림.png?v=20260909-1516" data-preview-alt="보조밴드 설치 위치 설명 그림" data-preview-caption="보조밴드 설명용 그림" data-preview-highlight="support-band">보조밴드</b> 설치</li>
         </ul>
-        <figure class="figbox centered-media" data-mobile-fullscreen-orientation="portrait"><div class="partfig numbered-diagram-dense"><img class="lineart" src="img/guide-arm-assembly-user.png" alt="가이드 암 조립도" loading="lazy"><span class="mk" style="left:2.4%;top:9.3%" data-notrans>1</span><span class="mk" style="left:27.2%;top:3.1%" data-notrans>2</span><span class="mk" style="left:60.5%;top:24%" data-notrans>2</span><span class="mk" style="left:2.4%;top:16.4%" data-notrans>3</span><span class="mk" style="left:64.3%;top:12.1%" data-notrans>4</span><span class="mk" style="left:64.3%;top:17.9%" data-notrans>5</span><span class="mk" style="left:57%;top:32.1%" data-notrans>6</span><span class="mk" style="left:57%;top:40.2%" data-notrans>7</span><span class="mk" style="left:60.8%;top:47.8%" data-notrans>8</span><span class="mk" style="left:4.6%;top:54.3%" data-notrans>9</span><span class="mk" style="left:4.7%;top:60.6%" data-notrans>10</span><span class="mk" style="left:4.2%;top:70.8%" data-notrans>11</span><span class="mk" style="left:5.1%;top:78.8%" data-notrans>12</span><span class="mk" style="left:33.2%;top:85.9%" data-notrans>13</span><span class="mk" style="left:33.3%;top:93.6%" data-notrans>14</span><span class="mk" style="left:85%;top:78.3%" data-notrans>15</span><span class="mk" style="left:85%;top:83.5%" data-notrans>16</span></div><figcaption>가이드 암 조립도 · 겉대 25.4∅ + 속대 19∅ 신축 파이프로 개폐 축을 받쳐 줌</figcaption></figure>
+        <figure class="figbox centered-media" data-mobile-fullscreen-orientation="portrait"><div class="partfig numbered-diagram-dense"><img class="product-photo" src="img/guide-arm-assembly-4035-round-top-nut-261117.png" width="1327" height="1186" alt="가이드 암 조립도" loading="lazy"><span class="mk" style="left:2.4%;top:9.3%" data-notrans>1</span><span class="mk" style="left:27.2%;top:3.1%" data-notrans>2</span><span class="mk" style="left:60.5%;top:24%" data-notrans>2</span><span class="mk" style="left:2.4%;top:16.4%" data-notrans>3</span><span class="mk" style="left:64.3%;top:12.1%" data-notrans>4</span><span class="mk" style="left:64.3%;top:17.9%" data-notrans>5</span><span class="mk" style="left:57%;top:32.1%" data-notrans>6</span><span class="mk" style="left:57%;top:40.2%" data-notrans>7</span><span class="mk" style="left:60.8%;top:47.8%" data-notrans>8</span><span class="mk" style="left:4.6%;top:54.3%" data-notrans>9</span><span class="mk" style="left:4.7%;top:60.6%" data-notrans>10</span><span class="mk" style="left:4.2%;top:70.8%" data-notrans>11</span><span class="mk" style="left:5.1%;top:78.8%" data-notrans>12</span><span class="mk" style="left:33.2%;top:85.9%" data-notrans>13</span><span class="mk" style="left:33.3%;top:93.6%" data-notrans>14</span><span class="mk" style="left:85%;top:78.3%" data-notrans>15</span><span class="mk" style="left:85%;top:83.5%" data-notrans>16</span></div><figcaption>가이드 암 조립도 · 겉대 25.4∅ + 속대 19∅ 신축 파이프로 개폐 축을 받쳐 줌</figcaption></figure>
         <div class="imgleg-t">그림 속 명칭</div>
         <ul class="imgleg">
           <li>커플링 고정볼트 (M8×16mm)</li>
@@ -2270,6 +2291,10 @@
         <figure class="figbox centered-media"><div class="partfig"><img class="lineart" src="img/guide-arm-components-reference-user.png" alt="(참고) 가이드 암 구성" loading="lazy"><span class="mk" style="left:3.5%;top:50%" data-notrans>11</span><span class="mk" style="left:73%;top:56%" data-notrans>12</span></div><figcaption>(참고) 가이드 암 구성</figcaption></figure>
         <div class="imgleg-t">그림 속 명칭</div>
         <ul class="imgleg imgleg-start-11"><li>가이드 암 겉대 (외경 25.4Ø / 내경 22.4Ø)</li><li>가이드 암 속대 (외경 19Ø)</li></ul>
+        <p class="note" id="guideArm6035ReferenceNote" data-i18n-html="install-guide-arm-6035-reference-note">※ 참고: <b>아래 사진은 WSM-6035의 가이드 암 구성 그림입니다.</b> 속대가 겉대 안에서 움직이며 길이가 늘어나고 줄어드는 구조를 보여 줍니다. <b>WSM-4035도 아래 사진과 같이 속대와 겉대를 적용하여 설치할 수 있습니다.</b></p>
+        <figure class="figbox centered-media" id="guideArm6035ReferenceFigure" data-mobile-fullscreen-orientation="landscape"><div class="partfig"><img class="lineart" src="img/guide-arm-components-6035-reference-261116.svg" width="1549" height="520" style="height:auto" alt="(추가 참고) WSM-6035 가이드 암 구성" loading="lazy"><span class="mk" style="left:3.5%;top:50%" data-notrans>12</span><span class="mk" style="left:73%;top:56%" data-notrans>11</span></div><figcaption>(추가 참고) WSM-6035 가이드 암 구성</figcaption></figure>
+        <div class="imgleg-t">그림 속 명칭</div>
+        <ul class="imgleg" id="guideArm6035ReferenceLegend"><li style="counter-reset:leg 11">가이드 암 속대 (외경 25.4Ø / 내경 22.4Ø)</li><li style="counter-reset:leg 10">가이드 암 겉대 (외경 32Ø / 내경 29Ø)</li></ul>
       </div>
     </details>
 
@@ -2640,6 +2665,7 @@
       </div>
       <div class="diag-grid" role="group" aria-labelledby="diagQuestion">
         <button type="button" class="diag-choice" data-diag="no-power" aria-controls="diag-no-power" aria-pressed="true"><span class="diag-icon">⚫</span><strong>전혀 작동하지 않음</strong><small>LED(전동개폐기 리미트부)와 구동축 모두 반응 없음</small></button>
+        <button type="button" class="diag-choice" data-diag="led-on-no-motion" aria-controls="diag-led-on-no-motion" aria-pressed="false"><span class="diag-icon">💡</span><strong>LED는 켜지지만 작동하지 않음</strong><small>전원표시는 켜지고 구동축은 움직이지 않음</small></button>
         <button type="button" class="diag-choice" data-diag="reverse" aria-controls="diag-reverse" aria-pressed="false"><span class="diag-icon">↔️</span><strong>반대 방향으로 작동함</strong><small>운전 스위치 열림 작동시 닫힘</small></button>
         <button type="button" class="diag-choice" data-diag="no-stop" aria-controls="diag-no-stop" aria-pressed="false"><span class="diag-icon">⛔</span><strong>자동으로 멈추지 않음</strong><small>한계점을 지나 계속 작동</small></button>
         <button type="button" class="diag-choice" data-diag="one-way" aria-controls="diag-one-way" aria-pressed="false"><span class="diag-icon">◐</span><strong>한쪽 방향만 작동함</strong><small>열림 또는 닫힘만 가능</small></button>
@@ -2658,6 +2684,17 @@
             <div class="diag-block"><h4>원인별 대책</h4><ol><li>컨트롤러 전원 표시와 정격 퓨즈 상태를 확인합니다. 전기 지식이 있는 작업자는 해당 LINE의 DC 24V 출력 여부를 측정하고, 출력이 없으면 다른 정상 LINE으로 교차 확인합니다.</li><li>전원을 차단한 뒤 청색선·갈색선의 손상·단선과 단자대 연결부 풀림을 확인하고 올바르게 다시 연결합니다. 단선 발생이 유력한 경우 전동개폐기 A/S 담당자와 상담하십시오.</li><li data-i18n-html="diag-zero-check">리미트의 양쪽 화살표가 모두 0이면 숫자만 보지 말고 <b>적색 돌기는 좌측 롤러의 좌측 아래</b>, <b>녹색 돌기는 우측 롤러의 우측 아래</b>인지 먼저 확인한 뒤 열림 회전수를 다시 설정합니다.</li></ol></div>
           </div>
           <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> 제품 입력부에 정상 DC 24V가 공급되는데도 LED(전동개폐기 리미트부)와 모터가 모두 반응하지 않으면 <strong class="diag-service-decision">사용을 중지하고 A/S를 요청하십시오.</strong> 전동개폐기는 작동하지만 LED(전동개폐기 리미트부)만 켜지지 않는 경우에도 <strong class="diag-service-decision">바로 A/S에 연락하십시오.</strong></div></div>
+        </article>
+
+        <article class="diag-panel" id="diag-led-on-no-motion" hidden tabindex="-1">
+          <div class="diag-result-head"><span class="diag-state">접점 확인</span><h3>LED는 켜지지만 전동개폐기가 작동하지 않을 때</h3></div>
+          <div class="diag-stop">운전 스위치를 정지 위치에 놓고 반드시 전원을 차단한 뒤 노브를 조작하십시오. 리미트부를 임의로 분해하지 마십시오.</div>
+          <div class="diag-action diag-priority"><strong>즉시 조치 가능 사항</strong><p>마이크로 스위치 접점 이상으로 LED가 켜져도 기기가 작동하지 않을 수 있습니다. 전원을 차단한 상태에서 설정 노브를 손 또는 +형 드라이버로 움직여 접점을 여러 번 작동시키면 작동이 회복되는 경우가 있습니다.</p><div class="diag-links"><a href="#limit" class="primary">리미트 설정 열기</a><a href="#contact">A/S 연락처 확인</a></div></div>
+          <div class="diag-body">
+            <div class="diag-block"><h4>가능한 원인</h4><ol><li>리미트 부위 마이크로 스위치 접점 이상</li></ol></div>
+            <div class="diag-block"><h4>원인별 대책</h4><ol><li>전원을 차단하고 안전커버를 엽니다. 설정 노브를 눌러 잡은 상태에서 손 또는 +형 드라이버로 천천히 돌려, 다이얼의 돌기가 마이크로 스위치 롤러를 여러 번 눌렀다 놓도록 합니다.</li><li>노브를 움직이면 리미트 설정이 달라질 수 있습니다. 조치 후에는 리미트 설정하기 절차에 따라 열림·닫힘 한계점을 다시 설정하십시오.</li><li>안전커버를 닫고 주변 안전을 확인한 뒤 전원을 연결하여 작동 여부와 열림·닫힘 양쪽의 자동 정지를 확인하십시오.</li></ol></div>
+          </div>
+          <div class="diag-service"><span>📞</span><div><b>A/S 판단:</b> 위 조치 후에도 작동하지 않거나 같은 증상이 반복되면 <strong class="diag-service-decision">사용을 중지하고 A/S 담당자에게 연락하여 제품 점검을 받으십시오.</strong></div></div>
         </article>
 
         <article class="diag-panel" id="diag-reverse" hidden tabindex="-1">
@@ -2944,7 +2981,7 @@
   window.addEventListener('hashchange',function(){show((location.hash||'#home').slice(1));});
   show((location.hash||'#home').slice(1));
   if(LIMITONLY){
-    // 언어바를 홈에서 꺼내 상단바 바로 아래 고정 줄로 옮기고, 상단바 높이에 맞춰 붙인다.
+    // 언어바를 홈에서 꺼내 상단바 바로 아래 고정 줄로 옮기고, 상단바 높이에 맞추어 붙인다.
     var _lb=document.getElementById('langbar'),_ab=document.querySelector('.appbar');
     if(_lb&&_ab){_ab.insertAdjacentElement('afterend',_lb);
       var setAbH=function(){document.documentElement.style.setProperty('--ab-h',_ab.offsetHeight+'px');};
@@ -4688,6 +4725,7 @@
       markerLayer.appendChild(marker);
       var row=document.createElement('li');
       row.textContent=translated(item.label);
+      row.style.counterReset='leg '+(item.n-1);
       legend.appendChild(row);
     });
   }
@@ -4700,6 +4738,25 @@
     var previewRect=preview.getBoundingClientRect();
     var spaceAbove=Math.max(0,triggerRect.top-gap-margin);
     var spaceBelow=Math.max(0,window.innerHeight-triggerRect.bottom-gap-margin);
+    if(currentTrigger.getAttribute('data-preview-kind')==='guide-arm-components'){
+      // Keep this wide reference diagram inside short landscape screens as well.
+      if(window.innerWidth<=639)preview.style.width='calc(100vw - 24px)';
+      previewRect=preview.getBoundingClientRect();
+      var viewHeight=Math.max(80,window.innerHeight-margin*2);
+      for(var guideFit=0;guideFit<4&&previewRect.height>viewHeight;guideFit++){
+        preview.style.width=Math.max(180,Math.floor(previewRect.width*.88))+'px';
+        previewRect=preview.getBoundingClientRect();
+      }
+      var guideLeft=triggerRect.left+(triggerRect.width-previewRect.width)/2;
+      guideLeft=Math.max(margin,Math.min(guideLeft,window.innerWidth-previewRect.width-margin));
+      var guideTop=spaceBelow>=previewRect.height?triggerRect.bottom+gap:
+        spaceAbove>=previewRect.height?triggerRect.top-previewRect.height-gap:
+        triggerRect.top+(triggerRect.height-previewRect.height)/2;
+      guideTop=Math.max(margin,Math.min(guideTop,window.innerHeight-previewRect.height-margin));
+      preview.style.left=Math.round(guideLeft)+'px';
+      preview.style.top=Math.round(guideTop)+'px';
+      return;
+    }
     if(window.matchMedia('(max-width:639px)').matches){
       preview.style.width='calc(100vw - 24px)';
       previewRect=preview.getBoundingClientRect();
@@ -4805,7 +4862,7 @@
   </div>
 </div>
 <script src="i18n.js?v=20261112-final"></script>
-<script src="i18n-exact.js?v=20261112-final"></script>
+<script src="i18n-exact.js?v=20261116-guide-note-v2"></script>
 <script>
 /* ===== 다국어(한/일/영) 번역 ===== */
 (function(){

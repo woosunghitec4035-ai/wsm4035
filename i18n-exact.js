@@ -1,5 +1,21 @@
 /* WSM-4035 완성 문장 우선 번역: 짧은 단어 치환보다 먼저 적용합니다. */
 window.WSM_EXACT_TEXT_TR = {
+  "(추가 참고) WSM-6035 가이드 암 구성":{"ja":"（追加参考）WSM-6035のガイドアーム構成","en":"(Additional reference) WSM-6035 guide-arm components"},
+  "가이드 암 속대 (외경 25.4Ø / 내경 22.4Ø)":{"ja":"ガイドアーム内管（外径25.4Ø/内径22.4Ø）","en":"Guide-arm inner pipe (OD 25.4Ø / ID 22.4Ø)"},
+  "가이드 암 겉대 (외경 32Ø / 내경 29Ø)":{"ja":"ガイドアーム外管（外径32Ø/内径29Ø）","en":"Guide-arm outer pipe (OD 32Ø / ID 29Ø)"},
+  "LED는 켜지지만 작동하지 않음":{"ja":"LEDは点灯するが作動しない","en":"LED on, but no operation"},
+  "전원표시는 켜지고 구동축은 움직이지 않음":{"ja":"電源表示は点灯するが駆動軸が動かない","en":"The power indicator is on, but the drive shaft does not move"},
+  "LED는 켜지지만 전동개폐기가 작동하지 않을 때":{"ja":"LEDは点灯するが電動開閉機が作動しない場合","en":"When the LED is on but the opener does not operate"},
+  "접점 확인":{"ja":"接点の確認","en":"Contact check"},
+  "운전 스위치를 정지 위치에 놓고 반드시 전원을 차단한 뒤 노브를 조작하십시오. 리미트부를 임의로 분해하지 마십시오.":{"ja":"運転スイッチを停止位置にし、必ず電源を遮断してからノブを操作してください。リミット部を分解しないでください。","en":"Set the operation switch to Stop and disconnect power before adjusting the knob. Do not disassemble the limit unit."},
+  "마이크로 스위치 접점 이상으로 LED가 켜져도 기기가 작동하지 않을 수 있습니다. 전원을 차단한 상태에서 설정 노브를 손 또는 +형 드라이버로 움직여 접점을 여러 번 작동시키면 작동이 회복되는 경우가 있습니다.":{"ja":"マイクロスイッチの接点異常により、LEDが点灯していても作動しない場合があります。電源を遮断した状態で、手またはプラスドライバーで設定ノブを動かし、接点を数回作動させると、作動が回復する場合があります。","en":"A microswitch contact fault may prevent the unit from operating even when the LED is on. With power disconnected, moving the setting knob by hand or with a Phillips screwdriver to actuate the contacts several times may restore operation."},
+  "리미트 부위 마이크로 스위치 접점 이상":{"ja":"リミット部のマイクロスイッチの接点異常","en":"Contact fault in the limit-unit microswitch"},
+  "전원을 차단하고 안전커버를 엽니다. 설정 노브를 눌러 잡은 상태에서 손 또는 +형 드라이버로 천천히 돌려, 다이얼의 돌기가 마이크로 스위치 롤러를 여러 번 눌렀다 놓도록 합니다.":{"ja":"電源を遮断して安全カバーを開けます。設定ノブを押したまま、手またはプラスドライバーでゆっくり回し、ダイヤルの突起でマイクロスイッチのローラーを数回押して離します。","en":"Disconnect power and open the safety cover. Press and hold the setting knob, then turn it slowly by hand or with a Phillips screwdriver so that the dial tab presses and releases the microswitch roller several times."},
+  "노브를 움직이면 리미트 설정이 달라질 수 있습니다. 조치 후에는 리미트 설정하기 절차에 따라 열림·닫힘 한계점을 다시 설정하십시오.":{"ja":"ノブを動かすとリミット設定が変わる場合があります。処置後は、リミット設定の手順に従って開き限界点と閉じ限界点を再設定してください。","en":"Moving the knob may change the limit settings. After this procedure, reset the opening and closing limits by following the limit-setting instructions."},
+  "안전커버를 닫고 주변 안전을 확인한 뒤 전원을 연결하여 작동 여부와 열림·닫힘 양쪽의 자동 정지를 확인하십시오.":{"ja":"安全カバーを閉じ、周囲の安全を確認してから電源を接続し、作動することと、開閉両方向の限界点で自動停止することを確認してください。","en":"Close the safety cover, check that the area is clear, and reconnect power. Check that the unit operates and stops automatically at both the opening and closing limits."},
+  "위 조치 후에도 작동하지 않거나 같은 증상이 반복되면":{"ja":"上記の処置後も作動しない場合や、同じ症状が繰り返される場合は、","en":"If the unit still does not operate after these steps, or if the same symptom recurs,"},
+  "사용을 중지하고 A/S 담당자에게 연락하여 제품 점검을 받으십시오.":{"ja":"使用を中止し、アフターサービス担当者に連絡して製品の点検を受けてください。","en":"stop using the unit and contact the service representative for inspection."},
+  "A/S 연락처 확인":{"ja":"アフターサービスの連絡先","en":"Service contact details"},
   "아래 PDF와 스캔 자료의 사양표는 전원공급선 색상을 청색·갈색으로 정정한 자료입니다.":{ja:"以下のPDFとスキャン資料の仕様表では、電源供給線の色を青・茶に訂正しています。",en:"The specification tables in the PDF and scanned pages below have been corrected to show blue and brown power-supply wires."},
   ",":{ja:"、",en:","},
   "안전":{ja:"安全",en:"Safety"},
@@ -156,6 +172,8 @@ window.WSM_EXACT_TEXT_TR = {
 
 /* 굵은 강조를 포함한 완성 문장 번역 */
 window.WSM_EXACT_HTML_TR = {
+  "install-guide-arm-6035-reference-note":{"ja":"※ 参考：<b>下の図はWSM-6035のガイドアーム構成図です。</b> 内管が外管の中を動き、全体の長さが伸縮する構造を示しています。<b>WSM-4035も、下図と同じ内管・外管の構成で設置できます。</b>","en":"Note: <b>The image below shows the guide-arm configuration of the WSM-6035.</b> It shows how the inner pipe slides inside the outer pipe to extend and retract the guide arm. <b>The WSM-4035 can also be installed using the inner and outer pipe arrangement shown below.</b>"},
+  "install-guide-arm-components-note":{"ja":"※ 参考：<b>内管が外管の中に入り、全体の長さが伸縮する構造</b>です。下の構成図で、内管と外管の接続方向を確認してください。","en":"Note: <b>The inner pipe slides inside the outer pipe, allowing the guide arm to extend and retract.</b> Check how the two pipes connect in the diagram below."},
   "install-overview-lead":{
     ja:"園芸施設の形態や設置方法は多様です。以下に代表的な<b>設置例</b>を示します。詳しくは、園芸施設自動化の専門業者に相談し、現場に適した方法で設置してください。",
     en:"Greenhouse designs and installation methods vary. A typical <b>installation example</b> is shown below. For details, consult a greenhouse-automation specialist and install the unit to suit the site."
